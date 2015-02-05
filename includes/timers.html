@@ -1,0 +1,166 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Documentation</title>
+
+    <link href="../stylesheets/screen.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="../stylesheets/print.css" rel="stylesheet" type="text/css" media="print" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+      <script src="../javascripts/all_nosearch.js" type="text/javascript"></script>
+
+  </head>
+
+  <body class="includes includes_timers">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="../images/logo.png" />
+      <div id="toc">
+      </div>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="timers">Timers</h1>
+
+<h2 id="creating-a-timer">Creating a timer</h2>
+
+<p>Sometimes you come across a situation which only a timer can fix. Timers are great for delaying code, allowing it to be run later. The following sections will show you the various timer types, and how to use them properly.</p>
+
+<h2 id="timer.once">timer.Once</h2>
+
+<blockquote>
+<p>Basic example of timer.Once</p>
+</blockquote>
+<pre><code class="highlight csharp"><span class="n">We</span> <span class="n">need</span> <span class="n">an</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
+<pre><code class="highlight javascript"><span class="nx">We</span> <span class="nx">need</span> <span class="nx">an</span> <span class="nx">example</span> <span class="nx">here</span>
+</code></pre>
+<pre><code class="highlight lua"><span class="n">self</span><span class="p">.</span><span class="n">BroadcastTimer</span> <span class="o">=</span> <span class="n">timer</span><span class="p">.</span><span class="n">Once</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span>
+    <span class="n">rust</span><span class="p">.</span><span class="n">BroadcastChat</span><span class="p">(</span><span class="s2">"SERVER"</span><span class="p">,</span> <span class="s2">"Hello world!"</span><span class="p">)</span>
+<span class="k">end</span><span class="p">)</span>
+</code></pre>
+<pre><code class="highlight python"><span class="n">We</span> <span class="n">need</span> <span class="n">an</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
+
+<blockquote>
+<p>Example of timer.Once with a table</p>
+</blockquote>
+<pre><code class="highlight csharp"><span class="n">We</span> <span class="n">need</span> <span class="n">an</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
+<pre><code class="highlight javascript"><span class="nx">We</span> <span class="nx">need</span> <span class="nx">an</span> <span class="nx">example</span> <span class="nx">here</span>
+</code></pre>
+<pre><code class="highlight lua"><span class="n">self</span><span class="p">.</span><span class="n">TimersList</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">self</span><span class="p">.</span><span class="n">TimersList</span><span class="p">[</span><span class="s2">"Notice1"</span><span class="p">]</span> <span class="o">=</span> <span class="n">timer</span><span class="p">.</span><span class="n">Once</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span>
+    <span class="n">rust</span><span class="p">.</span><span class="n">BroadcastChat</span><span class="p">(</span><span class="s2">"SERVER"</span><span class="p">,</span> <span class="s2">"This is the Notice 1 every 3 seconds"</span><span class="p">)</span>
+<span class="k">end</span><span class="p">)</span>
+<span class="n">self</span><span class="p">.</span><span class="n">TimersList</span><span class="p">[</span><span class="s2">"Notice2"</span><span class="p">]</span> <span class="o">=</span> <span class="n">timer</span><span class="p">.</span><span class="n">Once</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span>
+    <span class="n">rust</span><span class="p">.</span><span class="n">BroadcastChat</span><span class="p">(</span><span class="s2">"SERVER"</span><span class="p">,</span> <span class="s2">"This is the Notice 2 every 10 seconds"</span><span class="p">)</span>
+<span class="k">end</span><span class="p">)</span>
+</code></pre>
+<pre><code class="highlight python"><span class="n">We</span> <span class="n">need</span> <span class="n">an</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
+
+<p>Executes the specified function once after the specified delay.</p>
+
+<h2 id="timer.repeat">timer.Repeat</h2>
+
+<blockquote>
+<p>Basic example of timer.Repeat</p>
+</blockquote>
+<pre><code class="highlight csharp"><span class="n">We</span> <span class="n">need</span> <span class="n">an</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
+<pre><code class="highlight javascript"><span class="nx">We</span> <span class="nx">need</span> <span class="nx">an</span> <span class="nx">example</span> <span class="nx">here</span>
+</code></pre>
+<pre><code class="highlight lua"><span class="n">self</span><span class="p">.</span><span class="n">BroadcastTimer</span> <span class="o">=</span> <span class="n">timer</span><span class="p">.</span><span class="n">Repeat</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span>
+    <span class="n">rust</span><span class="p">.</span><span class="n">BroadcastChat</span><span class="p">(</span><span class="s2">"SERVER"</span><span class="p">,</span> <span class="s2">"Hello world!"</span><span class="p">)</span>
+<span class="k">end</span><span class="p">)</span>
+</code></pre>
+<pre><code class="highlight python"><span class="n">We</span> <span class="n">need</span> <span class="n">an</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
+
+<p>Executes the specified function every &ldquo;delay&rdquo; seconds. If &ldquo;repeats&rdquo; is specified, the function will only be called &ldquo;repeats&rdquo; times.</p>
+
+<h2 id="timer.nextframe">timer.NextFrame</h2>
+
+<blockquote>
+<p>Basic example of timer.NextFrame</p>
+</blockquote>
+<pre><code class="highlight csharp"><span class="n">We</span> <span class="n">need</span> <span class="n">an</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
+<pre><code class="highlight javascript"><span class="nx">We</span> <span class="nx">need</span> <span class="nx">an</span> <span class="nx">example</span> <span class="nx">here</span>
+</code></pre>
+<pre><code class="highlight lua"><span class="n">We</span> <span class="n">need</span> <span class="n">an</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
+<pre><code class="highlight python"><span class="n">We</span> <span class="n">need</span> <span class="n">an</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
+
+<p>Executes the specified function at the next frame.</p>
+
+<h2 id="timer.chain">timer.Chain</h2>
+
+<blockquote>
+<p>Basic example of timer.Chain</p>
+</blockquote>
+<pre><code class="highlight csharp"><span class="n">We</span> <span class="n">need</span> <span class="n">an</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
+<pre><code class="highlight javascript"><span class="nx">We</span> <span class="nx">need</span> <span class="nx">an</span> <span class="nx">example</span> <span class="nx">here</span>
+</code></pre>
+<pre><code class="highlight lua"><span class="n">We</span> <span class="n">need</span> <span class="n">an</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
+<pre><code class="highlight python"><span class="n">We</span> <span class="n">need</span> <span class="n">an</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
+
+<p>Executes a chain of delayed functions. Each number in the argument list delays the timer chain by n more seconds, and each function in the argument list gets called after the previous delays in the chain have passed.</p>
+
+<h2 id="destroying-a-timer">Destroying a timer</h2>
+
+<blockquote>
+<p>Basic example in Unload</p>
+</blockquote>
+<pre><code class="highlight csharp"><span class="n">We</span> <span class="n">need</span> <span class="n">an</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
+<pre><code class="highlight javascript"><span class="nx">We</span> <span class="nx">need</span> <span class="nx">an</span> <span class="nx">example</span> <span class="nx">here</span>
+</code></pre>
+<pre><code class="highlight lua"><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">Unload</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">self</span><span class="p">.</span><span class="n">BroadcastTimer</span> <span class="k">then</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">BroadcastTimer</span><span class="p">:</span><span class="n">Destroy</span><span class="p">()</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+<pre><code class="highlight python"><span class="n">We</span> <span class="n">need</span> <span class="n">an</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
+
+<blockquote>
+<p>Example in Unload with a table</p>
+</blockquote>
+<pre><code class="highlight csharp"><span class="n">We</span> <span class="n">need</span> <span class="n">an</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
+<pre><code class="highlight javascript"><span class="nx">We</span> <span class="nx">need</span> <span class="nx">an</span> <span class="nx">example</span> <span class="nx">here</span>
+</code></pre>
+<pre><code class="highlight lua"><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">Unload</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="k">in</span> <span class="nb">pairs</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">TimersList</span><span class="p">)</span> <span class="k">do</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">TimersList</span><span class="p">[</span><span class="n">key</span><span class="p">]:</span><span class="n">Destroy</span><span class="p">()</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+<pre><code class="highlight python"><span class="n">We</span> <span class="n">need</span> <span class="n">an</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
+
+<p>It&rsquo;s always a good habit to stop all timers when your plugin is unloaded; do this by destroying the instance of the timer.</p>
+
+<p>Timers can be used anywhere in your plugin, not just in the Unload function. Just make sure to always destroy them, as you wouldn&rsquo;t want a bunch of timers piling up and slowing down someone&rsquo;s server!</p>
+
+      </div>
+      <div class="dark-box">
+      </div>
+    </div>
+  </body>
+</html>
