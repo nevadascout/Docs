@@ -30,6 +30,57 @@
       <div class="content">
         <h1 id="entity-hooks">Entity Hooks</h1>
 
+<h2 id="onentityspawned(basenetworkable-entity)">OnEntitySpawned(BaseNetworkable entity)</h2>
+
+<ul>
+<li>Called from BaseNetworkable.Spawn</li>
+<li>No return behavior</li>
+<li>Called after any networked entity has spawned (including trees)</li>
+</ul>
+
+<h2 id="onentitytakedamage(basecombatentity-entity,-hitinfo-hitinfo)">OnEntityTakeDamage(BaseCombatEntity entity, HitInfo hitInfo)</h2>
+
+<ul>
+<li>Called from BaseCombatEntity.Hurt</li>
+<li>Returning non-null value overrides default server behavior (useful for godmode etc.)</li>
+<li>Alternatively, modify the hitInfo object to change the damage</li>
+<li>It should be okay to set the damage to 0, but if you don&rsquo;t return non-null, the player&rsquo;s client will receive a damage indicator (if entity is a BasePlayer)</li>
+<li>hitInfo has all kinds of useful things in it, such as hitInfo.Weapon, hitInfo.damageAmount or hitInfo.damageType</li>
+</ul>
+
+<h2 id="onentitydeath(basecombatentity-entity,-hitinfo-hitinfo)">OnEntityDeath(BaseCombatEntity entity, HitInfo hitInfo)</h2>
+
+<ul>
+<li>Called from BaseCombatEntity.Die</li>
+<li>No return behavior</li>
+<li>hitInfo might be null, check it before use</li>
+<li>Editing hitInfo has no effect because the death has already happened</li>
+</ul>
+
+<h2 id="onentityenter(triggerbase-triggerbase,-baseentity-entity)">OnEntityEnter(TriggerBase triggerBase, BaseEntity entity)</h2>
+
+<ul>
+<li>Called from TriggerBase.OnEntityEnter</li>
+<li>No return behavior</li>
+<li>Called when an entity enters an area/zone (building privilege zone, water area, radiation zone, hurt zone, etc.)</li>
+</ul>
+
+<h2 id="onentityleave(triggerbase-triggerbase,-baseentity-entity)">OnEntityLeave(TriggerBase triggerBase, BaseEntity entity)</h2>
+
+<ul>
+<li>Called from TriggerBase.OnEntityLeave</li>
+<li>No return behavior</li>
+<li>Called when an entity leaves an area/zone (building privilege zone, water area, radiation zone, hurt zone, etc.)</li>
+</ul>
+
+<h2 id="onentitygroundmissing(baseentity-entity)">OnEntityGroundMissing(BaseEntity entity)</h2>
+
+<ul>
+<li>Called from DestroyOnGroundMissing.OnGroundMissing</li>
+<li>Returning non-null value ovverides default server behavior</li>
+<li>Called when an entity (sleepingbag, sign, furnace,&hellip;) is going to be destroyed because the buildingblock it is on was removed</li>
+</ul>
+
 <h2 id="placeholder">Placeholder</h2>
 <pre class="highlight csharp"><code><span class="k">private</span> <span class="k">void</span> <span class="nf">Placeholder</span><span class="p">()</span>
 <span class="p">{</span>
@@ -42,9 +93,6 @@
 </code></pre>
 <pre class="highlight python"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Python</span> <span class="n">example</span> <span class="n">here</span>
 </code></pre>
-
-<p><strong>Available for:</strong><br>
-<img alt="Rust" src="../../images/icon-rust.png" /></p>
 
 <ul>
 <li>Placeholder</li>
