@@ -63,7 +63,7 @@
 
 <p>Oxide is a complete rewrite of the popular, original Oxide API and Lua plugin framework. Previously only available for the legacy Rust game, Oxide now supports numerous games. Oxide&rsquo;s focus is on modularity and extensibility. The core is highly abstracted and loosely coupled, and could be used to mod any game that uses the .NET Framework.</p>
 
-<p>Plugins can currently be developed for the games <a href="http://playrust.com/">Rust</a>, <a href="http://playrust.com/">Rust Legacy</a>, <a href="http://www.reignofkings.net/">Reign of Kings</a>, and <a href="http://7daystodie.com/">7 Days to Die</a>, with support for more on the way! Oxide provides support for multiple programming languages to develop plugins: <a href="http://en.wikipedia.org/wiki/C_Sharp_(programming_language)">CSharp</a>, <a href="http://en.wikipedia.org/wiki/JavaScript">JavaScript</a>, <a href="http://www.lua.org/">Lua</a>, and <a href="http://en.wikipedia.org/wiki/Python_(programming_language)">Python</a>. Make them as complicated or as simple as you&rsquo;d like, your imagination is the limit!</p>
+<p>Plugins can currently be developed for the games <a href="#rust">Rust</a>, <a href="#rust-legacy">Rust Legacy</a>, <a href="#reign-of-kings">Reign of Kings</a>, and <a href="#7-days-to-die">7 Days to Die</a>, with support for more on the way! Oxide provides support for multiple programming languages to develop plugins: <a href="http://en.wikipedia.org/wiki/C_Sharp_(programming_language)">CSharp</a>, <a href="http://en.wikipedia.org/wiki/JavaScript">JavaScript</a>, <a href="http://www.lua.org/">Lua</a>, and <a href="http://en.wikipedia.org/wiki/Python_(programming_language)">Python</a>. Make them as complicated or as simple as you&rsquo;d like, your imagination is the limit!</p>
 
 <p>Database support for plugins is also available in the <a href="http://www.mysql.com/">MySQL</a> and <a href="http://www.sqlite.org/">SQLite</a> varieties, so if JSON files aren&rsquo;t enough, you have options! If you&rsquo;d prefer another database type, those can always be accessed via web requests and your own custom bridge script on your site.</p>
 
@@ -120,13 +120,39 @@
 
 <p>The ResourceId variable is used to link your plugin to its OxideMod.org page. Oxide and other plugins may use this for update checking. The ResourceId for your plugin can be found in your plugin&rsquo;s URL, like shown on the right.</p>
 
+          <h1 id="games-supported">Games Supported</h1>
+
+<h2 id="rust">Rust</h2>
+
+<p>Oxide support for Rust <em>(formerly Rust Experimental)</em> is actively developed, though you can already do a vast amount of things with it. This is the version of Rust supported by the Facepunch developers.</p>
+
+<p><strong><a href="http://playrust.com/">Homepage</a> | <a href="http://store.steampowered.com/app/252490/">Steam Page</a> | <a href="rust.html">API documentation</a></strong></p>
+
+<h2 id="rust-legacy">Rust Legacy</h2>
+
+<p>Oxide support for Rust Legacy is mostly complete, but it may receive fixes as needed. The game itself has been discontinued by the developers though. You can access this version of Rust by using the <code class="prettyprint">-beta legacy</code> command-line parameter with SteamCMD.</p>
+
+<p><strong><a href="http://playrust.com/">Homepage</a> | <a href="http://store.steampowered.com/app/252490/">Steam Page</a> | <a href="legacy.html">API documentation</a></strong></p>
+
+<h2 id="7-days-to-die">7 Days to Die</h2>
+
+<p>Oxide support for 7 Days to Die is currently limited, and in a very alpha state. More hooks will be added soon.</p>
+
+<p><strong><a href="http://7daystodie.com/">Homepage</a> | <a href="http://store.steampowered.com/app/251570/">Steam Page</a> | <a href="7dtd.html">API documentation</a></strong></p>
+
+<h2 id="reign-of-kings">Reign of Kings</h2>
+
+<p>Oxide support for Reign of Kings is currently limited, and in a very alpha state. More hooks will be added soon.</p>
+
+<p><strong><a href="http://www.reignofkings.net/">Homepage</a> | <a href="http://store.steampowered.com/app/344760/">Steam Page</a> | <a href="rok.html">API documentation</a></strong></p>
+
           <h1 id="plugin-hooks">Plugin Hooks</h1>
 
 <p><strong>Available for all supported games:</strong><br>
-<img alt="Rust" src="images/icon-rust.png" />
-<img alt="Rust Legacy" src="images/icon-legacy.png" />
-<img alt="7 Days to Die" src="images/icon-7dtd.png" />
-<img alt="Reign of Kings" src="images/icon-rok.png" /></p>
+<a href="rust.html"><img alt="Rust" src="images/icon-rust.png" /></a>
+<a href="legacy.html"><img alt="Rust Legacy" src="images/icon-legacy.png" /></a>
+<a href="7dtd.html"><img alt="7 Days to Die" src="images/icon-7dtd.png" /></a>
+<a href="rok.html"><img alt="Reign of Kings" src="images/icon-rok.png" /></a></p>
 
 <h2 id="init">Init</h2>
 <pre class="highlight csharp"><code><span class="k">private</span> <span class="k">void</span> <span class="nf">Init</span><span class="p">()</span>
@@ -163,6 +189,23 @@
 <ul>
 <li>Called when the config for the plugin should be initialized</li>
 <li>Only called if the config file does not already exist</li>
+</ul>
+
+<h2 id="onframe">OnFrame</h2>
+<pre class="highlight csharp"><code><span class="k">private</span> <span class="k">void</span> <span class="nf">OnFrame</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnFrame works!"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="nx">We</span> <span class="nx">need</span> <span class="nx">a</span> <span class="nx">JavaScript</span> <span class="nx">example</span> <span class="nx">here</span>
+</code></pre>
+<pre class="highlight lua"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Lua</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
+<pre class="highlight python"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Python</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
+
+<ul>
+<li>Placeholder</li>
 </ul>
 
 <h2 id="unload">Unload</h2>
@@ -214,210 +257,6 @@
 
 <ul>
 <li>Called when specified plugin has been unloaded</li>
-</ul>
-
-          <h1 id="general-hooks">General Hooks</h1>
-
-<h2 id="onserverinitialized">OnServerInitialized</h2>
-<pre class="highlight csharp"><code><span class="k">private</span> <span class="k">void</span> <span class="nf">OnServerInitialized</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnServerInitialized works!"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="nx">We</span> <span class="nx">need</span> <span class="nx">a</span> <span class="nx">JavaScript</span> <span class="nx">example</span> <span class="nx">here</span>
-</code></pre>
-<pre class="highlight lua"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Lua</span> <span class="n">example</span> <span class="n">here</span>
-</code></pre>
-<pre class="highlight python"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Python</span> <span class="n">example</span> <span class="n">here</span>
-</code></pre>
-
-<p><strong>Available for:</strong><br>
-<img alt="Rust" src="images/icon-rust.png" />
-<img alt="Rust Legacy" src="images/icon-legacy.png" />
-<img alt="7 Days to Die" src="images/icon-7dtd.png" />
-<img alt="Reign of Kings" src="images/icon-rok.png" /></p>
-
-<ul>
-<li>Called after the server startup has been completed and is awaiting connections</li>
-</ul>
-
-<h2 id="onserversave">OnServerSave</h2>
-<pre class="highlight csharp"><code><span class="k">private</span> <span class="k">void</span> <span class="nf">OnServerSave</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnServerSave works!"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="nx">We</span> <span class="nx">need</span> <span class="nx">a</span> <span class="nx">JavaScript</span> <span class="nx">example</span> <span class="nx">here</span>
-</code></pre>
-<pre class="highlight lua"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Lua</span> <span class="n">example</span> <span class="n">here</span>
-</code></pre>
-<pre class="highlight python"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Python</span> <span class="n">example</span> <span class="n">here</span>
-</code></pre>
-
-<p><strong>Available for:</strong><br>
-<img alt="Rust" src="images/icon-rust.png" />
-<img alt="Rust Legacy" src="images/icon-legacy.png" />
-<img alt="7 Days to Die" src="images/icon-7dtd.png" />
-<img alt="Reign of Kings" src="images/icon-rok.png" /></p>
-
-<ul>
-<li>Called before the server saves world and player data</li>
-</ul>
-
-<h2 id="onservershutdown">OnServerShutdown</h2>
-<pre class="highlight csharp"><code><span class="k">private</span> <span class="k">void</span> <span class="nf">OnServerShutdown</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnServerShutdown works!"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="nx">We</span> <span class="nx">need</span> <span class="nx">a</span> <span class="nx">JavaScript</span> <span class="nx">example</span> <span class="nx">here</span>
-</code></pre>
-<pre class="highlight lua"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Lua</span> <span class="n">example</span> <span class="n">here</span>
-</code></pre>
-<pre class="highlight python"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Python</span> <span class="n">example</span> <span class="n">here</span>
-</code></pre>
-
-<p><strong>Available for:</strong><br>
-<img alt="Rust" src="images/icon-rust.png" />
-<img alt="Rust Legacy" src="images/icon-legacy.png" />
-<img alt="7 Days to Die" src="images/icon-7dtd.png" />
-<img alt="Reign of Kings" src="images/icon-rok.png" /></p>
-
-<ul>
-<li>Called before the server starts the shutdown sequence</li>
-<li>This should generally not be used by plugins, instead use the Unload hook
-Placeholder</li>
-</ul>
-
-<h2 id="ontick">OnTick</h2>
-<pre class="highlight csharp"><code><span class="k">private</span> <span class="k">void</span> <span class="nf">OnTick</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnTick works!"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="nx">We</span> <span class="nx">need</span> <span class="nx">a</span> <span class="nx">JavaScript</span> <span class="nx">example</span> <span class="nx">here</span>
-</code></pre>
-<pre class="highlight lua"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Lua</span> <span class="n">example</span> <span class="n">here</span>
-</code></pre>
-<pre class="highlight python"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Python</span> <span class="n">example</span> <span class="n">here</span>
-</code></pre>
-
-<p><strong>Available for:</strong><br>
-<img alt="Rust" src="images/icon-rust.png" /></p>
-
-<ul>
-<li>Called every tick (defined by the tick rate of the server)</li>
-<li><strong>Available for:</strong><br></li>
-</ul>
-
-          <h1 id="entity-hooks">Entity Hooks</h1>
-
-<h2 id="placeholder">Placeholder</h2>
-<pre class="highlight csharp"><code><span class="k">private</span> <span class="k">void</span> <span class="nf">Placeholder</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="nf">Puts</span><span class="p">(</span><span class="s">"Placeholder works!"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="nx">We</span> <span class="nx">need</span> <span class="nx">a</span> <span class="nx">JavaScript</span> <span class="nx">example</span> <span class="nx">here</span>
-</code></pre>
-<pre class="highlight lua"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Lua</span> <span class="n">example</span> <span class="n">here</span>
-</code></pre>
-<pre class="highlight python"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Python</span> <span class="n">example</span> <span class="n">here</span>
-</code></pre>
-
-<p><strong>Available for:</strong><br>
-<img alt="Rust" src="images/icon-rust.png" /></p>
-
-<ul>
-<li>Placeholder</li>
-</ul>
-
-          <h1 id="item-hooks">Item Hooks</h1>
-
-<h2 id="placeholder">Placeholder</h2>
-<pre class="highlight csharp"><code><span class="k">private</span> <span class="k">void</span> <span class="nf">Placeholder</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="nf">Puts</span><span class="p">(</span><span class="s">"Placeholder works!"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="nx">We</span> <span class="nx">need</span> <span class="nx">a</span> <span class="nx">JavaScript</span> <span class="nx">example</span> <span class="nx">here</span>
-</code></pre>
-<pre class="highlight lua"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Lua</span> <span class="n">example</span> <span class="n">here</span>
-</code></pre>
-<pre class="highlight python"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Python</span> <span class="n">example</span> <span class="n">here</span>
-</code></pre>
-
-<p><strong>Available for:</strong><br>
-<img alt="Rust" src="images/icon-rust.png" /></p>
-
-<ul>
-<li>Placeholder</li>
-</ul>
-
-          <h1 id="sign-hooks">Sign Hooks</h1>
-
-<h2 id="placeholder">Placeholder</h2>
-<pre class="highlight csharp"><code><span class="k">private</span> <span class="k">void</span> <span class="nf">Placeholder</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="nf">Puts</span><span class="p">(</span><span class="s">"Placeholder works!"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="nx">We</span> <span class="nx">need</span> <span class="nx">a</span> <span class="nx">JavaScript</span> <span class="nx">example</span> <span class="nx">here</span>
-</code></pre>
-<pre class="highlight lua"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Lua</span> <span class="n">example</span> <span class="n">here</span>
-</code></pre>
-<pre class="highlight python"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Python</span> <span class="n">example</span> <span class="n">here</span>
-</code></pre>
-
-<p><strong>Available for:</strong><br>
-<img alt="Rust" src="images/icon-rust.png" /></p>
-
-<ul>
-<li>Placeholder</li>
-</ul>
-
-          <h1 id="structure-hooks">Structure Hooks</h1>
-
-<h2 id="placeholder">Placeholder</h2>
-<pre class="highlight csharp"><code><span class="k">private</span> <span class="k">void</span> <span class="nf">Placeholder</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="nf">Puts</span><span class="p">(</span><span class="s">"Placeholder works!"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="nx">We</span> <span class="nx">need</span> <span class="nx">a</span> <span class="nx">JavaScript</span> <span class="nx">example</span> <span class="nx">here</span>
-</code></pre>
-<pre class="highlight lua"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Lua</span> <span class="n">example</span> <span class="n">here</span>
-</code></pre>
-<pre class="highlight python"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Python</span> <span class="n">example</span> <span class="n">here</span>
-</code></pre>
-
-<p><strong>Available for:</strong><br>
-<img alt="Rust" src="images/icon-rust.png" /></p>
-
-<ul>
-<li>Placeholder</li>
-</ul>
-
-          <h1 id="terrain-hooks">Terrain Hooks</h1>
-
-<h2 id="onterraininitialized">OnTerrainInitialized</h2>
-<pre class="highlight csharp"><code><span class="k">private</span> <span class="k">void</span> <span class="nf">OnTerrainInitialized</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnTerrainInitialized works!"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="nx">We</span> <span class="nx">need</span> <span class="nx">a</span> <span class="nx">JavaScript</span> <span class="nx">example</span> <span class="nx">here</span>
-</code></pre>
-<pre class="highlight lua"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Lua</span> <span class="n">example</span> <span class="n">here</span>
-</code></pre>
-<pre class="highlight python"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Python</span> <span class="n">example</span> <span class="n">here</span>
-</code></pre>
-
-<p><strong>Available for:</strong><br>
-<img alt="Rust" src="images/icon-rust.png" /></p>
-
-<ul>
-<li>Called after the terrain generation process has completed</li>
 </ul>
 
           <h1 id="commands">Commands</h1>
