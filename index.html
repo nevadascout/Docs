@@ -42,7 +42,7 @@
         <ul class="toc-footer">
             <li><a href='http://oxidemod.org'>Get help on our forums</a></li>
             <li><a href='https://github.com/OxideMod/Oxide'>View the source on GitHub</a></li>
-            <li><a href='https://github.com/tripit/slate'>Documentation powered by Slate</a></li>
+            <li><a href='https://github.com/OxideMod/Docs'>Contribute to the Docs on GitHub</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
@@ -63,7 +63,7 @@
 
 <p>Oxide is a complete rewrite of the popular, original Oxide API and Lua plugin framework. Previously only available for the legacy Rust game, Oxide now supports numerous games. Oxide&rsquo;s focus is on modularity and extensibility. The core is highly abstracted and loosely coupled, and could be used to mod any game that uses the .NET Framework.</p>
 
-<p>Plugins can currently be developed for the games <a href="http://playrust.com/">Rust</a> (Experimental), <a href="http://playrust.com/">Rust Legacy</a>, <a href="http://www.reignofkings.net/">Reign of Kings</a>, and <a href="http://7daystodie.com/">7 Days to Die</a>, with support for more on the way! Oxide provides support for multiple programming languages to develop plugins: <a href="http://en.wikipedia.org/wiki/C_Sharp_(programming_language)">CSharp</a>, <a href="http://en.wikipedia.org/wiki/JavaScript">JavaScript</a>, <a href="http://www.lua.org/">Lua</a>, and <a href="http://en.wikipedia.org/wiki/Python_(programming_language)">Python</a>. Make them as complicated or as simple as you&rsquo;d like, your imagination is the limit!</p>
+<p>Plugins can currently be developed for the games <a href="http://playrust.com/">Rust</a>, <a href="http://playrust.com/">Rust Legacy</a>, <a href="http://www.reignofkings.net/">Reign of Kings</a>, and <a href="http://7daystodie.com/">7 Days to Die</a>, with support for more on the way! Oxide provides support for multiple programming languages to develop plugins: <a href="http://en.wikipedia.org/wiki/C_Sharp_(programming_language)">CSharp</a>, <a href="http://en.wikipedia.org/wiki/JavaScript">JavaScript</a>, <a href="http://www.lua.org/">Lua</a>, and <a href="http://en.wikipedia.org/wiki/Python_(programming_language)">Python</a>. Make them as complicated or as simple as you&rsquo;d like, your imagination is the limit!</p>
 
 <p>Database support for plugins is also available in the <a href="http://www.mysql.com/">MySQL</a> and <a href="http://www.sqlite.org/">SQLite</a> varieties, so if JSON files aren&rsquo;t enough, you have options! If you&rsquo;d prefer another database type, those can always be accessed via web requests and your own custom bridge script on your site.</p>
 
@@ -120,11 +120,26 @@
 
 <p>The ResourceId variable is used to link your plugin to its OxideMod.org page. Oxide and other plugins may use this for update checking. The ResourceId for your plugin can be found in your plugin&rsquo;s URL, like shown on the right.</p>
 
-          <h1 id="rust-api-hooks">Rust API Hooks</h1>
+          <h1 id="plugin-hooks">Plugin Hooks</h1>
 
-<h2 id="plugin-hooks">Plugin hooks</h2>
+<p><strong>Available for all supported games:</strong><br>
+<img alt="Rust" src="images/icon-rust.png" />
+<img alt="Rust Legacy" src="images/icon-legacy.png" />
+<img alt="7 Days to Die" src="images/icon-7dtd.png" />
+<img alt="Reign of Kings" src="images/icon-rok.png" /></p>
 
-<h3 id="init()">Init()</h3>
+<h2 id="init">Init</h2>
+<pre class="highlight csharp"><code><span class="k">private</span> <span class="k">void</span> <span class="nf">Init</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nf">Puts</span><span class="p">(</span><span class="s">"Init works!"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="nx">We</span> <span class="nx">need</span> <span class="nx">a</span> <span class="nx">JavaScript</span> <span class="nx">example</span> <span class="nx">here</span>
+</code></pre>
+<pre class="highlight lua"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Lua</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
+<pre class="highlight python"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Python</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
 
 <ul>
 <li>Called when the plugin is being loaded</li>
@@ -132,1342 +147,313 @@
 <li>Other plugins WILL have been executed though, so globals exposed by them will be present</li>
 </ul>
 
-<h3 id="loaddefaultconfig()">LoadDefaultConfig()</h3>
+<h2 id="loaddefaultconfig">LoadDefaultConfig</h2>
+<pre class="highlight csharp"><code><span class="k">private</span> <span class="k">void</span> <span class="nf">LoadDefaultConfig</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nf">Puts</span><span class="p">(</span><span class="s">"LoadDefaultConfig works!"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="nx">We</span> <span class="nx">need</span> <span class="nx">a</span> <span class="nx">JavaScript</span> <span class="nx">example</span> <span class="nx">here</span>
+</code></pre>
+<pre class="highlight lua"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Lua</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
+<pre class="highlight python"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Python</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
 
 <ul>
 <li>Called when the config for the plugin should be initialized</li>
 <li>Only called if the config file does not already exist</li>
 </ul>
 
-<h3 id="unload()">Unload()</h3>
+<h2 id="unload">Unload</h2>
+<pre class="highlight csharp"><code><span class="k">private</span> <span class="k">void</span> <span class="nf">Unload</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nf">Puts</span><span class="p">(</span><span class="s">"Unload works!"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="nx">We</span> <span class="nx">need</span> <span class="nx">a</span> <span class="nx">JavaScript</span> <span class="nx">example</span> <span class="nx">here</span>
+</code></pre>
+<pre class="highlight lua"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Lua</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
+<pre class="highlight python"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Python</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
 
 <ul>
 <li>Called when the plugin is being unloaded</li>
 </ul>
 
-<h3 id="onpluginloaded(plugin)">OnPluginLoaded(plugin)</h3>
+<h2 id="onpluginloaded">OnPluginLoaded</h2>
+<pre class="highlight csharp"><code><span class="k">private</span> <span class="k">void</span> <span class="nf">OnPluginLoaded</span><span class="p">(</span><span class="n">Plugin</span> <span class="n">pluginName</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnPluginLoaded works!"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="nx">We</span> <span class="nx">need</span> <span class="nx">a</span> <span class="nx">JavaScript</span> <span class="nx">example</span> <span class="nx">here</span>
+</code></pre>
+<pre class="highlight lua"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Lua</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
+<pre class="highlight python"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Python</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
 
 <ul>
 <li>Called when specified plugin has been loaded</li>
 </ul>
 
-<h3 id="onpluginunloaded(plugin)">OnPluginUnloaded(plugin)</h3>
+<h2 id="onpluginunloaded">OnPluginUnloaded</h2>
+<pre class="highlight csharp"><code><span class="k">private</span> <span class="k">void</span> <span class="nf">OnPluginUnloaded</span><span class="p">(</span><span class="n">Plugin</span> <span class="n">pluginName</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnPluginUnloaded works!"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="nx">We</span> <span class="nx">need</span> <span class="nx">a</span> <span class="nx">JavaScript</span> <span class="nx">example</span> <span class="nx">here</span>
+</code></pre>
+<pre class="highlight lua"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Lua</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
+<pre class="highlight python"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Python</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
 
 <ul>
 <li>Called when specified plugin has been unloaded</li>
 </ul>
 
-<h2 id="general-hooks">General hooks</h2>
+          <h1 id="general-hooks">General Hooks</h1>
 
-<h3 id="oninitlogging()">OnInitLogging()</h3>
+<h2 id="onserverinitialized">OnServerInitialized</h2>
+<pre class="highlight csharp"><code><span class="k">private</span> <span class="k">void</span> <span class="nf">OnServerInitialized</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnServerInitialized works!"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="nx">We</span> <span class="nx">need</span> <span class="nx">a</span> <span class="nx">JavaScript</span> <span class="nx">example</span> <span class="nx">here</span>
+</code></pre>
+<pre class="highlight lua"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Lua</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
+<pre class="highlight python"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Python</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
+
+<p><strong>Available for:</strong><br>
+<img alt="Rust" src="images/icon-rust.png" />
+<img alt="Rust Legacy" src="images/icon-legacy.png" />
+<img alt="7 Days to Die" src="images/icon-7dtd.png" />
+<img alt="Reign of Kings" src="images/icon-rok.png" /></p>
 
 <ul>
-<li>Called from Bootstrap.StartupShared</li>
-<li>No return behavior</li>
-<li>Used internally by Oxide to start Unity logging</li>
+<li>Called after the server startup has been completed and is awaiting connections</li>
 </ul>
 
-<h3 id="modifytags(string-oldtags)">ModifyTags(string oldtags)</h3>
+<h2 id="onserversave">OnServerSave</h2>
+<pre class="highlight csharp"><code><span class="k">private</span> <span class="k">void</span> <span class="nf">OnServerSave</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnServerSave works!"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="nx">We</span> <span class="nx">need</span> <span class="nx">a</span> <span class="nx">JavaScript</span> <span class="nx">example</span> <span class="nx">here</span>
+</code></pre>
+<pre class="highlight lua"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Lua</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
+<pre class="highlight python"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Python</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
+
+<p><strong>Available for:</strong><br>
+<img alt="Rust" src="images/icon-rust.png" />
+<img alt="Rust Legacy" src="images/icon-legacy.png" />
+<img alt="7 Days to Die" src="images/icon-7dtd.png" />
+<img alt="Reign of Kings" src="images/icon-rok.png" /></p>
 
 <ul>
-<li>Called from ServerMgr.UpdateServerInformation</li>
-<li>Returning a string overrides the tags with new ones</li>
-<li>Used by RustCore and abstracted into BuildServerTags</li>
+<li>Called before the server saves world and player data</li>
 </ul>
 
-<h3 id="buildservertags(ilist-tags)">BuildServerTags(IList<string> tags)</h3>
+<h2 id="onservershutdown">OnServerShutdown</h2>
+<pre class="highlight csharp"><code><span class="k">private</span> <span class="k">void</span> <span class="nf">OnServerShutdown</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnServerShutdown works!"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="nx">We</span> <span class="nx">need</span> <span class="nx">a</span> <span class="nx">JavaScript</span> <span class="nx">example</span> <span class="nx">here</span>
+</code></pre>
+<pre class="highlight lua"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Lua</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
+<pre class="highlight python"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Python</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
+
+<p><strong>Available for:</strong><br>
+<img alt="Rust" src="images/icon-rust.png" />
+<img alt="Rust Legacy" src="images/icon-legacy.png" />
+<img alt="7 Days to Die" src="images/icon-7dtd.png" />
+<img alt="Reign of Kings" src="images/icon-rok.png" /></p>
 
 <ul>
-<li>Called from RustCore.ModifyTags</li>
-<li>No return behavior</li>
-<li>Add tags to the list, they will be concat&rsquo;d at the end</li>
+<li>Called before the server starts the shutdown sequence</li>
+<li>This should generally not be used by plugins, instead use the Unload hook
+Placeholder</li>
 </ul>
 
-<h3 id="onterraininitialized()">OnTerrainInitialized()</h3>
+<h2 id="ontick">OnTick</h2>
+<pre class="highlight csharp"><code><span class="k">private</span> <span class="k">void</span> <span class="nf">OnTick</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnTick works!"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="nx">We</span> <span class="nx">need</span> <span class="nx">a</span> <span class="nx">JavaScript</span> <span class="nx">example</span> <span class="nx">here</span>
+</code></pre>
+<pre class="highlight lua"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Lua</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
+<pre class="highlight python"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Python</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
+
+<p><strong>Available for:</strong><br>
+<img alt="Rust" src="images/icon-rust.png" /></p>
 
 <ul>
-<li>Called from InitializePVT.Apply</li>
-<li>No return behavior</li>
+<li>Called every tick (defined by the tick rate of the server)</li>
+<li><strong>Available for:</strong><br></li>
+</ul>
+
+          <h1 id="entity-hooks">Entity Hooks</h1>
+
+<h2 id="placeholder">Placeholder</h2>
+<pre class="highlight csharp"><code><span class="k">private</span> <span class="k">void</span> <span class="nf">Placeholder</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nf">Puts</span><span class="p">(</span><span class="s">"Placeholder works!"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="nx">We</span> <span class="nx">need</span> <span class="nx">a</span> <span class="nx">JavaScript</span> <span class="nx">example</span> <span class="nx">here</span>
+</code></pre>
+<pre class="highlight lua"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Lua</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
+<pre class="highlight python"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Python</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
+
+<p><strong>Available for:</strong><br>
+<img alt="Rust" src="images/icon-rust.png" /></p>
+
+<ul>
+<li>Placeholder</li>
+</ul>
+
+          <h1 id="item-hooks">Item Hooks</h1>
+
+<h2 id="placeholder">Placeholder</h2>
+<pre class="highlight csharp"><code><span class="k">private</span> <span class="k">void</span> <span class="nf">Placeholder</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nf">Puts</span><span class="p">(</span><span class="s">"Placeholder works!"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="nx">We</span> <span class="nx">need</span> <span class="nx">a</span> <span class="nx">JavaScript</span> <span class="nx">example</span> <span class="nx">here</span>
+</code></pre>
+<pre class="highlight lua"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Lua</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
+<pre class="highlight python"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Python</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
+
+<p><strong>Available for:</strong><br>
+<img alt="Rust" src="images/icon-rust.png" /></p>
+
+<ul>
+<li>Placeholder</li>
+</ul>
+
+          <h1 id="sign-hooks">Sign Hooks</h1>
+
+<h2 id="placeholder">Placeholder</h2>
+<pre class="highlight csharp"><code><span class="k">private</span> <span class="k">void</span> <span class="nf">Placeholder</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nf">Puts</span><span class="p">(</span><span class="s">"Placeholder works!"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="nx">We</span> <span class="nx">need</span> <span class="nx">a</span> <span class="nx">JavaScript</span> <span class="nx">example</span> <span class="nx">here</span>
+</code></pre>
+<pre class="highlight lua"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Lua</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
+<pre class="highlight python"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Python</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
+
+<p><strong>Available for:</strong><br>
+<img alt="Rust" src="images/icon-rust.png" /></p>
+
+<ul>
+<li>Placeholder</li>
+</ul>
+
+          <h1 id="structure-hooks">Structure Hooks</h1>
+
+<h2 id="placeholder">Placeholder</h2>
+<pre class="highlight csharp"><code><span class="k">private</span> <span class="k">void</span> <span class="nf">Placeholder</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nf">Puts</span><span class="p">(</span><span class="s">"Placeholder works!"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="nx">We</span> <span class="nx">need</span> <span class="nx">a</span> <span class="nx">JavaScript</span> <span class="nx">example</span> <span class="nx">here</span>
+</code></pre>
+<pre class="highlight lua"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Lua</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
+<pre class="highlight python"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Python</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
+
+<p><strong>Available for:</strong><br>
+<img alt="Rust" src="images/icon-rust.png" /></p>
+
+<ul>
+<li>Placeholder</li>
+</ul>
+
+          <h1 id="terrain-hooks">Terrain Hooks</h1>
+
+<h2 id="onterraininitialized">OnTerrainInitialized</h2>
+<pre class="highlight csharp"><code><span class="k">private</span> <span class="k">void</span> <span class="nf">OnTerrainInitialized</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnTerrainInitialized works!"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="nx">We</span> <span class="nx">need</span> <span class="nx">a</span> <span class="nx">JavaScript</span> <span class="nx">example</span> <span class="nx">here</span>
+</code></pre>
+<pre class="highlight lua"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Lua</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
+<pre class="highlight python"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Python</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
+
+<p><strong>Available for:</strong><br>
+<img alt="Rust" src="images/icon-rust.png" /></p>
+
+<ul>
 <li>Called after the terrain generation process has completed</li>
 </ul>
-
-<h3 id="onserverinitialized()">OnServerInitialized()</h3>
-
-<ul>
-<li>Called from ServerMgr.Initialize</li>
-<li>No return behavior</li>
-<li>Called after the server startup has been completed and is awaiting connections</li>
-</ul>
-
-<h3 id="onserversave()">OnServerSave()</h3>
-
-<ul>
-<li>Called from SaveRestore.DoAutomatedSave</li>
-<li>No return behavior</li>
-<li>Called before the server saves and rotates the .sav files</li>
-</ul>
-
-<h3 id="onservershutdown()">OnServerShutdown()</h3>
-
-<ul>
-<li>Called from ConsoleGlobal</li>
-<li>No return behavior</li>
-<li>Called before the server starts the shutdown sequence</li>
-<li>This should generally not be used by plugins, instead use the Unload hook</li>
-<li>This is the direct replacement to OnServerQuit, which has since been removed</li>
-</ul>
-
-<h3 id="ontick()">OnTick()</h3>
-
-<ul>
-<li>Called from ServerMgr.DoTick</li>
-<li>No return behavior</li>
-<li>Called every tick (defined by the tickrate of the server?)</li>
-</ul>
-
-<h3 id="onruncommand(consolesystem.arg-arg)">OnRunCommand(ConsoleSystem.Arg arg)</h3>
-
-<ul>
-<li>Called from ConsoleSystem.Run_Internal, ConsoleSystem.Run_Unrestricted, and ConsoleSystem.SystemRealm_Normal</li>
-<li>Return true to override Rust&rsquo;s command handling system</li>
-<li>Useful for intercepting commands before they get to their intended target (like chat.say)</li>
-<li>Used by RustCore to implement chat commands</li>
-</ul>
-
-<h2 id="player-hooks">Player hooks</h2>
-
-<h3 id="onuserapprove(network.connection-connection)">OnUserApprove(Network.Connection connection)</h3>
-
-<ul>
-<li>Called from ConnectionAuth.OnNewConnection</li>
-<li>Returning a non-null value overrides default behavior, plugin should call Reject if it does this</li>
-<li>Used by RustCore and abstracted into CanClientLogin</li>
-</ul>
-
-<h3 id="canclientlogin(network.connection-connection)">CanClientLogin(Network.Connection connection)</h3>
-
-<ul>
-<li>Called from RustCore.OnUserApprove</li>
-<li>Returning true will allow the connection, returning nothing will by default allow the connection, returning anything else will reject it with an error message</li>
-<li>Returning a string will use the string as the error message</li>
-</ul>
-
-<h3 id="onplayerconnected(network.message-packet)">OnPlayerConnected(Network.Message packet)</h3>
-
-<ul>
-<li>Called from ServerMgr.ClientReady</li>
-<li>No return behavior</li>
-<li>Called before the player object is created, but after the player has been approved to join the game</li>
-<li>Can get the connection from packet.connection</li>
-</ul>
-
-<h3 id="onplayerdisconnected(baseplayer-player)">OnPlayerDisconnected(BasePlayer player)</h3>
-
-<ul>
-<li>Called from BasePlayer.OnDisconnected</li>
-<li>No return behavior</li>
-<li>Called after the player has disconnected from the server</li>
-</ul>
-
-<h3 id="onplayerinit(baseplayer-player)">OnPlayerInit(BasePlayer player)</h3>
-
-<ul>
-<li>Called from BasePlayer.PlayerInit</li>
-<li>No return behavior</li>
-<li>Called when the player is initialising (after they&rsquo;ve connected, before they wake up)</li>
-</ul>
-
-<h3 id="onfindspawnpoint()">OnFindSpawnPoint()</h3>
-
-<ul>
-<li>Called from ServerMgr.BasePlayer/SpawnPoint</li>
-<li>Return a BasePlayer.SpawnPoint object to use that spawnpoint</li>
-<li>Useful for controlling player spawnpoints (like making all spawns occur in a set area)</li>
-</ul>
-
-<h3 id="onplayerrespawned(baseplayer-player)">OnPlayerRespawned(BasePlayer player)</h3>
-
-<ul>
-<li>Called from BasePlayer.Respawn</li>
-<li>No return behavior</li>
-<li>Called when the player spawns (specifically when they click the &ldquo;Respawn&rdquo; button)</li>
-<li>ONLY called after the player has transitioned from dead to not-dead, so not when they&rsquo;re waking up</li>
-<li>This means it&rsquo;s possible for a player to connect and disconnect from a server without OnPlayerRespawned ever triggering for them</li>
-</ul>
-
-<h3 id="onplayerchat(consolesystem.arg-arg)">OnPlayerChat(ConsoleSystem.Arg arg)</h3>
-
-<ul>
-<li>Called from chat.say</li>
-<li>Returning a non-null value overrides default behavior of chat, not commands</li>
-</ul>
-
-<h3 id="onrunplayermetabolism(playermetabolism-metabolism)">OnRunPlayerMetabolism(PlayerMetabolism metabolism)</h3>
-
-<ul>
-<li>Called from PlayerMetabolism.RunMetabolism</li>
-<li>Called before a metabolism update occurs for the specified player</li>
-<li>Returning true cancels the update</li>
-<li>Metabolism update consists of managing the player&rsquo;s temperature, health etc.</li>
-<li>You can use this to turn off or change certain aspects of the metabolism, either by editing values before returning, or taking complete control of the method</li>
-<li>Access the player object using metabolism:GetComponent(&ldquo;BasePlayer&rdquo;)</li>
-</ul>
-
-<h3 id="onplayerattack(baseplayer-attacker,-hitinfo-hitinfo)">OnPlayerAttack(BasePlayer attacker, HitInfo hitInfo)</h3>
-
-<ul>
-<li>Called from BasePlayer.SharedProjectileAttack and BaseMelee.DoAttackShared</li>
-<li>Returning true cancels the attack</li>
-<li>Useful for modifying an attack before it goes out</li>
-<li>hitInfo.HitEntity should be the entity that this attack would hit</li>
-</ul>
-
-<h3 id="onplayerloot(playerloot-lootinventory,-baseentity-targetentity)">OnPlayerLoot(PlayerLoot lootInventory, BaseEntity targetEntity)</h3>
-
-<ul>
-<li>Called from PlayerLoot.StartLootingEntity</li>
-<li>No return behavior</li>
-<li>Called when the player starts looting an entity</li>
-</ul>
-
-<h3 id="onplayerloot(playerloot-lootinventory,-baseplayer-targetplayer)">OnPlayerLoot(PlayerLoot lootInventory, BasePlayer targetPlayer)</h3>
-
-<ul>
-<li>Called from PlayerLoot.StartLootingPlayer</li>
-<li>No return behavior</li>
-<li>Called when the player starts looting another player</li>
-</ul>
-
-<h3 id="onplayerloot(playerloot-lootinventory,-item-targetitem)">OnPlayerLoot(PlayerLoot lootInventory, Item targetItem)</h3>
-
-<ul>
-<li>Called from PlayerLoot.StartLootingItem</li>
-<li>No return behavior</li>
-<li>Called when the player starts looting an item</li>
-</ul>
-
-<h3 id="onplayerinput(baseplayer-player,-inputstate-input)">OnPlayerInput(BasePlayer player, InputState input)</h3>
-
-<ul>
-<li>Called from BasePlayer.OnReceiveTick</li>
-<li>No return behavior</li>
-<li>Called when input is received from a connected client</li>
-</ul>
-
-<h3 id="onplayersleepended(baseplayer-player)">OnPlayerSleepEnded(BasePlayer player)</h3>
-
-<ul>
-<li>Called from BasePlayer.EndSleeping()</li>
-<li>No return behavior</li>
-<li>Called when a player awakes</li>
-</ul>
-
-<h3 id="onitemcraft(itemcrafttask-item)">OnItemCraft(ItemCraftTask item)</h3>
-
-<ul>
-<li>Called from ItemCrafter.CraftItem</li>
-<li>Return a ItemCraftTask object to modify behavior</li>
-<li>Called right after an item has started crafting</li>
-</ul>
-
-<h3 id="ongather(resourcedispenser-dispenser,-baseentity-entity,-item-item)">OnGather(ResourceDispenser dispenser, BaseEntity entity, Item item)</h3>
-
-<ul>
-<li>Called from ResourceDispenser.GiveResourceFromItem</li>
-<li>No return behavior</li>
-<li>Called before the player is given items from a resource</li>
-</ul>
-
-<h2 id="entity-hooks">Entity hooks</h2>
-
-<h3 id="onentityspawned(basenetworkable-entity)">OnEntitySpawned(BaseNetworkable entity)</h3>
-
-<ul>
-<li>Called from BaseNetworkable.Spawn</li>
-<li>No return behavior</li>
-<li>Called after any networked entity has spawned (including trees)</li>
-</ul>
-
-<h3 id="onentitytakedamage(basecombatentity-entity,-hitinfo-hitinfo)">OnEntityTakeDamage(BaseCombatEntity entity, HitInfo hitInfo)</h3>
-
-<ul>
-<li>Called from BaseCombatEntity.Hurt</li>
-<li>Returning non-null value overrides default server behavior (useful for godmode etc.)</li>
-<li>Alternatively, modify the hitInfo object to change the damage</li>
-<li>It should be okay to set the damage to 0, but if you don&rsquo;t return non-null, the player&rsquo;s client will receive a damage indicator (if entity is a BasePlayer)</li>
-<li>hitInfo has all kinds of useful things in it, such as hitInfo.Weapon, hitInfo.damageAmount or hitInfo.damageType</li>
-</ul>
-
-<h3 id="onentitydeath(basecombatentity-entity,-hitinfo-hitinfo)">OnEntityDeath(BaseCombatEntity entity, HitInfo hitInfo)</h3>
-
-<ul>
-<li>Called from BaseCombatEntity.Die</li>
-<li>No return behavior</li>
-<li>hitInfo might be null, check it before use</li>
-<li>Editing hitInfo has no effect because the death has already happened</li>
-</ul>
-
-<h3 id="onentityenter(triggerbase-triggerbase,-baseentity-entity)">OnEntityEnter(TriggerBase triggerBase, BaseEntity entity)</h3>
-
-<ul>
-<li>Called from TriggerBase.OnEntityEnter</li>
-<li>No return behavior</li>
-<li>Called when an entity enters an area/zone (building privilege zone, water area, radiation zone, hurt zone, etc.)</li>
-</ul>
-
-<h3 id="onentityleave(triggerbase-triggerbase,-baseentity-entity)">OnEntityLeave(TriggerBase triggerBase, BaseEntity entity)</h3>
-
-<ul>
-<li>Called from TriggerBase.OnEntityLeave</li>
-<li>No return behavior</li>
-<li>Called when an entity leaves an area/zone (building privilege zone, water area, radiation zone, hurt zone, etc.)</li>
-</ul>
-
-<h3 id="onentitygroundmissing(baseentity-entity)">OnEntityGroundMissing(BaseEntity entity)</h3>
-
-<ul>
-<li>Called from DestroyOnGroundMissing.OnGroundMissing</li>
-<li>Returning non-null value ovverides default server behavior</li>
-<li>Called when an entity (sleepingbag, sign, furnace,&hellip;) is going to be destroyed because the buildingblock it is on was removed</li>
-</ul>
-
-<h2 id="item-hooks">Item hooks</h2>
-
-<h3 id="onitemdeployed(deployer-deployer,-baseentity-deployedentity)">OnItemDeployed(Deployer deployer, BaseEntity deployedEntity)</h3>
-
-<ul>
-<li>Called from Deployer.DoDeploy_Regular and Deployer.DoDeploy_Slot</li>
-<li>No return behavior</li>
-<li>Called right after an item has been deployed</li>
-</ul>
-
-<h3 id="onitemaddedtocontainer(itemcontainer-container,-item-item)">OnItemAddedToContainer(ItemContainer container, Item item)</h3>
-
-<ul>
-<li>Called from ItemContainer.Insert</li>
-<li>No return behavior</li>
-<li>Called right after an item was added to a container</li>
-<li>An entire stack has to be created, not just adding more wood to a wood stack for example</li>
-</ul>
-
-<h3 id="onitemremovedfromcontainer(itemcontainer-container,-item-item)">OnItemRemovedFromContainer(ItemContainer container, Item item)</h3>
-
-<ul>
-<li>Called from ItemContainer.Remove</li>
-<li>No return behavior</li>
-<li>Called right after an item was removed from a container</li>
-<li>The entire stack has to be removed for this to be called, not just a little bit</li>
-</ul>
-
-<h3 id="onconsumableuse(item-item)">OnConsumableUse(Item item)</h3>
-
-<ul>
-<li>Called from Item.UseOneItem</li>
-<li>No return behavior</li>
-<li>Called right after a consumable item is used</li>
-</ul>
-
-<h3 id="onconsumefuel(baseoven-oven,-item-fuel,-itemmodburnable-burnable)">OnConsumeFuel(BaseOven oven, Item fuel, ItemModBurnable burnable)</h3>
-
-<ul>
-<li>Called from BaseOven.ConsumeFuel</li>
-<li>No return behavior</li>
-<li>Called right before fuel is used (furnace, lanterns, camp fires, etc.)</li>
-</ul>
-
-<h3 id="onlosecondition(item-item,-ref-float-amount)">OnLoseCondition(Item item, ref float amount)</h3>
-
-<ul>
-<li>Called from Item.LoseCondition</li>
-<li>No return behavior</li>
-<li>Called right before the condition of the item is modified</li>
-</ul>
-
-<h2 id="signs-hooks">Signs Hooks</h2>
-
-<h3 id="canupdatesign(signage-sign,-baseplayer-player)">CanUpdateSign(Signage sign, BasePlayer player)</h3>
-
-<ul>
-<li>Called from Signage.CanUpdateSign</li>
-<li>Return true or false to override Rust&rsquo;s check</li>
-<li>Called before the player changes the text on a sign or locks it</li>
-</ul>
-
-<h3 id="onsignlocked(signage-sign,-baseplayer-player)">OnSignLocked(Signage sign, BasePlayer player)</h3>
-
-<ul>
-<li>Called from Signage.LockSign</li>
-<li>No return behavior</li>
-<li>Called after the player has locked a sign</li>
-</ul>
-
-<h3 id="onsignupdated(signage-sign,-baseplayer-player,-string-text)">OnSignUpdated(Signage sign, BasePlayer player, string text)</h3>
-
-<ul>
-<li>Called from Signage.UpdateSign</li>
-<li>No return behavior</li>
-<li>Called after the player has changed the text on a sign</li>
-</ul>
-
-<h2 id="structure-hooks">Structure hooks</h2>
-
-<h3 id="canopendoor(baseplayer-player,-baselock-lock)">CanOpenDoor(BasePlayer player, BaseLock lock)</h3>
-
-<ul>
-<li>Called from BaseLock.OnTryToOpen and BaseLock.OnTryToClose</li>
-<li>Returning true will allow door usage, nothing will by default will allow door usage, returning anything else will reject door usage</li>
-</ul>
-
-<h3 id="canopendoor(baseplayer-player,-codelock-lock)">CanOpenDoor(BasePlayer player, CodeLock lock)</h3>
-
-<ul>
-<li>Called from CodeLock.OnTryToOpen and CodeLock.OnTryToClose</li>
-<li>Returning true will allow door usage, nothing will by default will allow door usage, returning anything else will reject door usage</li>
-</ul>
-
-<h3 id="canopendoor(baseplayer-player,-keylock-lock)">CanOpenDoor(BasePlayer player, KeyLock lock)</h3>
-
-<ul>
-<li>Called from KeyLock.OnTryToOpen and KeyLock.OnTryToClose</li>
-<li>Returning true will allow door usage, nothing will by default will allow door usage, returning anything else will reject door usage</li>
-</ul>
-
-<h3 id="onentitybuilt(planner-planner,-unityengine/gameobject-component)">OnEntityBuilt(Planner planner, UnityEngine/GameObject component)</h3>
-
-<ul>
-<li>Called from Planner.DoBuild</li>
-<li>No return behavior</li>
-<li>Called when any structure is built (walls, ceilings, stairs, etc.)</li>
-</ul>
-
-<h3 id="onbuildingblockupgrade(buildingblock-block,-baseplayer-player,-buildinggrade.enum-grade)">OnBuildingBlockUpgrade(BuildingBlock block, BasePlayer player, BuildingGrade.Enum grade)</h3>
-
-<ul>
-<li>Called from BuildingBlock.DoUpgradeToGrade</li>
-<li>Returning a BuildingGrade.Enum grade will change the grade that will be upgraded to</li>
-<li>Called when a player upgrades the grade of a BuildingBlock</li>
-</ul>
-
-<h3 id="onbuildingblockrotate(buildingblock-block,-baseplayer-player)">OnBuildingBlockRotate(BuildingBlock block, BasePlayer player)</h3>
-
-<ul>
-<li>Called from BuildingBlock.DoRotation</li>
-<li>No return behavior</li>
-<li>Called when a player rotates a BuildingBlock</li>
-</ul>
-
-<h3 id="onbuildingblockdemolish(buildingblock-block,-baseplayer-player)">OnBuildingBlockDemolish(BuildingBlock block, BasePlayer player)</h3>
-
-<ul>
-<li>Called from BuildingBlock.DoImmediateDemolish</li>
-<li>Return true to cancel</li>
-<li>Called when a player selects DemolishImmediate from the BuildingBlock menu</li>
-</ul>
-
-          <h1 id="rust-functions">Rust Functions</h1>
-
-<p>There are a few functions that have been added to wrap Rust functions, creating aliases of sorts to make your life easier during initial coding as well as during upgrades.</p>
-
-<h2 id="broadcastchat">BroadcastChat</h2>
-<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnPlayerInit</span><span class="p">(</span><span class="n">BasePlayer</span> <span class="n">player</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">var</span> <span class="n">message</span> <span class="p">=</span> <span class="kt">string</span><span class="p">.</span><span class="nf">Format</span><span class="p">(</span><span class="s">"{0} has joined the server"</span><span class="p">,</span> <span class="n">player</span><span class="p">.</span><span class="n">displayName</span><span class="p">);</span>
-    <span class="n">rust</span><span class="p">.</span><span class="nf">BroadcastChat</span><span class="p">({</span> <span class="n">message</span> <span class="p">});</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="nx">OnPlayerInit</span> <span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">player</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">rust</span><span class="p">.</span><span class="nx">BroadcastChat</span><span class="p">(</span><span class="nx">player</span><span class="p">.</span><span class="nx">displayName</span> <span class="o">+</span> <span class="s2">" has joined the server"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">OnPlayerInit</span><span class="p">(</span><span class="n">player</span><span class="p">)</span>
-    <span class="n">rust</span><span class="p">.</span><span class="n">BroadcastChat</span><span class="p">(</span><span class="n">player</span><span class="p">.</span><span class="n">displayName</span> <span class="o">..</span> <span class="s2">" has joined the server"</span><span class="p">)</span>
-<span class="k">end</span>
-</code></pre>
-<pre class="highlight python"><code><span class="k">def</span> <span class="nf">OnPlayerInit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">player</span><span class="p">):</span>
-    <span class="n">rust</span><span class="o">.</span><span class="n">BroadcastChat</span><span class="p">(</span><span class="n">player</span><span class="o">.</span><span class="n">displayName</span> <span class="o">+</span> <span class="s">" has joined the server"</span><span class="p">)</span>
-</code></pre>
-
-<p>Sends a chat message to all players. The optional userid argument is used for the avatar in the chat, with 0 the default and Rust logo.</p>
-
-<p><code class="prettyprint">rust.BroadcastChat(name, message, userid)</code></p>
-
-<h2 id="sendchatmessage">SendChatMessage</h2>
-<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnPlayerSpawn</span><span class="p">(</span><span class="n">BasePlayer</span> <span class="n">player</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">var</span> <span class="n">message</span> <span class="p">=</span> <span class="s">"You've respawned from a terrible death"</span><span class="p">;</span>
-    <span class="n">rust</span><span class="p">.</span><span class="nf">SendChatMessage</span><span class="p">({</span> <span class="n">player</span><span class="p">,</span> <span class="n">message</span> <span class="p">});</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="nx">OnPlayerSpawn</span> <span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">player</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">rust</span><span class="p">.</span><span class="nx">SendChatMessage</span><span class="p">(</span><span class="nx">player</span><span class="p">,</span> <span class="s2">"SERVER"</span><span class="p">,</span> <span class="s2">"You've respawned from a terrible death"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">OnPlayerSpawn</span><span class="p">(</span><span class="n">player</span><span class="p">)</span>
-    <span class="n">rust</span><span class="p">.</span><span class="n">SendChatMessage</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="s2">"SERVER"</span><span class="p">,</span> <span class="s2">"You've respawned from a terrible death"</span><span class="p">)</span>
-<span class="k">end</span>
-</code></pre>
-<pre class="highlight python"><code><span class="k">def</span> <span class="nf">OnPlayerSpawn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">player</span><span class="p">):</span>
-    <span class="n">rust</span><span class="o">.</span><span class="n">SendChatMessage</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="s">"SERVER"</span><span class="p">,</span> <span class="s">"You've respawned from a terrible death"</span><span class="p">)</span>
-</code></pre>
-
-<p>Sends a chat message to specified player. The optional userid argument is used for the avatar in the chat, with 0 the default and Rust logo.</p>
-
-<p><code class="prettyprint">rust.SendChatMessage(player, name, message, userid)</code></p>
-
-<h2 id="quotesafe">QuoteSafe</h2>
-<pre class="highlight csharp"><code><span class="n">var</span> <span class="n">message</span> <span class="p">=</span> <span class="s">"Use /kick \"playername\" to kick player"</span><span class="p">;</span>
-<span class="n">message</span><span class="p">.</span><span class="nf">QuoteSafe</span><span class="p">();</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="nx">rust</span><span class="p">.</span><span class="nx">QuoteSafe</span><span class="p">(</span><span class="s2">"Use /kick \"playername\" to kick player"</span><span class="p">);</span>
-</code></pre>
-<pre class="highlight lua"><code><span class="n">rust</span><span class="p">.</span><span class="n">QuoteSafe</span><span class="p">(</span><span class="s2">"Use /kick \"</span><span class="n">playername</span><span class="err">\</span><span class="s2">" to kick player"</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight python"><code><span class="n">rust</span><span class="o">.</span><span class="n">QuoteSafe</span><span class="p">(</span><span class="s">"Use /kick </span><span class="se">\"</span><span class="s">playername</span><span class="se">\"</span><span class="s"> to kick player"</span><span class="p">)</span>
-</code></pre>
-
-<p>Used to safely save text or send a message that contains quotation marks.</p>
-
-<p><code class="prettyprint">rust.QuoteSafe(message)</code></p>
-
-<h2 id="useridfromconnection">UserIDFromConnection</h2>
-<pre class="highlight csharp"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">CSharp</span> <span class="n">example</span> <span class="n">here</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="nx">OnPlayerConnected</span> <span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">packet</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">connection</span> <span class="o">=</span> <span class="nx">packet</span><span class="p">.</span><span class="nx">connection</span><span class="p">;</span>
-    <span class="nx">rust</span><span class="p">.</span><span class="nx">BroadcastChat</span><span class="p">(</span><span class="nx">connection</span><span class="p">.</span><span class="nx">username</span> <span class="o">+</span> <span class="s2">" connected ("</span> <span class="o">+</span> <span class="nx">rust</span><span class="p">.</span><span class="nx">UserIDFromConnection</span><span class="p">(</span><span class="nx">connection</span><span class="p">)</span> <span class="o">+</span> <span class="s2">")"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">OnPlayerConnected</span><span class="p">(</span><span class="n">packet</span><span class="p">)</span>
-    <span class="kd">local</span> <span class="n">connection</span> <span class="o">=</span> <span class="n">packet</span><span class="p">.</span><span class="n">connection</span>
-    <span class="n">rust</span><span class="p">.</span><span class="n">BroadcastChat</span><span class="p">(</span><span class="n">connection</span><span class="p">.</span><span class="n">username</span> <span class="o">..</span> <span class="s2">" connected ("</span> <span class="o">..</span> <span class="n">rust</span><span class="p">.</span><span class="n">UserIDFromConnection</span><span class="p">(</span><span class="n">connection</span><span class="p">)</span> <span class="o">..</span> <span class="s2">")"</span><span class="p">)</span>
-<span class="k">end</span>
-</code></pre>
-<pre class="highlight python"><code><span class="k">def</span> <span class="nf">OnPlayerConnected</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">packet</span><span class="p">):</span>
-    <span class="n">connection</span> <span class="o">=</span> <span class="n">packet</span><span class="o">.</span><span class="n">connection</span>
-    <span class="n">rust</span><span class="o">.</span><span class="n">BroadcastChat</span><span class="p">(</span><span class="n">connection</span><span class="o">.</span><span class="n">username</span> <span class="o">+</span> <span class="s">" connected ("</span> <span class="o">+</span> <span class="n">rust</span><span class="o">.</span><span class="n">UserIDFromConnection</span><span class="p">(</span><span class="n">connection</span><span class="p">)</span> <span class="o">+</span> <span class="s">")"</span><span class="p">)</span>
-</code></pre>
-
-<p>Gets the user ID (64-bit SteamID) of a player from their connection. This is mainly used for performing actions when a player connects to a server, or during the login process.</p>
-
-<p><code class="prettyprint">rust.UserIDFromConnection(connection)</code></p>
-
-<h2 id="useridfromplayer">UserIDFromPlayer</h2>
-<pre class="highlight csharp"><code><span class="na">[ChatCommand("steamid")]</span>
-<span class="k">void</span> <span class="nf">cmdChatSteamid</span><span class="p">(</span><span class="n">BasePlayer</span> <span class="n">player</span><span class="p">,</span> <span class="kt">string</span> <span class="n">command</span><span class="p">,</span> <span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="nf">SendReply</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="s">"SERVER"</span><span class="p">,</span> <span class="s">"Your SteamID is: "</span> <span class="p">+</span> <span class="n">player</span><span class="p">.</span><span class="n">userID</span><span class="p">.</span><span class="nf">ToString</span><span class="p">());</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="nx">Init</span> <span class="err">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">command</span><span class="p">.</span><span class="nx">AddChatCommand</span><span class="p">(</span><span class="s2">"steamid"</span><span class="p">,</span>  <span class="nx">self</span><span class="p">.</span><span class="nx">Plugin</span><span class="p">,</span> <span class="s2">"cmdSteamId"</span><span class="p">);</span>
-<span class="p">},</span>
-<span class="nx">cmdSteamId</span> <span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">player</span><span class="p">,</span> <span class="nx">command</span><span class="p">,</span> <span class="nx">arg</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">rust</span><span class="p">.</span><span class="nx">SendChatMessage</span><span class="p">(</span><span class="nx">player</span><span class="p">,</span> <span class="s2">"SERVER"</span><span class="p">,</span> <span class="s2">"Your Steam ID is: "</span> <span class="o">+</span> <span class="nx">rust</span><span class="p">.</span><span class="nx">UserIDFromPlayer</span><span class="p">(</span><span class="nx">player</span><span class="p">));</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">Init</span><span class="p">()</span>
-    <span class="n">command</span><span class="p">.</span><span class="n">AddChatCommand</span><span class="p">(</span><span class="s2">"steamid"</span><span class="p">,</span>  <span class="n">self</span><span class="p">.</span><span class="n">Plugin</span><span class="p">,</span> <span class="s2">"cmdSteamId"</span><span class="p">)</span>
-<span class="k">end</span>
-<span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">cmdSteamId</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="n">arg</span><span class="p">)</span>
-    <span class="n">rust</span><span class="p">.</span><span class="n">SendChatMessage</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="s2">"SERVER"</span><span class="p">,</span> <span class="s2">"Your Steam ID is: "</span> <span class="o">..</span> <span class="n">rust</span><span class="p">.</span><span class="n">UserIDFromPlayer</span><span class="p">(</span><span class="n">player</span><span class="p">))</span>
-<span class="k">end</span>
-</code></pre>
-<pre class="highlight python"><code><span class="k">def</span> <span class="nf">Init</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="n">command</span><span class="o">.</span><span class="n">AddChatCommand</span><span class="p">(</span><span class="s">"steamid"</span><span class="p">,</span>  <span class="bp">self</span><span class="o">.</span><span class="n">Plugin</span><span class="p">,</span> <span class="s">"cmdSteamId"</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">cmdSteamId</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">player</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="n">arg</span><span class="p">):</span>
-    <span class="n">rust</span><span class="o">.</span><span class="n">SendChatMessage</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="s">"SERVER"</span><span class="p">,</span> <span class="s">"Your Steam ID is: "</span> <span class="o">+</span> <span class="n">rust</span><span class="o">.</span><span class="n">UserIDFromPlayer</span><span class="p">(</span><span class="n">player</span><span class="p">))</span>
-</code></pre>
-
-<p>Gets the user ID (64-bit SteamID) of an online player.</p>
-
-<p><code class="prettyprint">rust.UserIDFromPlayer(player)</code></p>
-
-<h2 id="useridsfrombuildingprivlidge">UserIDsFromBuildingPrivlidge</h2>
-<pre class="highlight csharp"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">CSharp</span> <span class="n">example</span> <span class="n">here</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="nx">We</span> <span class="nx">need</span> <span class="nx">a</span> <span class="nx">JavaScript</span> <span class="nx">example</span> <span class="nx">here</span>
-</code></pre>
-<pre class="highlight lua"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Lua</span> <span class="n">example</span> <span class="n">here</span>
-</code></pre>
-<pre class="highlight python"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Python</span> <span class="n">example</span> <span class="n">here</span>
-</code></pre>
-
-<p>Gets the user ID (64-bit SteamID) of players that have access to a Tool Cupboard. Yes, the typo in the function name is intentional.</p>
-
-<p><code class="prettyprint">rust.UserIDsFromBuildingPrivlidge(buildingpriv)</code></p>
-
-<h2 id="runservercommand">RunServerCommand</h2>
-<pre class="highlight csharp"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">CSharp</span> <span class="n">example</span> <span class="n">here</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="nx">We</span> <span class="nx">need</span> <span class="nx">a</span> <span class="nx">JavaScript</span> <span class="nx">example</span> <span class="nx">here</span>
-</code></pre>
-<pre class="highlight lua"><code><span class="n">rust</span><span class="p">.</span><span class="n">RunServerCommand</span><span class="p">(</span><span class="s2">"server.hostname"</span><span class="p">,</span> <span class="s2">"New Server Name"</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight python"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Python</span> <span class="n">example</span> <span class="n">here</span>
-</code></pre>
-
-<p>Runs a server command.</p>
-
-<p><code class="prettyprint">rust.RunServerCommand(command, args)</code></p>
-
-<h2 id="forceplayerposition">ForcePlayerPosition</h2>
-<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">ForcePlayerPosition</span><span class="p">(</span><span class="n">BasePlayer</span> <span class="n">player</span><span class="p">,</span> <span class="kt">string</span> <span class="n">x</span><span class="p">,</span> <span class="kt">string</span> <span class="n">y</span><span class="p">,</span> <span class="kt">string</span> <span class="n">z</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">Vector3</span> <span class="n">destination</span> <span class="p">=</span> <span class="k">new</span> <span class="n">UnityEngine</span><span class="p">.</span><span class="nf">Vector3</span><span class="p">();</span>
-    <span class="n">destination</span><span class="p">.</span><span class="n">x</span> <span class="p">=</span> <span class="n">x</span><span class="p">;</span>
-    <span class="n">destination</span><span class="p">.</span><span class="n">y</span> <span class="p">=</span> <span class="n">y</span><span class="p">;</span>
-    <span class="n">destination</span><span class="p">.</span><span class="n">z</span> <span class="p">=</span> <span class="n">z</span><span class="p">;</span>
-    <span class="n">player</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span> <span class="p">=</span> <span class="n">destination</span><span class="p">;</span>
-    <span class="n">player</span><span class="p">.</span><span class="nf">ClientRPC</span><span class="p">(</span><span class="k">null</span><span class="p">,</span> <span class="n">player</span><span class="p">,</span> <span class="s">"ForcePositionTo"</span><span class="p">,</span> <span class="k">new</span> <span class="kt">object</span><span class="p">[]</span> <span class="p">{</span> <span class="n">destination</span> <span class="p">});</span>
-    <span class="n">player</span><span class="p">.</span><span class="nf">TransformChanged</span><span class="p">();</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="nx">We</span> <span class="nx">need</span> <span class="nx">a</span> <span class="nx">JavaScript</span> <span class="nx">example</span> <span class="nx">here</span>
-</code></pre>
-<pre class="highlight lua"><code><span class="n">rust</span><span class="p">.</span><span class="n">ForcePlayerPosition</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight python"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Python</span> <span class="n">example</span> <span class="n">here</span>
-</code></pre>
-
-<p>Teleports a player to specified coordinates/position.</p>
-
-<p><code class="prettyprint">rust.ForcePlayerPosition(player, x, y, z)</code></p>
-
-<h2 id="privatebindingflag">PrivateBindingFlag</h2>
-<pre class="highlight csharp"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">CSharp</span> <span class="n">example</span> <span class="n">here</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="nx">We</span> <span class="nx">need</span> <span class="nx">a</span> <span class="nx">JavaScript</span> <span class="nx">example</span> <span class="nx">here</span>
-</code></pre>
-<pre class="highlight lua"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Lua</span> <span class="n">example</span> <span class="n">here</span>
-</code></pre>
-<pre class="highlight python"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Python</span> <span class="n">example</span> <span class="n">here</span>
-</code></pre>
-
-<p>Used to get/set private methods, fields, and properties.</p>
-
-<p><code class="prettyprint">rust.PrivateBindingFlag()</code></p>
-
-          <h1 id="rust-legacy-api-hooks">Rust Legacy API Hooks</h1>
-
-<h2 id="plugin-hooks">Plugin hooks</h2>
-
-<h3 id="init()">Init()</h3>
-
-<ul>
-<li>Called when the plugin is being loaded</li>
-<li>Other plugins may or may not be present, dependant on load order</li>
-<li>Other plugins WILL have been executed though, so globals exposed by them will be present</li>
-</ul>
-
-<h3 id="loaddefaultconfig()">LoadDefaultConfig()</h3>
-
-<ul>
-<li>Called when the config for the plugin should be initialized</li>
-<li>Only called if the config file does not already exist</li>
-</ul>
-
-<h3 id="unload()">Unload()</h3>
-
-<ul>
-<li>Called when the plugin is being unloaded</li>
-</ul>
-
-<h3 id="onpluginloaded(plugin-plugin)">OnPluginLoaded(Plugin plugin)</h3>
-
-<ul>
-<li>Called when a specific plugin has been loaded</li>
-</ul>
-
-<h3 id="onpluginunloaded(plugin-plugin)">OnPluginUnloaded(Plugin plugin)</h3>
-
-<ul>
-<li>Called when a specific plugin has been unloaded</li>
-</ul>
-
-<h2 id="general-hooks">General hooks</h2>
-
-<h3 id="oninitlogging()">OnInitLogging()</h3>
-
-<ul>
-<li>Called from ServerInit.Awake</li>
-<li>No return behavior</li>
-<li>Used internally by Oxide to start Unity logging</li>
-</ul>
-
-<h3 id="modifytags(string-oldtags)">ModifyTags(string oldtags)</h3>
-
-<ul>
-<li>Called from Rust.Steam.Server.GetTags</li>
-<li>Returning a string overrides the tags with new ones</li>
-<li>Used by RustLegacyCore and abstracted into BuildServerTags</li>
-</ul>
-
-<h3 id="buildservertags(ilist-tags)">BuildServerTags(IList<string> tags)</h3>
-
-<ul>
-<li>Called from RustLegacyCore.ModifyTags</li>
-<li>No return behavior</li>
-<li>Add tags to the list, they will be concat&rsquo;d at the end</li>
-</ul>
-
-<h3 id="onserverinitialized()">OnServerInitialized()</h3>
-
-<ul>
-<li>Called from ServerInit.Destroy through an additional component added by RustLegacyExtension</li>
-<li>No return behavior</li>
-<li>Called after the server startup has been completed and is awaiting connections</li>
-</ul>
-
-<h3 id="onserversave()">OnServerSave()</h3>
-
-<ul>
-<li>Called from ServerSaveManager.Save</li>
-<li>No return behavior</li>
-<li>Called before the server saves and rotates the .sav files</li>
-</ul>
-
-<h3 id="onservershutdown()">OnServerShutdown()</h3>
-
-<ul>
-<li>Called from global.quit</li>
-<li>No return behavior</li>
-<li>Called before the server starts the shutdown sequence</li>
-<li>This should generally not be used by plugins, instead use the Unload hook</li>
-</ul>
-
-<h3 id="onruncommand(consolesystem.arg-arg,-bool-wantreply)">OnRunCommand(ConsoleSystem.Arg arg, bool wantreply)</h3>
-
-<ul>
-<li>Called from ConsoleSystem.RunCommand</li>
-<li>Return true to override Rust&rsquo;s command handling system</li>
-<li>Useful for intercepting commands before they get to their intended target (like chat.say)</li>
-<li>Used by RustLegacyCore to implement chat commands</li>
-</ul>
-
-<h3 id="ondatablocksinitialized">OnDatablocksInitialized</h3>
-
-<ul>
-<li>Called from DatablockDictionary.Initialize</li>
-<li>No return behavior</li>
-<li>Called when all datablocks have been loaded</li>
-</ul>
-
-<h3 id="onresourcenodeloaded(resourcetarget-resource)">OnResourceNodeLoaded(ResourceTarget resource)</h3>
-
-<ul>
-<li>Called from ResourceTarget.Awake</li>
-<li>No return behavior</li>
-<li>Called when a resource is initializing</li>
-</ul>
-
-<h2 id="player-hooks">Player hooks</h2>
-
-<h3 id="onuserapprove(clientconnection-connection,-ulink.networkplayerapproval-approval,-connectionacceptor-acceptor)">OnUserApprove(ClientConnection connection, uLink.NetworkPlayerApproval approval, ConnectionAcceptor acceptor)</h3>
-
-<ul>
-<li>Called from ConnectionAcceptor.uLink_OnPlayerApproval</li>
-<li>Returning a non-null value overrides default behavior, plugin should call approval.Deny if it does this</li>
-<li>Used by RustLegacyCore and abstracted into CanClientLogin</li>
-</ul>
-
-<h3 id="canclientlogin(clientconnection-connection,-ulink.networkplayerapproval)">CanClientLogin(ClientConnection connection, uLink.NetworkPlayerApproval)</h3>
-
-<ul>
-<li>Called from RustLegacyCore.OnUserApprove</li>
-<li>Returning a uLink.NetworkConnectionError will reject the connection, returning anything else will allow the connection</li>
-</ul>
-
-<h3 id="onplayerconnected(netuser-netuser)">OnPlayerConnected(NetUser netuser)</h3>
-
-<ul>
-<li>Called from ServerManagement.OnUserConnected</li>
-<li>No return behavior</li>
-<li>Called before the player object is created, but after the player has been approved</li>
-</ul>
-
-<h3 id="onplayerdisconnected(ulink.networkplayer-networkplayer)">OnPlayerDisconnected(uLink.NetworkPlayer networkplayer)</h3>
-
-<ul>
-<li>Called from ConnectionAcceptor.uLink_OnPlayerDisconnected</li>
-<li>No return behavior</li>
-<li>Called after the player has disconnected from the server</li>
-</ul>
-
-<h3 id="onplayerspawn(playerclient-client,-bool-usecamp,-rustproto.avatar-avatar)">OnPlayerSpawn(PlayerClient client, bool usecamp, RustProto.Avatar avatar)</h3>
-
-<ul>
-<li>Called from ServerManagement.SpawnPlayer</li>
-<li>No return behavior</li>
-<li>Called when the player spawns</li>
-</ul>
-
-<h3 id="onplayerchat(netuser-netuser,-string-message)">OnPlayerChat(NetUser netuser, string message)</h3>
-
-<ul>
-<li>Called from RustLegacyCore.OnRunCommand</li>
-<li>Returning a non-null value overrides default behavior of chat, not commands</li>
-</ul>
-
-<h3 id="onitemcraft(craftinginventory-inventory,-blueprintdatablock-blueprint,-int-amount,-ulong-starttime)">OnItemCraft(CraftingInventory inventory, BlueprintDataBlock blueprint, int amount, ulong starttime)</h3>
-
-<ul>
-<li>Called from CraftingInventory.OnItemCraft</li>
-<li>Returning non-null overrides default behavior</li>
-<li>Called when a player starts crafting an item</li>
-</ul>
-
-<h3 id="onblueprintuse(blueprintdatablock-blueprint,-iblueprintitem-item)">OnBlueprintUse(BlueprintDataBlock blueprint, IBlueprintItem item)</h3>
-
-<ul>
-<li>Called from BlueprintDataBlock.UseItem</li>
-<li>Returning non-null overrides default behavior</li>
-<li>Called when a player tries to study a blueprint</li>
-</ul>
-
-<h3 id="onresearchitem(researchtoolitem-item,-iinventoryitem-otheritem)">OnResearchItem(ResearchToolItem<T> item, IInventoryItem otheritem)</h3>
-
-<ul>
-<li>Called from ResearchToolItem<T>.TryCombine</li>
-<li>Returning a InventoryItem.MergeResult will cancel default behavior</li>
-<li>Called when a player tries to research an item</li>
-</ul>
-
-<h3 id="onplayervoice(netuser-netuser,-list-players)">OnPlayerVoice(NetUser netuser, List<uLink.NetworkPlayer> players)</h3>
-
-<ul>
-<li>Called from RustLegacyCore.OnClientSpeak</li>
-<li>Called when a player uses in-game voice communication</li>
-</ul>
-
-<h2 id="entity-hooks">Entity hooks</h2>
-
-<h3 id="onairdrop(vector3-position)">OnAirdrop(Vector3 position)</h3>
-
-<ul>
-<li>Called from SupplyDropZone.CallAirDropAt</li>
-<li>No return behavior</li>
-<li>Called when an airdrop has been called</li>
-</ul>
-
-<h3 id="onprocessdamageevent(takedamage-takedamage,-damageevent-damage)">OnProcessDamageEvent(TakeDamage takedamage, DamageEvent damage)</h3>
-
-<ul>
-<li>Called from TakeDamage.ProcessDamageEvent</li>
-<li>Returning a non-null value overrides default behavior</li>
-<li>Used by RustLegacyCore and abstracted in ModifyDamage, OnHurt and OnKilled</li>
-</ul>
-
-<h3 id="modifydamage(takedamage-takedamage,-damageevent-damage)">ModifyDamage(TakeDamage takedamage, DamageEvent damage)</h3>
-
-<ul>
-<li>Called from RustLegacyCore.OnProcessDamageEvent</li>
-<li>Returning a non-null value overrides default behavior</li>
-<li>Called when any kind of entity takes damage</li>
-<li>Modify the DamageEvent object and return it to &lsquo;apply&rsquo; the modifications</li>
-</ul>
-
-<h3 id="onhurt(takedamage-takedamage,-damageevent-damage)">OnHurt(TakeDamage takedamage, DamageEvent damage)</h3>
-
-<ul>
-<li>Called from RustLegacyCore.OnProcessDamageEvent</li>
-<li>No return behavior</li>
-<li>Called when any kind of entity takes damage</li>
-</ul>
-
-<h3 id="onkilled(takedamage-takedamage,-damageevent-damage)">OnKilled(TakeDamage takedamage, DamageEvent damage)</h3>
-
-<ul>
-<li>Called from RustLegacyCore.OnProcessDamageEvent</li>
-<li>No return behavior</li>
-<li>Called when any kind of entity was killed</li>
-</ul>
-
-<h2 id="item-hooks">Item hooks</h2>
-
-<h3 id="onitemadded(inventory-inventory,-int-slot,-iinventoryitem-item)">OnItemAdded(Inventory inventory, int slot, IInventoryItem item)</h3>
-
-<ul>
-<li>Called from Inventory.ItemAdded</li>
-<li>No return behavior</li>
-<li>Called when an item was added to an inventory</li>
-</ul>
-
-<h3 id="onitemremoved(inventory-inventory,-int-slot,-iinventoryitem-item)">OnItemRemoved(Inventory inventory, int slot, IInventoryItem item)</h3>
-
-<ul>
-<li>Called from Inventory.ItemRemoved</li>
-<li>No return behavior</li>
-<li>Called when an item was removed from an inventory</li>
-</ul>
-
-<h3 id="onitemdeployed(deployableobject-deployable,-netuser-user)">OnItemDeployed(DeployableObject deployable, NetUser user)</h3>
-
-<ul>
-<li>Called from DeployableItemDataBlock.DoAction1</li>
-<li>No return behavior</li>
-<li>Called when an item was deployed by a player</li>
-</ul>
-
-<h2 id="structure-hooks">Structure hooks</h2>
-
-<h3 id="onstructurebuilt(structurecomponent-structure,-netuser-user)">OnStructureBuilt(StructureComponent structure, NetUser user)</h3>
-
-<ul>
-<li>Called from StructureComponentDataBlock.DoAction1</li>
-<li>No return behavior</li>
-<li>Called when an structure was built by a player</li>
-</ul>
-
-<h3 id="onstructuredecay(structuremaster-master)">OnStructureDecay(StructureMaster master)</h3>
-
-<ul>
-<li>Called from StructureMaster.DoDecay</li>
-<li>Returning a non-null value overrides default behavior</li>
-<li>Called when a structure tries to decay</li>
-</ul>
-
-<h3 id="ondoortoggle(basicdoor-door,-ulong-timestamp,-controllable-controllable)">OnDoorToggle(BasicDoor door, ulong timestamp, Controllable controllable)</h3>
-
-<ul>
-<li>Called from BasicDoor.ToggleStateServer</li>
-<li>Returning true allows the state of the door to be toggled and returning false denies the state of the door being toggled, returning anything else will resume default behavior</li>
-<li>Called when a player attempts to open or close a door</li>
-</ul>
-
-          <h1 id="rust-legacy-functions">Rust Legacy Functions</h1>
-
-<p>There are a few functions that have been added to wrap Rust Legacy functions, creating aliases of sorts to make your life easier during initial coding as well as during upgrades.</p>
-
-<h2 id="broadcastchat">BroadcastChat</h2>
-<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnPlayerConnected</span><span class="p">(</span><span class="n">NetUser</span> <span class="n">netuser</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">var</span> <span class="n">message</span> <span class="p">=</span> <span class="kt">string</span><span class="p">.</span><span class="nf">Format</span><span class="p">(</span><span class="s">"{0} has joined the server"</span><span class="p">,</span> <span class="n">netuser</span><span class="p">.</span><span class="n">displayName</span><span class="p">);</span>
-    <span class="n">rust</span><span class="p">.</span><span class="nf">BroadcastChat</span><span class="p">({</span> <span class="n">message</span> <span class="p">});</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="nx">OnPlayerConnected</span> <span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">netuser</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">rust</span><span class="p">.</span><span class="nx">BroadcastChat</span><span class="p">(</span><span class="nx">netuser</span><span class="p">.</span><span class="nx">displayName</span> <span class="o">+</span> <span class="s2">" has joined the server"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">OnPlayerConnected</span><span class="p">(</span><span class="n">netuser</span><span class="p">)</span>
-    <span class="n">rust</span><span class="p">.</span><span class="n">BroadcastChat</span><span class="p">(</span><span class="n">netuser</span><span class="p">.</span><span class="n">displayName</span> <span class="o">..</span> <span class="s2">" has joined the server"</span><span class="p">)</span>
-<span class="k">end</span>
-</code></pre>
-<pre class="highlight python"><code><span class="k">def</span> <span class="nf">OnPlayerConnected</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">netuser</span><span class="p">):</span>
-    <span class="n">rust</span><span class="o">.</span><span class="n">BroadcastChat</span><span class="p">(</span><span class="n">netuser</span><span class="o">.</span><span class="n">displayName</span> <span class="o">+</span> <span class="s">" has joined the server"</span><span class="p">)</span>
-</code></pre>
-
-<p>Sends a chat message to all players.</p>
-
-<p><code class="prettyprint">rust.BroadcastChat(string message, object[] args)</code></p>
-
-<h2 id="broadcastconsole">BroadcastConsole</h2>
-<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnPlayerConnected</span><span class="p">(</span><span class="n">NetUser</span> <span class="n">netuser</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">var</span> <span class="n">message</span> <span class="p">=</span> <span class="kt">string</span><span class="p">.</span><span class="nf">Format</span><span class="p">(</span><span class="s">"{0} has joined the server"</span><span class="p">,</span> <span class="n">netuser</span><span class="p">.</span><span class="n">displayName</span><span class="p">);</span>
-    <span class="n">rust</span><span class="p">.</span><span class="nf">BroadcastConsole</span><span class="p">({</span> <span class="n">message</span> <span class="p">});</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="nx">OnPlayerConnected</span> <span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">netuser</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">rust</span><span class="p">.</span><span class="nx">BroadcastConsole</span><span class="p">(</span><span class="nx">netuser</span><span class="p">.</span><span class="nx">displayName</span> <span class="o">+</span> <span class="s2">" has joined the server"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">OnPlayerConnected</span><span class="p">(</span><span class="n">netuser</span><span class="p">)</span>
-    <span class="n">rust</span><span class="p">.</span><span class="n">BroadcastConsole</span><span class="p">(</span><span class="n">netuser</span><span class="p">.</span><span class="n">displayName</span> <span class="o">..</span> <span class="s2">" has joined the server"</span><span class="p">)</span>
-<span class="k">end</span>
-</code></pre>
-<pre class="highlight python"><code><span class="k">def</span> <span class="nf">OnPlayerConnected</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">netuser</span><span class="p">):</span>
-    <span class="n">rust</span><span class="o">.</span><span class="n">BroadcastConsole</span><span class="p">(</span><span class="n">netuser</span><span class="o">.</span><span class="n">displayName</span> <span class="o">+</span> <span class="s">" has joined the server"</span><span class="p">)</span>
-</code></pre>
-
-<p>Prints a message to all players&rsquo; in-game console</p>
-
-<p><code class="prettyprint">rust.BroadcastConsole(string message, object[] args)</code></p>
-
-<h2 id="findplayer">FindPlayer</h2>
-<pre class="highlight csharp"><code><span class="p">[</span><span class="nf">ChatCommand</span><span class="p">(</span><span class="s">"ex"</span><span class="p">)</span>
-<span class="k">void</span> <span class="nf">Example</span><span class="p">(</span><span class="n">NetUser</span> <span class="n">netuser</span><span class="p">,</span> <span class="kt">string</span> <span class="n">command</span><span class="p">,</span> <span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">NetUser</span> <span class="n">target</span> <span class="p">=</span> <span class="n">rust</span><span class="p">.</span><span class="nf">FindPlayer</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="m">0</span><span class="p">]);</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="nx">Init</span> <span class="err">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">command</span><span class="p">.</span><span class="nx">AddChatCommand</span><span class="p">(</span><span class="s2">"ex"</span><span class="p">,</span>  <span class="nx">self</span><span class="p">.</span><span class="nx">Plugin</span><span class="p">,</span> <span class="s2">"Example"</span><span class="p">);</span>
-<span class="p">},</span>
-<span class="nx">Example</span> <span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">netuser</span><span class="p">,</span> <span class="nx">command</span><span class="p">,</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">target</span> <span class="o">=</span> <span class="nx">rust</span><span class="p">.</span><span class="nx">FindPlayer</span><span class="p">(</span><span class="nx">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">Init</span><span class="p">()</span>
-    <span class="n">command</span><span class="p">.</span><span class="n">AddChatCommand</span><span class="p">(</span><span class="s2">"ex"</span><span class="p">,</span>  <span class="n">self</span><span class="p">.</span><span class="n">Plugin</span><span class="p">,</span> <span class="s2">"Example"</span><span class="p">)</span>
-<span class="k">end</span>
-<span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">Example</span><span class="p">(</span><span class="n">netuser</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
-    <span class="n">target</span> <span class="o">=</span> <span class="n">rust</span><span class="p">.</span><span class="n">FindPlayer</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="k">end</span>
-</code></pre>
-<pre class="highlight python"><code><span class="k">def</span> <span class="nf">Init</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="n">command</span><span class="o">.</span><span class="n">AddChatCommand</span><span class="p">(</span><span class="s">"ex"</span><span class="p">,</span>  <span class="bp">self</span><span class="o">.</span><span class="n">Plugin</span><span class="p">,</span> <span class="s">"Example"</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">Example</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">netuser</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
-    <span class="n">target</span> <span class="o">=</span> <span class="n">rust</span><span class="o">.</span><span class="n">FindPlayer</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-</code></pre>
-
-<p>Searches for an online player by name, steam id or ip. Returns a netuser if a player is found, otherwise null is returned.</p>
-
-<p><code class="prettyprint">rust.FindPlayer(string nameOrSteamIdOrIp)</code></p>
-
-<h2 id="privatebindingflag">PrivateBindingFlag</h2>
-<pre class="highlight csharp"><code><span class="n">This</span> <span class="n">should</span> <span class="n">not</span> <span class="n">be</span> <span class="n">used</span> <span class="k">in</span> <span class="n">C</span><span class="err">#</span> <span class="n">plugins</span><span class="p">,</span> <span class="n">Reflection</span> <span class="n">should</span> <span class="n">be</span> <span class="n">used</span> <span class="n">instead</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="nx">We</span> <span class="nx">need</span> <span class="nx">a</span> <span class="nx">JavaScript</span> <span class="nx">example</span> <span class="nx">here</span>
-</code></pre>
-<pre class="highlight lua"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Lua</span> <span class="n">example</span> <span class="n">here</span>
-</code></pre>
-<pre class="highlight python"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Python</span> <span class="n">example</span> <span class="n">here</span>
-</code></pre>
-
-<p>Used to get/set private methods, fields, and properties through Reflection.</p>
-
-<p><code class="prettyprint">rust.PrivateBindingFlag()</code></p>
-
-<h2 id="quotesafe">QuoteSafe</h2>
-<pre class="highlight csharp"><code><span class="n">var</span> <span class="n">message</span> <span class="p">=</span> <span class="s">"Use /kick \"playername\" to kick player"</span><span class="p">;</span>
-<span class="n">message</span><span class="p">.</span><span class="nf">QuoteSafe</span><span class="p">();</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="nx">rust</span><span class="p">.</span><span class="nx">QuoteSafe</span><span class="p">(</span><span class="s2">"Use /kick \"playername\" to kick player"</span><span class="p">);</span>
-</code></pre>
-<pre class="highlight lua"><code><span class="n">rust</span><span class="p">.</span><span class="n">QuoteSafe</span><span class="p">(</span><span class="s2">"Use /kick \"</span><span class="n">playername</span><span class="err">\</span><span class="s2">" to kick player"</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight python"><code><span class="n">rust</span><span class="o">.</span><span class="n">QuoteSafe</span><span class="p">(</span><span class="s">"Use /kick </span><span class="se">\"</span><span class="s">playername</span><span class="se">\"</span><span class="s"> to kick player"</span><span class="p">)</span>
-</code></pre>
-
-<p>Used to safely save text or send a message that contains quotation marks.</p>
-
-<p><code class="prettyprint">rust.QuoteSafe(message)</code></p>
-
-<h2 id="sendchatmessage">SendChatMessage</h2>
-<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnPlayerSpawn</span><span class="p">(</span><span class="n">NetUser</span> <span class="n">netuser</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">var</span> <span class="n">message</span> <span class="p">=</span> <span class="s">"You've respawned from a terrible death"</span><span class="p">;</span>
-    <span class="n">rust</span><span class="p">.</span><span class="nf">SendChatMessage</span><span class="p">({</span> <span class="n">netuser</span><span class="p">,</span> <span class="n">message</span> <span class="p">});</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="nx">OnPlayerSpawn</span> <span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">netuser</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">rust</span><span class="p">.</span><span class="nx">SendChatMessage</span><span class="p">(</span><span class="nx">netuser</span><span class="p">,</span> <span class="s2">"You've respawned from a terrible death"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">OnPlayerSpawn</span><span class="p">(</span><span class="n">player</span><span class="p">)</span>
-    <span class="n">rust</span><span class="p">.</span><span class="n">SendChatMessage</span><span class="p">(</span><span class="n">netuser</span><span class="p">,</span> <span class="s2">"You've respawned from a terrible death"</span><span class="p">)</span>
-<span class="k">end</span>
-</code></pre>
-<pre class="highlight python"><code><span class="k">def</span> <span class="nf">OnPlayerSpawn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">player</span><span class="p">):</span>
-    <span class="n">rust</span><span class="o">.</span><span class="n">SendChatMessage</span><span class="p">(</span><span class="n">netuser</span><span class="p">,</span> <span class="s">"You've respawned from a terrible death"</span><span class="p">)</span>
-</code></pre>
-
-<p>Sends a chat message to specified player.</p>
-
-<p><code class="prettyprint">rust.SendChatMessage(NetUser netuser, string message, object[] args)</code></p>
-
-<h2 id="sendconsolemessage">SendConsoleMessage</h2>
-<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnPlayerSpawn</span><span class="p">(</span><span class="n">NetUser</span> <span class="n">netuser</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">var</span> <span class="n">message</span> <span class="p">=</span> <span class="s">"You've respawned from a terrible death"</span><span class="p">;</span>
-    <span class="n">rust</span><span class="p">.</span><span class="nf">SendConsoleMessage</span><span class="p">({</span> <span class="n">netuser</span><span class="p">,</span> <span class="n">message</span> <span class="p">});</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="nx">OnPlayerSpawn</span> <span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">netuser</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">rust</span><span class="p">.</span><span class="nx">SendConsoleMessage</span><span class="p">(</span><span class="nx">netuser</span><span class="p">,</span> <span class="s2">"You've respawned from a terrible death"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">OnPlayerSpawn</span><span class="p">(</span><span class="n">player</span><span class="p">)</span>
-    <span class="n">rust</span><span class="p">.</span><span class="n">SendConsoleMessage</span><span class="p">(</span><span class="n">netuser</span><span class="p">,</span> <span class="s2">"You've respawned from a terrible death"</span><span class="p">)</span>
-<span class="k">end</span>
-</code></pre>
-<pre class="highlight python"><code><span class="k">def</span> <span class="nf">OnPlayerSpawn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">player</span><span class="p">):</span>
-    <span class="n">rust</span><span class="o">.</span><span class="n">SendConsoleMessage</span><span class="p">(</span><span class="n">netuser</span><span class="p">,</span> <span class="s">"You've respawned from a terrible death"</span><span class="p">)</span>
-</code></pre>
-
-<p>Sends a console message to specified player&rsquo;s console.</p>
-
-<p><code class="prettyprint">rust.SendConsoleMessage(NetUser netuser, string message, object[] args)</code></p>
-
-<h2 id="useridfromplayer">UserIDFromPlayer</h2>
-<pre class="highlight csharp"><code><span class="na">[ChatCommand("steamid")]</span>
-<span class="k">void</span> <span class="nf">cmdChatSteamid</span><span class="p">(</span><span class="n">NetUser</span> <span class="n">netuser</span><span class="p">,</span> <span class="kt">string</span> <span class="n">command</span><span class="p">,</span> <span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="nf">SendReply</span><span class="p">(</span><span class="n">netuser</span><span class="p">,</span> <span class="s">"Your SteamID is: "</span> <span class="p">+</span> <span class="n">netuser</span><span class="p">.</span><span class="n">userID</span><span class="p">.</span><span class="nf">ToString</span><span class="p">());</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="nx">Init</span> <span class="err">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">command</span><span class="p">.</span><span class="nx">AddChatCommand</span><span class="p">(</span><span class="s2">"steamid"</span><span class="p">,</span>  <span class="nx">self</span><span class="p">.</span><span class="nx">Plugin</span><span class="p">,</span> <span class="s2">"cmdSteamId"</span><span class="p">);</span>
-<span class="p">},</span>
-<span class="nx">cmdSteamId</span> <span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">netuser</span><span class="p">,</span> <span class="nx">command</span><span class="p">,</span> <span class="nx">arg</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">rust</span><span class="p">.</span><span class="nx">SendChatMessage</span><span class="p">(</span><span class="nx">netuser</span><span class="p">,</span> <span class="s2">"Your Steam ID is: "</span> <span class="o">+</span> <span class="nx">rust</span><span class="p">.</span><span class="nx">UserIDFromPlayer</span><span class="p">(</span><span class="nx">netuser</span><span class="p">));</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">Init</span><span class="p">()</span>
-    <span class="n">command</span><span class="p">.</span><span class="n">AddChatCommand</span><span class="p">(</span><span class="s2">"steamid"</span><span class="p">,</span>  <span class="n">self</span><span class="p">.</span><span class="n">Plugin</span><span class="p">,</span> <span class="s2">"cmdSteamId"</span><span class="p">)</span>
-<span class="k">end</span>
-<span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">cmdSteamId</span><span class="p">(</span><span class="n">netuser</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="n">arg</span><span class="p">)</span>
-    <span class="n">rust</span><span class="p">.</span><span class="n">SendChatMessage</span><span class="p">(</span><span class="n">netuser</span><span class="p">,</span> <span class="s2">"Your Steam ID is: "</span> <span class="o">..</span> <span class="n">rust</span><span class="p">.</span><span class="n">UserIDFromPlayer</span><span class="p">(</span><span class="n">netuser</span><span class="p">))</span>
-<span class="k">end</span>
-</code></pre>
-<pre class="highlight python"><code><span class="k">def</span> <span class="nf">Init</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="n">command</span><span class="o">.</span><span class="n">AddChatCommand</span><span class="p">(</span><span class="s">"steamid"</span><span class="p">,</span>  <span class="bp">self</span><span class="o">.</span><span class="n">Plugin</span><span class="p">,</span> <span class="s">"cmdSteamId"</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">cmdSteamId</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">netuser</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="n">arg</span><span class="p">):</span>
-    <span class="n">rust</span><span class="o">.</span><span class="n">SendChatMessage</span><span class="p">(</span><span class="n">netuser</span><span class="p">,</span> <span class="s">"Your Steam ID is: "</span> <span class="o">+</span> <span class="n">rust</span><span class="o">.</span><span class="n">UserIDFromPlayer</span><span class="p">(</span><span class="n">netuser</span><span class="p">))</span>
-</code></pre>
-
-<p>Gets the user ID (64-bit SteamID) as a string of an online player.</p>
-
-<p><code class="prettyprint">rust.UserIDFromPlayer(NetUser netuser)</code></p>
-
-<h2 id="notice">Notice</h2>
-<pre class="highlight csharp"><code><span class="na">[ChatCommand("notice")]</span>
-<span class="k">void</span> <span class="nf">cmdNotice</span><span class="p">(</span><span class="n">NetUser</span> <span class="n">netuser</span><span class="p">,</span> <span class="kt">string</span> <span class="n">command</span><span class="p">,</span> <span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">var</span> <span class="n">message</span> <span class="p">=</span> <span class="s">"Notice Demo"</span><span class="p">;</span>
-    <span class="n">var</span> <span class="n">icon</span> <span class="p">=</span> <span class="s">"!"</span><span class="p">;</span>
-    <span class="n">var</span> <span class="n">duration</span> <span class="p">=</span> <span class="m">4f</span><span class="p">;</span>
-    <span class="n">rust</span><span class="p">.</span><span class="nf">Notice</span><span class="p">(</span><span class="n">netuser</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">icon</span><span class="p">,</span> <span class="n">duration</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="nx">Init</span> <span class="err">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">command</span><span class="p">.</span><span class="nx">AddChatCommand</span><span class="p">(</span><span class="s2">"notice"</span><span class="p">,</span>  <span class="nx">self</span><span class="p">.</span><span class="nx">Plugin</span><span class="p">,</span> <span class="s2">"cmdNotice"</span><span class="p">);</span>
-<span class="p">},</span>
-<span class="nx">cmdNotice</span> <span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">netuser</span><span class="p">,</span> <span class="nx">command</span><span class="p">,</span> <span class="nx">arg</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">rust</span><span class="p">.</span><span class="nx">Notice</span><span class="p">(</span><span class="nx">netuser</span><span class="p">,</span> <span class="s2">"Notice Demo"</span><span class="p">,</span> <span class="s2">"!"</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">Init</span><span class="p">()</span>
-    <span class="n">command</span><span class="p">.</span><span class="n">AddChatCommand</span><span class="p">(</span><span class="s2">"notice"</span><span class="p">,</span>  <span class="n">self</span><span class="p">.</span><span class="n">Plugin</span><span class="p">,</span> <span class="s2">"cmdNotice"</span><span class="p">)</span>
-<span class="k">end</span>
-<span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">cmdNotice</span><span class="p">(</span><span class="n">netuser</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="n">arg</span><span class="p">)</span>
-    <span class="n">rust</span><span class="p">.</span><span class="n">Notice</span><span class="p">(</span><span class="n">netuser</span><span class="p">,</span> <span class="s2">"Notice Demo"</span><span class="p">,</span> <span class="s2">"!"</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
-<span class="k">end</span>
-</code></pre>
-<pre class="highlight python"><code><span class="k">def</span> <span class="nf">Init</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="n">command</span><span class="o">.</span><span class="n">AddChatCommand</span><span class="p">(</span><span class="s">"notice"</span><span class="p">,</span>  <span class="bp">self</span><span class="o">.</span><span class="n">Plugin</span><span class="p">,</span> <span class="s">"cmdNotice"</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">cmdNotice</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">netuser</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="n">arg</span><span class="p">):</span>
-    <span class="n">rust</span><span class="o">.</span><span class="n">Notice</span><span class="p">(</span><span class="n">netuser</span><span class="p">,</span> <span class="s">"Notice Demo"</span><span class="p">,</span> <span class="s">"!"</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
-</code></pre>
-
-<p>Sends a notice to the player at the top of the screen.</p>
-
-<p><code class="prettyprint">rust.Notice(NetUser netuser, string message, string icon, float duration)</code></p>
-
-<h2 id="inventorynotice">InventoryNotice</h2>
-<pre class="highlight csharp"><code><span class="na">[ChatCommand("notice")]</span>
-<span class="k">void</span> <span class="nf">cmdNotice</span><span class="p">(</span><span class="n">NetUser</span> <span class="n">netuser</span><span class="p">,</span> <span class="kt">string</span> <span class="n">command</span><span class="p">,</span> <span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">var</span> <span class="n">message</span> <span class="p">=</span> <span class="s">"InventoryNotice Demo"</span><span class="p">;</span>
-    <span class="n">rust</span><span class="p">.</span><span class="nf">InventoryNotice</span><span class="p">(</span><span class="n">netuser</span><span class="p">,</span> <span class="n">message</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="nx">Init</span> <span class="err">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">command</span><span class="p">.</span><span class="nx">AddChatCommand</span><span class="p">(</span><span class="s2">"notice"</span><span class="p">,</span>  <span class="nx">self</span><span class="p">.</span><span class="nx">Plugin</span><span class="p">,</span> <span class="s2">"cmdNotice"</span><span class="p">);</span>
-<span class="p">},</span>
-<span class="nx">cmdNotice</span> <span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">netuser</span><span class="p">,</span> <span class="nx">command</span><span class="p">,</span> <span class="nx">arg</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">rust</span><span class="p">.</span><span class="nx">InventoryNotice</span><span class="p">(</span><span class="nx">netuser</span><span class="p">,</span> <span class="s2">"InventoryNotice Demo"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">Init</span><span class="p">()</span>
-    <span class="n">command</span><span class="p">.</span><span class="n">AddChatCommand</span><span class="p">(</span><span class="s2">"notice"</span><span class="p">,</span>  <span class="n">self</span><span class="p">.</span><span class="n">Plugin</span><span class="p">,</span> <span class="s2">"cmdNotice"</span><span class="p">)</span>
-<span class="k">end</span>
-<span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">cmdNotice</span><span class="p">(</span><span class="n">netuser</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="n">arg</span><span class="p">)</span>
-    <span class="n">rust</span><span class="p">.</span><span class="n">InventoryNotice</span><span class="p">(</span><span class="n">netuser</span><span class="p">,</span> <span class="s2">"InventoryNotice Demo"</span><span class="p">);</span>
-<span class="k">end</span>
-</code></pre>
-<pre class="highlight python"><code><span class="k">def</span> <span class="nf">Init</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="n">command</span><span class="o">.</span><span class="n">AddChatCommand</span><span class="p">(</span><span class="s">"notice"</span><span class="p">,</span>  <span class="bp">self</span><span class="o">.</span><span class="n">Plugin</span><span class="p">,</span> <span class="s">"cmdNotice"</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">cmdNotice</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">netuser</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="n">arg</span><span class="p">):</span>
-    <span class="n">rust</span><span class="o">.</span><span class="n">InventoryNotice</span><span class="p">(</span><span class="n">netuser</span><span class="p">,</span> <span class="s">"InventoryNotice Demo"</span><span class="p">);</span>
-</code></pre>
-
-<p>Sends a notice to the player on the right side of the screen right above the player&rsquo;s health bar.</p>
-
-<p><code class="prettyprint">rust.InventoryNotice(NetUser netuser, string message)</code></p>
-
-          <h1 id="7-days-to-die-api-hooks">7 Days to Die API Hooks</h1>
-
-<h2 id="plugin-hooks">Plugin hooks</h2>
-
-<h3 id="init()">Init()</h3>
-
-<ul>
-<li>Called when the plugin is being loaded</li>
-<li>Other plugins may or may not be present, dependant on load order</li>
-<li>Other plugins WILL have been executed though, so globals exposed by them will be present</li>
-</ul>
-
-<h3 id="loaddefaultconfig()">LoadDefaultConfig()</h3>
-
-<ul>
-<li>Called when the config for the plugin should be initialized</li>
-<li>Only called if the config file does not already exist</li>
-</ul>
-
-<h3 id="unload()">Unload()</h3>
-
-<ul>
-<li>Called when the plugin is being unloaded</li>
-</ul>
-
-<h3 id="onpluginloaded(plugin)">OnPluginLoaded(plugin)</h3>
-
-<ul>
-<li>Called when specified plugin has been loaded</li>
-</ul>
-
-<h3 id="onpluginunloaded(plugin)">OnPluginUnloaded(plugin)</h3>
-
-<ul>
-<li>Called when specified plugin has been unloaded</li>
-</ul>
-
-<h2 id="general-hooks">General hooks</h2>
-
-<h3 id="oninitlogging()">OnInitLogging()</h3>
-
-<ul>
-<li>No return behavior</li>
-<li>Used internally by Oxide to start Unity logging</li>
-</ul>
-
-<h3 id="onserverinitialized()">OnServerInitialized()</h3>
-
-<ul>
-<li>Called from ConnectionManager.OnServerInitialized</li>
-<li>No return behavior</li>
-<li>Called after the server startup has been completed and is awaiting connections</li>
-</ul>
-
-<h3 id="onserversave()">OnServerSave()</h3>
-
-<ul>
-<li>Called from GameManager.SavePlayerData and GameManager.SaveWorld</li>
-<li>No return behavior</li>
-<li>Is called before the server saves world and player data</li>
-</ul>
-
-<h3 id="onserverquit()">OnServerQuit()</h3>
-
-<ul>
-<li>Called from GameManager.OnApplicationQuit</li>
-<li>No return behavior</li>
-<li>Is called before the server starts the shutdown sequence</li>
-<li>This should generally not be used by plugins, instead use the Unload hook</li>
-</ul>
-
-<h3 id="onruncommand(consolesdtd-console,-consolecommand-command,-string[]-args)">OnRunCommand(ConsoleSdtd console, ConsoleCommand command, String[] args)</h3>
-
-<ul>
-<li>Called from ConsoleSdtd.ExecuteRemoteCmdInternal</li>
-<li>Help! This is missing a description!</li>
-</ul>
-
-<h2 id="player-hooks">Player hooks</h2>
-
-<h3 id="onplayerconnected(clientinfo-client)">OnPlayerConnected(ClientInfo client)</h3>
-
-<ul>
-<li>Called from GameManager.md0013</li>
-<li>Help! This is missing a description!</li>
-</ul>
-
-<h3 id="onplayerdisconnected(clientinfo-client)">OnPlayerDisconnected(ClientInfo client)</h3>
-
-<ul>
-<li>Called from ConnectionManager.RemovePlayer</li>
-<li>Help! This is missing a description!</li>
-</ul>
-
-<h3 id="onplayerchat(string-message,-int-team,-string-playername)">OnPlayerChat(string message, int team, string playerName)</h3>
-
-<ul>
-<li>Called from GameManager.SendChatMessage</li>
-<li>Help! This is missing a description!</li>
-</ul>
-
-<h2 id="entity-hooks">Entity hooks</h2>
-
-<h3 id="onentityspawned(entity-entity)">OnEntitySpawned(Entity entity)</h3>
-
-<ul>
-<li>Called from World.SpawnEntityInWorld</li>
-<li>Help! This is missing a description!</li>
-</ul>
-
-<h3 id="onentityhurt(cl0006-entity,-damagesource-source)">OnEntityHurt(cl0006 entity, DamageSource source)</h3>
-
-<ul>
-<li>Called from cl0006.DamageEntity</li>
-<li>Help! This is missing a description!</li>
-</ul>
-
-<h3 id="onentitydeath(cl0006-entity)">OnEntityDeath(cl0006 entity)</h3>
-
-<ul>
-<li>Called from cl0006.OnEntityDeath and EntityCar.OnEntityDeath</li>
-<li>Help! This is missing a description!</li>
-</ul>
-
-<h2 id="item-hooks">Item hooks</h2>
-
-<p>None yet!</p>
-
-<h2 id="structure-hooks">Structure hooks</h2>
-
-<p>None yet!</p>
-
-          <h1 id="7-days-to-die-functions">7 Days to Die Functions</h1>
-
-<p>There are a few functions that have been added to wrap 7 Days to Die functions, creating aliases of sorts to make your life easier during initial coding as well as during upgrades.</p>
-
-<h2 id="broadcastchat">BroadcastChat</h2>
-<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnPlayerConnected</span><span class="p">(</span><span class="n">ClientInfo</span> <span class="n">client</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="nf">PrintToChat</span><span class="p">(</span><span class="kt">string</span><span class="p">.</span><span class="nf">Format</span><span class="p">(</span><span class="s">"{0} has joined the server"</span><span class="p">,</span> <span class="n">client</span><span class="p">.</span><span class="n">playerName</span><span class="p">));</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="nx">OnPlayerConnected</span> <span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">client</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">sevendays</span><span class="p">.</span><span class="nx">BroadcastChat</span><span class="p">(</span><span class="nx">client</span><span class="p">.</span><span class="nx">playerName</span> <span class="o">+</span> <span class="s2">" has joined the server"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">OnPlayerConnected</span><span class="p">(</span><span class="n">client</span><span class="p">)</span>
-    <span class="n">sevendays</span><span class="p">.</span><span class="n">BroadcastChat</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">playerName</span> <span class="o">..</span> <span class="s2">" has joined the server"</span><span class="p">)</span>
-<span class="k">end</span>
-</code></pre>
-<pre class="highlight python"><code><span class="k">def</span> <span class="nf">OnPlayerConnected</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client</span><span class="p">):</span>
-    <span class="n">sevendays</span><span class="o">.</span><span class="n">BroadcastChat</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">playerName</span> <span class="o">+</span> <span class="s">" has joined the server"</span><span class="p">)</span>
-</code></pre>
-
-<p>Sends a chat message to all players. The name parameter is optional and will be blank if not provided.</p>
-
-<p><code class="prettyprint">sevendays.BroadcastChat(name, message)</code></p>
 
           <h1 id="commands">Commands</h1>
 
 <h2 id="default-commands">Default commands</h2>
-
-<p>oxide.load</p>
-
-<p>oxide.reload</p>
-
-<p>oxide.unload</p>
-
-<p>oxide.version (or version)</p>
-
-<p>oxide.grant</p>
-
-<p>oxide.revoke</p>
-
-<p>oxide.group</p>
-
-<p>oxide.usergroup</p>
+<pre class="highlight plaintext"><code>oxide.load *|&lt;pluginname&gt;+  
+oxide.unload *|&lt;pluginname&gt;+  
+oxide.reload *|&lt;pluginname&gt;+  
+oxide.grant &lt;group|user&gt; &lt;name|id&gt; &lt;permission&gt;  
+oxide.revoke &lt;group|user&gt; &lt;name|id&gt; &lt;permission&gt;  
+oxide.group &lt;add|set&gt; &lt;name&gt; [title] [rank]  
+oxide.group &lt;remove|show&gt; &lt;name&gt;  
+oxide.group &lt;parent&gt; &lt;name&gt; &lt;parentName&gt;  
+oxide.usergroup &lt;add|remove&gt; &lt;username&gt; &lt;groupname&gt;  
+version or oxide.version
+</code></pre>
 
 <h2 id="chat-commands">Chat commands</h2>
+<pre class="highlight csharp"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">CSharp</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="nx">We</span> <span class="nx">need</span> <span class="nx">a</span> <span class="nx">JavaScript</span> <span class="nx">example</span> <span class="nx">here</span>
+</code></pre>
+<pre class="highlight lua"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Lua</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
+<pre class="highlight python"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Python</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
 
 <h2 id="console-commands">Console commands</h2>
+<pre class="highlight csharp"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">CSharp</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="nx">We</span> <span class="nx">need</span> <span class="nx">a</span> <span class="nx">JavaScript</span> <span class="nx">example</span> <span class="nx">here</span>
+</code></pre>
+<pre class="highlight lua"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Lua</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
+<pre class="highlight python"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Python</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
 
           <h1 id="configurations">Configurations</h1>
 
@@ -1719,11 +705,11 @@
 
           <h1 id="timers">Timers</h1>
 
-<h2 id="creating-a-timer">Creating a timer</h2>
+<p>Sometimes you come across a situation which only a timer can fix.</p>
 
-<p>Sometimes you come across a situation which only a timer can fix. Timers are great for delaying code, allowing it to be run later. The following sections will show you the various timer types, and how to use them properly.</p>
+<p>Timers are great for delaying code, allowing it to be run later.</p>
 
-<h2 id="timer.once">timer.Once</h2>
+<h2 id="single-timer">Single timer</h2>
 
 <blockquote>
 <p>Basic example of timer.Once</p>
@@ -1761,9 +747,9 @@
 <pre class="highlight python"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Python</span> <span class="n">example</span> <span class="n">here</span>
 </code></pre>
 
-<p>Executes the specified function once after the specified delay.</p>
+<p>Executes the specified function once after the specified delay.  </p>
 
-<h2 id="timer.repeat">timer.Repeat</h2>
+<h2 id="repeating-timer">Repeating timer</h2>
 
 <blockquote>
 <p>Basic example of timer.Repeat</p>
@@ -1771,7 +757,7 @@
 <pre class="highlight csharp"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">CSharp</span> <span class="n">example</span> <span class="n">here</span>
 </code></pre>
 <pre class="highlight javascript"><code><span class="nx">timer</span><span class="p">.</span><span class="nx">Repeat</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">rust</span><span class="p">.</span><span class="nx">BroadcastChat</span><span class="p">(</span><span class="s2">"SERVER"</span><span class="p">,</span> <span class="s2">"Hello world!"</span><span class="p">);</span>
+    <span class="nx">rust</span><span class="p">.</span><span class="nx">BroadcastChat</span><span class="p">(</span><span class="s2">"SERVER"</span><span class="p">,</span> <span class="s2">"Hello world!"</span><span class="p">);</span><span class="nx">Placeholder</span>
 <span class="p">},</span> <span class="k">this</span><span class="p">.</span><span class="nx">Plugin</span><span class="p">);</span>
 </code></pre>
 <pre class="highlight lua"><code><span class="n">timer</span><span class="p">.</span><span class="n">Repeat</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span>
@@ -1783,9 +769,11 @@
 <span class="n">timer</span><span class="o">.</span><span class="n">Repeat</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Action</span><span class="p">(</span><span class="n">my_callback_func</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">Plugin</span><span class="p">)</span>
 </code></pre>
 
-<p>Executes the specified function every &ldquo;delay&rdquo; seconds. If &ldquo;repeats&rdquo; is specified, the function will only be called &ldquo;repeats&rdquo; times.</p>
+<p>Executes the specified function every &ldquo;delay&rdquo; seconds.</p>
 
-<h2 id="timer.nextframe">timer.NextFrame</h2>
+<p>If &ldquo;repeats&rdquo; is specified, the function will only be called &ldquo;repeats&rdquo; times.  </p>
+
+<h2 id="next-frame-timer">Next frame timer</h2>
 
 <blockquote>
 <p>Basic example of timer.NextFrame</p>
@@ -1799,7 +787,7 @@
 <pre class="highlight python"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Python</span> <span class="n">example</span> <span class="n">here</span>
 </code></pre>
 
-<p>Executes the specified function at the next frame.</p>
+<p>Executes the specified function at the next frame.  </p>
 
 <h2 id="destroying-a-timer">Destroying a timer</h2>
 
@@ -1834,7 +822,9 @@
 <pre class="highlight python"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Python</span> <span class="n">example</span> <span class="n">here</span>
 </code></pre>
 
-<p>If you need to stop a timer, you can do so by destroying the instance of the timer. When used correctly, timers are automatically destroyed when the plugin is reload or unloaded.</p>
+<p>When used correctly, timers are automatically destroyed when the plugin is reload or unloaded.</p>
+
+<p>If you need to stop a timer manually, you can do so by destroying the instance of the timer.</p>
 
           <h1 id="web-requests">Web Requests</h1>
 
@@ -1884,178 +874,13 @@
 
 <p>Returns true/false</p>
 
-          <h1 id="styling-messages">Styling Messages</h1>
-
-<blockquote>
-<p>Render the text in boldface</p>
-</blockquote>
-<pre class="highlight html"><code>We are <span class="nt">&lt;b&gt;</span>not<span class="nt">&lt;/b&gt;</span> amused.
-</code></pre>
-
-<blockquote>
-<p>Render the text in italics</p>
-</blockquote>
-<pre class="highlight html"><code>We are <span class="nt">&lt;i&gt;</span>usually<span class="nt">&lt;/i&gt;</span> not amused.
-</code></pre>
-
-<blockquote>
-<p>It is possible to apply more than one style to a section of text by nesting one element inside another.</p>
-</blockquote>
-<pre class="highlight html"><code>We are <span class="nt">&lt;b&gt;&lt;i&gt;</span>definitely not<span class="nt">&lt;/i&gt;&lt;/b&gt;</span> amused
-</code></pre>
-
-<blockquote>
-<p>Note the ordering of the ending tags, which is in reverse to that of the starting tags. The reason for this is perhaps clearer when you consider that the inner tags need not span the whole text of the outermost element.</p>
-</blockquote>
-<pre class="highlight html"><code>We are <span class="nt">&lt;b&gt;</span>absolutely <span class="nt">&lt;i&gt;</span>definitely<span class="nt">&lt;/i&gt;</span> not<span class="nt">&lt;/b&gt;</span> amused
-</code></pre>
-
-<blockquote>
-<p>Change the size of text, by pixel value</p>
-</blockquote>
-<pre class="highlight html"><code>We are <span class="nt">&lt;size</span><span class="err">=</span><span class="na">50</span><span class="nt">&gt;</span>largely<span class="nt">&lt;/size&gt;</span> unaffected.
-</code></pre>
-
-<blockquote>
-<p>Change the color of text</p>
-</blockquote>
-<pre class="highlight html"><code><span class="nt">&lt;color</span><span class="err">=#</span><span class="na">00ffffff</span><span class="nt">&gt;</span>Hello world<span class="nt">&lt;/color&gt;</span>
-</code></pre>
-
-<p>With Rust, you can stylize messages send from the server via plugins. Styling is limited to bold, italic, size, and color.</p>
-
-<p>The color can be specified in the traditional HTML format. <code class="prettyprint">#rrggbbaa</code>&hellip; where the letters correspond to pairs of hexadecimal digits denoting the red, green, blue and alpha (transparency) values for the color.</p>
-
-<p>Another option is to use the name of the color. This is easier to understand but naturally, the range of colors is limited and full opacity is always assumed. <code class="prettyprint">&lt;color=cyan&gt;</code>&hellip; The available color names are given in the table below.</p>
-
-<table><thead>
-<tr>
-<th>Color Name</th>
-<th>Hex Value</th>
-<th>Swatch</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>aqua (same as cyan)</td>
-<td>#00ffffff</td>
-<td><img src="images/cyan-swatch.png" /></td>
-</tr>
-<tr>
-<td>black</td>
-<td>#000000ff</td>
-<td><img src="images/black-swatch.png" /></td>
-</tr>
-<tr>
-<td>blue</td>
-<td>#0000ffff</td>
-<td><img src="images/blue-swatch.png" /></td>
-</tr>
-<tr>
-<td>brown</td>
-<td>#a52a2aff</td>
-<td><img src="images/brown-swatch.png" /></td>
-</tr>
-<tr>
-<td>cyan (same as aqua)</td>
-<td>#00ffffff</td>
-<td><img src="images/cyan-swatch.png" /></td>
-</tr>
-<tr>
-<td>darkblue</td>
-<td>#0000a0ff</td>
-<td><img src="images/darkblue-swatch.png" /></td>
-</tr>
-<tr>
-<td>fuchsia (same as magenta)</td>
-<td>#ff00ffff</td>
-<td><img src="images/magenta-swatch.png" /></td>
-</tr>
-<tr>
-<td>green</td>
-<td>#008000ff</td>
-<td><img src="images/green-swatch.png" /></td>
-</tr>
-<tr>
-<td>grey</td>
-<td>#808080ff</td>
-<td><img src="images/grey-swatch.png" /></td>
-</tr>
-<tr>
-<td>lightblue</td>
-<td>#add8e6ff</td>
-<td><img src="images/lightblue-swatch.png" /></td>
-</tr>
-<tr>
-<td>lime</td>
-<td>#00ff00ff</td>
-<td><img src="images/lime-swatch.png" /></td>
-</tr>
-<tr>
-<td>magenta (same as fuchsia)</td>
-<td>#ff00ffff</td>
-<td><img src="images/magenta-swatch.png" /></td>
-</tr>
-<tr>
-<td>maroon</td>
-<td>#800000ff</td>
-<td><img src="images/maroon-swatch.png" /></td>
-</tr>
-<tr>
-<td>navy</td>
-<td>#000080ff</td>
-<td><img src="images/navy-swatch.png" /></td>
-</tr>
-<tr>
-<td>olive</td>
-<td>#808000ff</td>
-<td><img src="images/olive-swatch.png" /></td>
-</tr>
-<tr>
-<td>orange</td>
-<td>#ffa500ff</td>
-<td><img src="images/orange-swatch.png" /></td>
-</tr>
-<tr>
-<td>purple</td>
-<td>#800080ff</td>
-<td><img src="images/purple-swatch.png" /></td>
-</tr>
-<tr>
-<td>red</td>
-<td>#ff0000ff</td>
-<td><img src="images/red-swatch.png" /></td>
-</tr>
-<tr>
-<td>silver</td>
-<td>#c0c0c0ff</td>
-<td><img src="images/silver-swatch.png" /></td>
-</tr>
-<tr>
-<td>teal</td>
-<td>#008080ff</td>
-<td><img src="images/teal-swatch.png" /></td>
-</tr>
-<tr>
-<td>white</td>
-<td>#ffffffff</td>
-<td><img src="images/white-swatch.png" /></td>
-</tr>
-<tr>
-<td>yellow</td>
-<td>#ffff00ff</td>
-<td><img src="images/yellow-swatch.png" /></td>
-</tr>
-</tbody></table>
-
-<p><em>Source: <a href="http://docs.unity3d.com/Manual/StyledText.html">http://docs.unity3d.com/Manual/StyledText.html</a></em></p>
-
           <h1 id="compiling-source">Compiling Source</h1>
 
 <p>While we recommend using one of the <a href="http://oxidemod.org/downloads/">official release builds</a>, you can compile your own builds if you&rsquo;d like. Keep in mind that only official builds are supported by the Oxide team and community.</p>
 
 <ol>
 <li>Clone the git repository locally using <code class="prettyprint">git clone https://github.com/OxideMod/Oxide.git</code> or download the <a href="https://github.com/OxideMod/Oxide/archive/master.zip">latest ZIP</a>.</li>
-<li>Open the solution the latest version of <a href="https://www.visualstudio.com/en-us/downloads/visual-studio-2015-downloads-vs.aspx">Visual Studio 2015</a>, which includes .NET Framework 4.6.</li>
+<li>Open the solution in the latest version of <a href="https://www.visualstudio.com/en-us/downloads/visual-studio-2015-downloads-vs.aspx">Visual Studio 2015</a>, which includes .NET Framework 4.6.</li>
 <li>Build the project using the solution. If you get errors, you&rsquo;re likely not using the latest Visual Studio 2015.</li>
 <li>Copy the files from the <code class="prettyprint">Bundles</code> directory for your game of choice to your server installation.</li>
 </ol>
