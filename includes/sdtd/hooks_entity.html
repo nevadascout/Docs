@@ -13,7 +13,7 @@
 
   </head>
 
-  <body class="includes includes_rust includes_rust_hooks_sign">
+  <body class="includes includes_sdtd includes_sdtd_hooks_entity">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -28,12 +28,12 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="sign-hooks">Sign Hooks</h1>
+        <h1 id="entity-hooks">Entity Hooks</h1>
 
-<h2 id="canupdatesign">CanUpdateSign</h2>
-<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">CanUpdateSign</span><span class="p">(</span><span class="n">Signage</span> <span class="n">sign</span><span class="p">,</span> <span class="n">BasePlayer</span> <span class="n">player</span><span class="p">)</span>
+<h2 id="onentityspawned">OnEntitySpawned</h2>
+<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnEntitySpawned</span><span class="p">(</span><span class="n">Entity</span> <span class="n">entity</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="nf">Puts</span><span class="p">(</span><span class="s">"CanUpdateSign works!"</span><span class="p">);</span>
+    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnEntitySpawned works!"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
 <pre class="highlight javascript"><code><span class="nx">We</span> <span class="nx">need</span> <span class="nx">a</span> <span class="nx">JavaScript</span> <span class="nx">example</span> <span class="nx">here</span>
@@ -44,15 +44,14 @@
 </code></pre>
 
 <ul>
-<li>Called from Signage.CanUpdateSign</li>
-<li>Return true or false to override Rust&rsquo;s check</li>
-<li>Called before the player changes the text on a sign or locks it</li>
+<li>Called from World.SpawnEntityInWorld</li>
+<li>Help! This is missing a description!</li>
 </ul>
 
-<h2 id="onsignlocked">OnSignLocked</h2>
-<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnSignLocked</span><span class="p">(</span><span class="n">Signage</span> <span class="n">sign</span><span class="p">,</span> <span class="n">BasePlayer</span> <span class="n">player</span><span class="p">)</span>
+<h2 id="onentityhurt">OnEntityHurt</h2>
+<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnEntityHurt</span><span class="p">(</span><span class="n">cl0006</span> <span class="n">entity</span><span class="p">,</span> <span class="n">DamageSource</span> <span class="n">source</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnSignLocked works!"</span><span class="p">);</span>
+    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnEntityHurt works!"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
 <pre class="highlight javascript"><code><span class="nx">We</span> <span class="nx">need</span> <span class="nx">a</span> <span class="nx">JavaScript</span> <span class="nx">example</span> <span class="nx">here</span>
@@ -63,15 +62,14 @@
 </code></pre>
 
 <ul>
-<li>Called from Signage.LockSign</li>
-<li>No return behavior</li>
-<li>Called after the player has locked a sign</li>
+<li>Called from cl0006.DamageEntity</li>
+<li>Help! This is missing a description!</li>
 </ul>
 
-<h2 id="onsignupdated">OnSignUpdated</h2>
-<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnSignUpdated</span><span class="p">(</span><span class="n">Signage</span> <span class="n">sign</span><span class="p">,</span> <span class="n">BasePlayer</span> <span class="n">player</span><span class="p">,</span> <span class="kt">string</span> <span class="n">text</span><span class="p">)</span>
+<h2 id="onentitydeath">OnEntityDeath</h2>
+<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnEntityDeath</span><span class="p">(</span><span class="n">cl0006</span> <span class="n">entity</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnSignUpdated works!"</span><span class="p">);</span>
+    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnEntityDeath works!"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
 <pre class="highlight javascript"><code><span class="nx">We</span> <span class="nx">need</span> <span class="nx">a</span> <span class="nx">JavaScript</span> <span class="nx">example</span> <span class="nx">here</span>
@@ -82,9 +80,8 @@
 </code></pre>
 
 <ul>
-<li>Called from Signage.UpdateSign</li>
-<li>No return behavior</li>
-<li>Called after the player has changed the text on a sign</li>
+<li>Called from cl0006.OnEntityDeath and EntityCar.OnEntityDeath</li>
+<li>Help! This is missing a description!</li>
 </ul>
 
       </div>

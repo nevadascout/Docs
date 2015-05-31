@@ -13,7 +13,7 @@
 
   </head>
 
-  <body class="includes includes_rust includes_rust_hooks_item">
+  <body class="includes includes_legacy includes_legacy_hooks_general">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -28,12 +28,12 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="item-hooks">Item Hooks</h1>
+        <h1 id="general-hooks">General Hooks</h1>
 
-<h2 id="onitemcraft">OnItemCraft</h2>
-<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnItemCraft</span><span class="p">(</span><span class="n">ItemCraftTask</span> <span class="n">item</span><span class="p">)</span>
+<h2 id="buildservertags">BuildServerTags</h2>
+<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">BuildServerTags</span><span class="p">(</span><span class="n">IList</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">tags</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnItemCraft works!"</span><span class="p">);</span>
+    <span class="nf">Puts</span><span class="p">(</span><span class="s">"BuildServerTags works!"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
 <pre class="highlight javascript"><code><span class="nx">We</span> <span class="nx">need</span> <span class="nx">a</span> <span class="nx">JavaScript</span> <span class="nx">example</span> <span class="nx">here</span>
@@ -44,15 +44,15 @@
 </code></pre>
 
 <ul>
-<li>Called from ItemCrafter.CraftItem</li>
-<li>Return a ItemCraftTask object to modify behavior</li>
-<li>Called right after an item has started crafting</li>
+<li>Called from RustLegacyCore.ModifyTags</li>
+<li>No return behavior</li>
+<li>Add tags to the list, they will be concat&rsquo;d at the end</li>
 </ul>
 
-<h2 id="onitemdeployed">OnItemDeployed</h2>
-<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnItemDeployed</span><span class="p">(</span><span class="n">Deployer</span> <span class="n">deployer</span><span class="p">,</span> <span class="n">BaseEntity</span> <span class="n">deployedEntity</span><span class="p">)</span>
+<h2 id="onserverinitialized">OnServerInitialized</h2>
+<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnServerInitialized</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnItemDeployed works!"</span><span class="p">);</span>
+    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnServerInitialized works!"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
 <pre class="highlight javascript"><code><span class="nx">We</span> <span class="nx">need</span> <span class="nx">a</span> <span class="nx">JavaScript</span> <span class="nx">example</span> <span class="nx">here</span>
@@ -63,15 +63,15 @@
 </code></pre>
 
 <ul>
-<li>Called from Deployer.DoDeploy_Regular and Deployer.DoDeploy_Slot</li>
+<li>Called from ServerInit.Destroy through an additional component added by RustLegacyExtension</li>
 <li>No return behavior</li>
-<li>Called right after an item has been deployed</li>
+<li>Called after the server startup has been completed and is awaiting connections</li>
 </ul>
 
-<h2 id="onitemaddedtocontainer">OnItemAddedToContainer</h2>
-<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnItemAddedToContainer</span><span class="p">(</span><span class="n">ItemContainer</span> <span class="n">container</span><span class="p">,</span> <span class="n">Item</span> <span class="n">item</span><span class="p">)</span>
+<h2 id="onserversave">OnServerSave</h2>
+<pre class="highlight csharp"><code><span class="k">void</span> <span class="n">OnServerSave</span>
 <span class="p">{</span>
-    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnItemAddedToContainer works!"</span><span class="p">);</span>
+    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnServerSave works!"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
 <pre class="highlight javascript"><code><span class="nx">We</span> <span class="nx">need</span> <span class="nx">a</span> <span class="nx">JavaScript</span> <span class="nx">example</span> <span class="nx">here</span>
@@ -82,16 +82,15 @@
 </code></pre>
 
 <ul>
-<li>Called from ItemContainer.Insert</li>
+<li>Called from ServerSaveManager.Save</li>
 <li>No return behavior</li>
-<li>Called right after an item was added to a container</li>
-<li>An entire stack has to be created, not just adding more wood to a wood stack for example</li>
+<li>Called before the server saves and rotates the .sav files</li>
 </ul>
 
-<h2 id="onitemremovedfromcontainer">OnItemRemovedFromContainer</h2>
-<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnItemRemovedFromContainer</span><span class="p">(</span><span class="n">ItemContainer</span> <span class="n">container</span><span class="p">,</span> <span class="n">Item</span> <span class="n">item</span><span class="p">)</span>
+<h2 id="onservershutdown">OnServerShutdown</h2>
+<pre class="highlight csharp"><code><span class="k">void</span> <span class="n">OnServerShutdown</span>
 <span class="p">{</span>
-    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnItemRemovedFromContainer works!"</span><span class="p">);</span>
+    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnServerShutdown works!"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
 <pre class="highlight javascript"><code><span class="nx">We</span> <span class="nx">need</span> <span class="nx">a</span> <span class="nx">JavaScript</span> <span class="nx">example</span> <span class="nx">here</span>
@@ -102,16 +101,16 @@
 </code></pre>
 
 <ul>
-<li>Called from ItemContainer.Remove</li>
+<li>Called from global.quit</li>
 <li>No return behavior</li>
-<li>Called right after an item was removed from a container</li>
-<li>The entire stack has to be removed for this to be called, not just a little bit</li>
+<li>Called before the server starts the shutdown sequence</li>
+<li>This should generally not be used by plugins, instead use the Unload hook</li>
 </ul>
 
-<h2 id="ongather">OnGather</h2>
-<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnGather</span><span class="p">(</span><span class="n">ResourceDispenser</span> <span class="n">dispenser</span><span class="p">,</span> <span class="n">BaseEntity</span> <span class="n">entity</span><span class="p">,</span> <span class="n">Item</span> <span class="n">item</span><span class="p">)</span>
+<h2 id="onruncommand">OnRunCommand</h2>
+<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnRunCommand</span><span class="p">(</span><span class="n">ConsoleSystem</span><span class="p">.</span><span class="n">Arg</span> <span class="n">arg</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">wantReply</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnGather works!"</span><span class="p">);</span>
+    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnRunCommand works!"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
 <pre class="highlight javascript"><code><span class="nx">We</span> <span class="nx">need</span> <span class="nx">a</span> <span class="nx">JavaScript</span> <span class="nx">example</span> <span class="nx">here</span>
@@ -122,15 +121,16 @@
 </code></pre>
 
 <ul>
-<li>Called from ResourceDispenser.GiveResourceFromItem</li>
-<li>No return behavior</li>
-<li>Called before the player is given items from a resource</li>
+<li>Called from ConsoleSystem.RunCommand</li>
+<li>Return true to override Rust&rsquo;s command handling system</li>
+<li>Useful for intercepting commands before they get to their intended target (like chat.say)</li>
+<li>Used by RustLegacyCore to implement chat commands</li>
 </ul>
 
-<h2 id="onconsumableuse">OnConsumableUse</h2>
-<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnConsumableUse</span><span class="p">(</span><span class="n">Item</span> <span class="n">item</span><span class="p">)</span>
+<h2 id="ondatablocksinitialized">OnDatablocksInitialized</h2>
+<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnDatablocksInitialized</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnConsumableUse works!"</span><span class="p">);</span>
+    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnDatablocksInitialized works!"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
 <pre class="highlight javascript"><code><span class="nx">We</span> <span class="nx">need</span> <span class="nx">a</span> <span class="nx">JavaScript</span> <span class="nx">example</span> <span class="nx">here</span>
@@ -141,15 +141,15 @@
 </code></pre>
 
 <ul>
-<li>Called from Item.UseOneItem</li>
+<li>Called from DatablockDictionary.Initialize</li>
 <li>No return behavior</li>
-<li>Called right after a consumable item is used</li>
+<li>Called when all datablocks have been loaded</li>
 </ul>
 
-<h2 id="onconsumefuel">OnConsumeFuel</h2>
-<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnConsumeFuel</span><span class="p">(</span><span class="n">BaseOven</span> <span class="n">oven</span><span class="p">,</span> <span class="n">Item</span> <span class="n">fuel</span><span class="p">,</span> <span class="n">ItemModBurnable</span> <span class="n">burnable</span><span class="p">)</span>
+<h2 id="onresourcenodeloaded">OnResourceNodeLoaded</h2>
+<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnResourceNodeLoaded</span><span class="p">(</span><span class="n">ResourceTarget</span> <span class="n">resource</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnConsumeFuel works!"</span><span class="p">);</span>
+    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnResourceNodeLoaded works!"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
 <pre class="highlight javascript"><code><span class="nx">We</span> <span class="nx">need</span> <span class="nx">a</span> <span class="nx">JavaScript</span> <span class="nx">example</span> <span class="nx">here</span>
@@ -160,28 +160,9 @@
 </code></pre>
 
 <ul>
-<li>Called from BaseOven.ConsumeFuel</li>
+<li>Called from ResourceTarget.Awake</li>
 <li>No return behavior</li>
-<li>Called right before fuel is used (furnace, lanterns, camp fires, etc.)</li>
-</ul>
-
-<h2 id="onlosecondition">OnLoseCondition</h2>
-<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnLoseCondition</span><span class="p">(</span><span class="n">Item</span> <span class="n">item</span><span class="p">,</span> <span class="k">ref</span> <span class="kt">float</span> <span class="n">amount</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnLoseCondition works!"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="nx">We</span> <span class="nx">need</span> <span class="nx">a</span> <span class="nx">JavaScript</span> <span class="nx">example</span> <span class="nx">here</span>
-</code></pre>
-<pre class="highlight lua"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Lua</span> <span class="n">example</span> <span class="n">here</span>
-</code></pre>
-<pre class="highlight python"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Python</span> <span class="n">example</span> <span class="n">here</span>
-</code></pre>
-
-<ul>
-<li>Called from Item.LoseCondition</li>
-<li>No return behavior</li>
-<li>Called right before the condition of the item is modified</li>
+<li>Called when a resource is initializing</li>
 </ul>
 
       </div>
