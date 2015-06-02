@@ -69,7 +69,8 @@
           <h1 id="getting-started">Getting Started</h1>
 <pre class="highlight csharp"><code><span class="k">namespace</span> <span class="nn">Oxide.Plugins</span>
 <span class="p">{</span>
-    <span class="p">[</span><span class="nf">Info</span><span class="p">(</span><span class="s">"Title of Plugin"</span><span class="p">,</span> <span class="s">"Description"</span><span class="p">,</span> <span class="s">"Your Name"</span><span class="p">,</span> <span class="s">"0.1.0"</span><span class="p">,</span> <span class="n">ResourceId</span> <span class="p">=</span> <span class="m">681</span><span class="p">)]</span>
+    <span class="p">[</span><span class="nf">Info</span><span class="p">(</span><span class="s">"Title of Plugin"</span><span class="p">,</span> <span class="s">"Your Name"</span><span class="p">,</span> <span class="s">"0.1.0"</span><span class="p">,</span> <span class="n">ResourceId</span> <span class="p">=</span> <span class="m">681</span><span class="p">)]</span>
+    <span class="p">[</span><span class="nf">Description</span><span class="p">(</span><span class="s">"This is what my plugin does"</span><span class="p">)]</span>
     <span class="k">public</span> <span class="k">class</span> <span class="nc">PluginName</span> <span class="p">:</span> <span class="n">RustPlugin</span>
     <span class="p">{</span>
         <span class="c1">// This is where your plugin will do its magic
@@ -78,7 +79,7 @@
 </code></pre>
 <pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">PluginName</span> <span class="o">=</span> <span class="p">{</span>
     <span class="na">Title</span> <span class="p">:</span> <span class="s2">"Title of Plugin"</span><span class="p">,</span>
-    <span class="na">Description</span> <span class="p">:</span> <span class="s2">"Plugin description"</span><span class="p">,</span>
+    <span class="na">Description</span> <span class="p">:</span> <span class="s2">"This is what my plugin does"</span><span class="p">,</span>
     <span class="na">Author</span> <span class="p">:</span> <span class="s2">"Your Name"</span><span class="p">,</span>
     <span class="na">Version</span> <span class="p">:</span> <span class="nx">V</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
     <span class="na">ResourceId</span> <span class="p">:</span> <span class="mi">681</span>
@@ -87,7 +88,7 @@
 <span class="p">}</span>
 </code></pre>
 <pre class="highlight lua"><code><span class="n">PLUGIN</span><span class="p">.</span><span class="n">Title</span> <span class="o">=</span> <span class="s2">"Title of Plugin"</span>
-<span class="n">PLUGIN</span><span class="p">.</span><span class="n">Description</span> <span class="o">=</span> <span class="s2">"Plugin description"</span>
+<span class="n">PLUGIN</span><span class="p">.</span><span class="n">Description</span> <span class="o">=</span> <span class="s2">"This is what my plugin does"</span>
 <span class="n">PLUGIN</span><span class="p">.</span><span class="n">Author</span> <span class="o">=</span> <span class="s2">"Your Name"</span>
 <span class="n">PLUGIN</span><span class="p">.</span><span class="n">Version</span> <span class="o">=</span> <span class="n">V</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="n">PLUGIN</span><span class="p">.</span><span class="n">ResourceId</span> <span class="o">=</span> <span class="mi">681</span>
@@ -97,7 +98,7 @@
 <pre class="highlight python"><code><span class="k">class</span> <span class="nc">PluginName</span><span class="p">:</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">Title</span> <span class="o">=</span> <span class="s">"Title of Plugin"</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">Description</span> <span class="o">=</span> <span class="s">"Plugin description"</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Description</span> <span class="o">=</span> <span class="s">"This is what my plugin does"</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">Author</span> <span class="o">=</span> <span class="s">"Your Name"</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">Version</span> <span class="o">=</span> <span class="n">V</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ResourceId</span> <span class="o">=</span> <span class="mi">681</span>
