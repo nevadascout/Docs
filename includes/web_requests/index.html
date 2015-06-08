@@ -37,7 +37,34 @@
 <p>Sends a HTTP web request to the specified URL. Returns true if the web request was sent, false if not. The callback is called with 2 parameters - an integer HTTP response code and a string response.</p>
 
 <h2 id="get-method">Get method</h2>
-<pre class="highlight csharp"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">CSharp</span> <span class="n">example</span> <span class="n">here</span>
+<pre class="highlight csharp"><code><span class="k">using</span> <span class="nn">Oxide.Core</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">Oxide.Core.Libraries</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">Oxide.Plugins</span>
+<span class="p">{</span>
+    <span class="p">[</span><span class="nf">Info</span><span class="p">(</span><span class="s">"Example"</span><span class="p">,</span> <span class="s">"Oxide Team"</span><span class="p">,</span> <span class="m">1.0</span><span class="p">)]</span>
+    <span class="p">[</span><span class="nf">Description</span><span class="p">(</span><span class="s">"This example illustrates how to use a GET WebRequest."</span><span class="p">)]</span>
+    <span class="k">class</span> <span class="nc">Example</span> <span class="p">:</span> <span class="n">RustPlugin</span>
+    <span class="p">{</span>
+        <span class="k">private</span> <span class="k">readonly</span> <span class="n">WebRequests</span> <span class="n">webRequests</span> <span class="p">=</span> <span class="n">Interface</span><span class="p">.</span><span class="nf">GetMod</span><span class="p">().</span><span class="n">GetLibrary</span><span class="p">&lt;</span><span class="n">WebRequests</span><span class="p">&gt;(</span><span class="s">"WebRequests"</span><span class="p">);</span>
+
+        <span class="p">[</span><span class="nf">ChatCommand</span><span class="p">(</span><span class="s">"getrequest"</span><span class="p">)]</span>
+        <span class="k">private</span> <span class="k">void</span> <span class="nf">ExampleGetRequest</span><span class="p">(</span><span class="n">BasePlayer</span> <span class="n">player</span><span class="p">,</span> <span class="kt">string</span> <span class="n">command</span><span class="p">,</span> <span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">webRequests</span><span class="p">.</span><span class="nf">EnqueueGet</span><span class="p">(</span><span class="s">"http://www.google.com/search?q=oxide+mod"</span><span class="p">,</span> <span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nf">WebRequestCallback</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="n">player</span><span class="p">),</span> <span class="k">this</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">private</span> <span class="k">void</span> <span class="nf">WebRequestCallback</span><span class="p">(</span><span class="kt">int</span> <span class="n">code</span><span class="p">,</span> <span class="kt">string</span> <span class="n">response</span><span class="p">,</span> <span class="n">BasePlayer</span> <span class="n">player</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">response</span> <span class="p">==</span> <span class="k">null</span> <span class="p">||</span> <span class="n">code</span> <span class="p">!=</span> <span class="m">200</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="nf">Puts</span><span class="p">(</span><span class="s">"Couldn't get an answer from Google for "</span> <span class="p">+</span> <span class="n">player</span><span class="p">.</span><span class="n">displayName</span><span class="p">);</span>
+                <span class="k">return</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="nf">Puts</span><span class="p">(</span><span class="s">"Google answered for "</span> <span class="p">+</span> <span class="n">player</span><span class="p">.</span><span class="n">displayName</span> <span class="p">+</span> <span class="s">": "</span> <span class="p">+</span> <span class="n">response</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre>
 <pre class="highlight javascript"><code><span class="nx">webrequests</span><span class="p">.</span><span class="nx">EnqueueGet</span><span class="p">(</span><span class="s2">"http://www.google.com/search?q=oxide+mod"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">code</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="nx">response</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="nx">code</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">)</span> <span class="p">{</span>
@@ -69,7 +96,34 @@
 <p>Returns true/false</p>
 
 <h2 id="post-method">Post method</h2>
-<pre class="highlight csharp"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">CSharp</span> <span class="n">example</span> <span class="n">here</span>
+<pre class="highlight csharp"><code><span class="k">using</span> <span class="nn">Oxide.Core</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">Oxide.Core.Libraries</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">Oxide.Plugins</span>
+<span class="p">{</span>
+    <span class="p">[</span><span class="nf">Info</span><span class="p">(</span><span class="s">"Example"</span><span class="p">,</span> <span class="s">"Oxide Team"</span><span class="p">,</span> <span class="m">1.0</span><span class="p">)]</span>
+    <span class="p">[</span><span class="nf">Description</span><span class="p">(</span><span class="s">"This example illustrates how to use a POST WebRequest."</span><span class="p">)]</span>
+    <span class="k">class</span> <span class="nc">Example</span> <span class="p">:</span> <span class="n">RustPlugin</span>
+    <span class="p">{</span>
+        <span class="k">private</span> <span class="k">readonly</span> <span class="n">WebRequests</span> <span class="n">webRequests</span> <span class="p">=</span> <span class="n">Interface</span><span class="p">.</span><span class="nf">GetMod</span><span class="p">().</span><span class="n">GetLibrary</span><span class="p">&lt;</span><span class="n">WebRequests</span><span class="p">&gt;(</span><span class="s">"WebRequests"</span><span class="p">);</span>
+
+        <span class="p">[</span><span class="nf">ChatCommand</span><span class="p">(</span><span class="s">"postrequest"</span><span class="p">)]</span>
+        <span class="k">private</span> <span class="k">void</span> <span class="nf">ExamplePostRequest</span><span class="p">(</span><span class="n">BasePlayer</span> <span class="n">player</span><span class="p">,</span> <span class="kt">string</span> <span class="n">command</span><span class="p">,</span> <span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">webRequests</span><span class="p">.</span><span class="nf">EnqueuePost</span><span class="p">(</span><span class="s">"http://www.google.com/search?q=Oxide+Mod"</span><span class="p">,</span> <span class="s">"param1=value1&amp;param2=value2"</span><span class="p">,</span> <span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nf">WebRequestCallback</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="n">player</span><span class="p">),</span> <span class="k">this</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">private</span> <span class="k">void</span> <span class="nf">WebRequestCallback</span><span class="p">(</span><span class="kt">int</span> <span class="n">code</span><span class="p">,</span> <span class="kt">string</span> <span class="n">response</span><span class="p">,</span> <span class="n">BasePlayer</span> <span class="n">player</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">response</span> <span class="p">==</span> <span class="k">null</span> <span class="p">||</span> <span class="n">code</span> <span class="p">!=</span> <span class="m">200</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="nf">Puts</span><span class="p">(</span><span class="s">"Couldn't get an answer from Google for "</span> <span class="p">+</span> <span class="n">player</span><span class="p">.</span><span class="n">displayName</span><span class="p">);</span>
+                <span class="k">return</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="nf">Puts</span><span class="p">(</span><span class="s">"Google answered for "</span> <span class="p">+</span> <span class="n">player</span><span class="p">.</span><span class="n">displayName</span> <span class="p">+</span> <span class="s">": "</span> <span class="p">+</span> <span class="n">response</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre>
 <pre class="highlight javascript"><code><span class="nx">We</span> <span class="nx">need</span> <span class="nx">a</span> <span class="nx">JavaScript</span> <span class="nx">example</span> <span class="nx">here</span>
 </code></pre>

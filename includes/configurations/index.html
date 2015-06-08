@@ -35,7 +35,24 @@
         <h1 id="configurations">Configurations</h1>
 
 <h2 id="creating-a-configuration">Creating a configuration</h2>
-<pre class="highlight csharp"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">CSharp</span> <span class="n">example</span> <span class="n">here</span>
+<pre class="highlight csharp"><code><span class="k">namespace</span> <span class="nn">Oxide.Plugins</span>
+<span class="p">{</span>
+    <span class="p">[</span><span class="nf">Info</span><span class="p">(</span><span class="s">"Example"</span><span class="p">,</span> <span class="s">"Oxide Team"</span><span class="p">,</span> <span class="m">1.0</span><span class="p">)]</span>
+    <span class="p">[</span><span class="nf">Description</span><span class="p">(</span><span class="s">"This example illustrates how to use a basic configuration file."</span><span class="p">)]</span>
+    <span class="k">class</span> <span class="nc">Example</span> <span class="p">:</span> <span class="n">RustPlugin</span>
+    <span class="p">{</span>
+        <span class="k">protected</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">LoadDefaultConfig</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="nf">PrintWarning</span><span class="p">(</span><span class="s">"Creating a new configuration file."</span><span class="p">);</span>
+            <span class="n">Config</span><span class="p">.</span><span class="nf">Clear</span><span class="p">();</span>
+            <span class="n">Config</span><span class="p">[</span><span class="s">"ShowJoinMessage"</span><span class="p">]</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+            <span class="n">Config</span><span class="p">[</span><span class="s">"ShowLeaveMessage"</span><span class="p">]</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+            <span class="n">Config</span><span class="p">[</span><span class="s">"JoinMessage"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"Welcome to this server"</span><span class="p">;</span>
+            <span class="n">Config</span><span class="p">[</span><span class="s">"LeaveMessage"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"Goodbye"</span><span class="p">;</span>
+            <span class="nf">SaveConfig</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre>
 <pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">PluginName</span> <span class="o">=</span> <span class="p">{</span>
     <span class="na">Init</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
@@ -71,7 +88,23 @@
 <p>Since many users won&rsquo;t want to (or can&rsquo;t) edit the plugin directly to change the default configuration, it&rsquo;s best to offer to offer them a configuration file that can easily be edited without worrying about messing up the plugin.</p>
 
 <h2 id="saving-a-configuration">Saving a configuration</h2>
-<pre class="highlight csharp"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">CSharp</span> <span class="n">example</span> <span class="n">here</span>
+<pre class="highlight csharp"><code><span class="k">namespace</span> <span class="nn">Oxide.Plugins</span>
+<span class="p">{</span>
+    <span class="p">[</span><span class="nf">Info</span><span class="p">(</span><span class="s">"Example"</span><span class="p">,</span> <span class="s">"Oxide Team"</span><span class="p">,</span> <span class="m">1.0</span><span class="p">)]</span> 
+    <span class="p">[</span><span class="nf">Description</span><span class="p">(</span><span class="s">"This example illustrates how to update a value in a configuration file."</span><span class="p">)]</span>
+    <span class="k">class</span> <span class="nc">Example</span> <span class="p">:</span> <span class="n">RustPlugin</span>
+    <span class="p">{</span>
+        <span class="p">[</span><span class="nf">ChatCommand</span><span class="p">(</span><span class="s">"Test"</span><span class="p">)]</span>
+        <span class="k">private</span> <span class="k">void</span> <span class="nf">Test</span><span class="p">(</span><span class="n">BasePlayer</span> <span class="n">player</span><span class="p">,</span> <span class="kt">string</span> <span class="n">command</span><span class="p">,</span> <span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span> <span class="p">((</span><span class="kt">bool</span><span class="p">)</span> <span class="n">Config</span><span class="p">[</span><span class="s">"ShowJoinMessage"</span><span class="p">])</span>
+                <span class="n">Config</span><span class="p">[</span><span class="s">"ShowJoinMessage"</span><span class="p">]</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+            <span class="k">else</span>
+                <span class="n">Config</span><span class="p">[</span><span class="s">"ShowJoinMessage"</span><span class="p">]</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+            <span class="nf">SaveConfig</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre>
 <pre class="highlight javascript"><code><span class="nx">cmdTest</span><span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">player</span><span class="p">,</span> <span class="nx">cmd</span><span class="p">,</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">Config</span><span class="p">.</span><span class="nx">ShowJoinMessage</span> <span class="o">==</span> <span class="s2">"true"</span><span class="p">)</span> <span class="p">{</span>

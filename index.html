@@ -123,24 +123,64 @@
           <h1 id="supported-games">Supported Games</h1>
 
 <h2 id="rust">Rust</h2>
+<pre class="highlight csharp"><code><span class="k">namespace</span> <span class="nn">Oxide.Plugins</span>
+<span class="p">{</span>
+    <span class="p">[</span><span class="nf">Info</span><span class="p">(</span><span class="s">"Rust Experimental Plugin"</span><span class="p">,</span> <span class="s">"Author"</span><span class="p">,</span> <span class="m">1.0</span><span class="p">,</span> <span class="n">ResourceId</span> <span class="p">=</span> <span class="m">681</span><span class="p">)]</span>
+    <span class="p">[</span><span class="nf">Description</span><span class="p">(</span><span class="s">"This is a plugin for Rust Experimental"</span><span class="p">)]</span>
+    <span class="k">public</span> <span class="k">class</span> <span class="nc">PluginName</span> <span class="p">:</span> <span class="n">RustPlugin</span>
+    <span class="p">{</span>
+        <span class="c1">// This is where your plugin will do its magic
+</span>    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
 
 <p>Oxide support for Rust <em>(formerly Rust Experimental)</em> is actively developed, though you can already do a vast amount of things with it. This is the version of Rust supported by the Facepunch developers.</p>
 
 <p><strong><a href="http://playrust.com/">Homepage</a> | <a href="http://store.steampowered.com/app/252490/">Steam Page</a> | <a href="rust/">API documentation</a></strong></p>
 
 <h2 id="rust-legacy">Rust Legacy</h2>
+<pre class="highlight csharp"><code><span class="k">namespace</span> <span class="nn">Oxide.Plugins</span>
+<span class="p">{</span>
+    <span class="p">[</span><span class="nf">Info</span><span class="p">(</span><span class="s">"Rust Legacy Plugin"</span><span class="p">,</span> <span class="s">"Author"</span><span class="p">,</span> <span class="m">1.0</span><span class="p">,</span> <span class="n">ResourceId</span> <span class="p">=</span> <span class="m">682</span><span class="p">)]</span>
+    <span class="p">[</span><span class="nf">Description</span><span class="p">(</span><span class="s">"This is a plugin for Rust Legacy"</span><span class="p">)]</span>
+    <span class="k">public</span> <span class="k">class</span> <span class="nc">PluginName</span> <span class="p">:</span> <span class="n">RustLegacyPlugin</span>
+    <span class="p">{</span>
+        <span class="c1">// This is where your plugin will do its magic
+</span>    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
 
 <p>Oxide support for Rust Legacy is mostly complete, but it may receive fixes as needed. The game itself has been discontinued by the developers though. You can access this version of Rust by using the <code class="prettyprint">-beta legacy</code> command-line parameter with SteamCMD.</p>
 
 <p><strong><a href="http://playrust.com/">Homepage</a> | <a href="http://store.steampowered.com/app/252490/">Steam Page</a> | <a href="legacy/">API documentation</a></strong></p>
 
 <h2 id="7-days-to-die">7 Days to Die</h2>
+<pre class="highlight csharp"><code><span class="k">namespace</span> <span class="nn">Oxide.Plugins</span>
+<span class="p">{</span>
+    <span class="p">[</span><span class="nf">Info</span><span class="p">(</span><span class="s">"7DTD Plugin"</span><span class="p">,</span> <span class="s">"Author"</span><span class="p">,</span> <span class="m">1.0</span><span class="p">,</span> <span class="n">ResourceId</span> <span class="p">=</span> <span class="m">683</span><span class="p">)]</span>
+    <span class="p">[</span><span class="nf">Description</span><span class="p">(</span><span class="s">"This is a plugin for Seven Days To Die"</span><span class="p">)]</span>
+    <span class="k">public</span> <span class="k">class</span> <span class="nc">PluginName</span> <span class="p">:</span> <span class="n">SevenDaysPlugin</span>
+    <span class="p">{</span>
+        <span class="c1">// This is where your plugin will do its magic
+</span>    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
 
 <p>Oxide support for 7 Days to Die is currently limited, and in a very alpha state. More hooks will be added soon.</p>
 
 <p><strong><a href="http://7daystodie.com/">Homepage</a> | <a href="http://store.steampowered.com/app/251570/">Steam Page</a> | <a href="sdtd/">API documentation</a></strong></p>
 
 <h2 id="reign-of-kings">Reign of Kings</h2>
+<pre class="highlight csharp"><code><span class="k">namespace</span> <span class="nn">Oxide.Plugins</span>
+<span class="p">{</span>
+    <span class="p">[</span><span class="nf">Info</span><span class="p">(</span><span class="s">"RoK Plugin"</span><span class="p">,</span> <span class="s">"Author"</span><span class="p">,</span> <span class="m">1.0</span><span class="p">,</span> <span class="n">ResourceId</span> <span class="p">=</span> <span class="m">683</span><span class="p">)]</span>
+    <span class="p">[</span><span class="nf">Description</span><span class="p">(</span><span class="s">"This is a plugin for Reign of Kings"</span><span class="p">)]</span>
+    <span class="k">public</span> <span class="k">class</span> <span class="nc">PluginName</span> <span class="p">:</span> <span class="n">ReignOfKingsPlugin</span>
+    <span class="p">{</span>
+        <span class="c1">// This is where your plugin will do its magic
+</span>    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
 
 <p>Oxide support for Reign of Kings is currently limited, and in a very alpha state. More hooks will be added soon.</p>
 
@@ -162,7 +202,20 @@ version or oxide.version
 </code></pre>
 
 <h2 id="chat-commands">Chat commands</h2>
-<pre class="highlight csharp"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">CSharp</span> <span class="n">example</span> <span class="n">here</span>
+<pre class="highlight csharp"><code><span class="k">namespace</span> <span class="nn">Oxide.Plugins</span>
+<span class="p">{</span>
+    <span class="p">[</span><span class="nf">Info</span><span class="p">(</span><span class="s">"Example"</span><span class="p">,</span> <span class="s">"Oxide Team"</span><span class="p">,</span> <span class="m">1.0</span><span class="p">)]</span> 
+    <span class="p">[</span><span class="nf">Description</span><span class="p">(</span><span class="s">"This example illustrates how to create a chat command."</span><span class="p">)]</span>
+    <span class="k">class</span> <span class="nc">Example</span> <span class="p">:</span> <span class="n">RustPlugin</span>
+    <span class="p">{</span>
+        <span class="p">[</span><span class="nf">ChatCommand</span><span class="p">(</span><span class="s">"save"</span><span class="p">)]</span>
+        <span class="k">private</span> <span class="k">void</span> <span class="nf">SaveCommand</span><span class="p">(</span><span class="n">BasePlayer</span> <span class="n">player</span><span class="p">,</span> <span class="kt">string</span> <span class="n">command</span><span class="p">,</span> <span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="nf">PrintToChat</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="s">"Saving the world data!"</span><span class="p">);</span>
+            <span class="n">SaveRestore</span><span class="p">.</span><span class="nf">Save</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre>
 <pre class="highlight javascript"><code><span class="nx">We</span> <span class="nx">need</span> <span class="nx">a</span> <span class="nx">JavaScript</span> <span class="nx">example</span> <span class="nx">here</span>
 </code></pre>
@@ -172,7 +225,22 @@ version or oxide.version
 </code></pre>
 
 <h2 id="console-commands">Console commands</h2>
-<pre class="highlight csharp"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">CSharp</span> <span class="n">example</span> <span class="n">here</span>
+<pre class="highlight csharp"><code><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">Oxide.Plugins</span>
+<span class="p">{</span>
+    <span class="p">[</span><span class="nf">Info</span><span class="p">(</span><span class="s">"Example"</span><span class="p">,</span> <span class="s">"Oxide Team"</span><span class="p">,</span> <span class="m">1.0</span><span class="p">)]</span> 
+    <span class="p">[</span><span class="nf">Description</span><span class="p">(</span><span class="s">"This example illustrates how to create a console command."</span><span class="p">)]</span>
+    <span class="k">class</span> <span class="nc">Example</span> <span class="p">:</span> <span class="n">RustPlugin</span>
+    <span class="p">{</span>
+        <span class="p">[</span><span class="nf">ConsoleCommand</span><span class="p">(</span><span class="s">"plugin.save"</span><span class="p">)]</span>
+        <span class="k">private</span> <span class="k">void</span> <span class="nf">SaveCommand</span><span class="p">(</span><span class="n">ConsoleSystem</span><span class="p">.</span><span class="n">Arg</span> <span class="n">arg</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="nf">PrintToConsole</span><span class="p">(</span><span class="n">arg</span><span class="p">.</span><span class="nf">Player</span><span class="p">(),</span> <span class="s">"Saving the world data"</span><span class="p">);</span>
+            <span class="n">SaveRestore</span><span class="p">.</span><span class="nf">Save</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre>
 <pre class="highlight javascript"><code><span class="nx">We</span> <span class="nx">need</span> <span class="nx">a</span> <span class="nx">JavaScript</span> <span class="nx">example</span> <span class="nx">here</span>
 </code></pre>
@@ -184,7 +252,24 @@ version or oxide.version
           <h1 id="configurations">Configurations</h1>
 
 <h2 id="creating-a-configuration">Creating a configuration</h2>
-<pre class="highlight csharp"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">CSharp</span> <span class="n">example</span> <span class="n">here</span>
+<pre class="highlight csharp"><code><span class="k">namespace</span> <span class="nn">Oxide.Plugins</span>
+<span class="p">{</span>
+    <span class="p">[</span><span class="nf">Info</span><span class="p">(</span><span class="s">"Example"</span><span class="p">,</span> <span class="s">"Oxide Team"</span><span class="p">,</span> <span class="m">1.0</span><span class="p">)]</span>
+    <span class="p">[</span><span class="nf">Description</span><span class="p">(</span><span class="s">"This example illustrates how to use a basic configuration file."</span><span class="p">)]</span>
+    <span class="k">class</span> <span class="nc">Example</span> <span class="p">:</span> <span class="n">RustPlugin</span>
+    <span class="p">{</span>
+        <span class="k">protected</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">LoadDefaultConfig</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="nf">PrintWarning</span><span class="p">(</span><span class="s">"Creating a new configuration file."</span><span class="p">);</span>
+            <span class="n">Config</span><span class="p">.</span><span class="nf">Clear</span><span class="p">();</span>
+            <span class="n">Config</span><span class="p">[</span><span class="s">"ShowJoinMessage"</span><span class="p">]</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+            <span class="n">Config</span><span class="p">[</span><span class="s">"ShowLeaveMessage"</span><span class="p">]</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+            <span class="n">Config</span><span class="p">[</span><span class="s">"JoinMessage"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"Welcome to this server"</span><span class="p">;</span>
+            <span class="n">Config</span><span class="p">[</span><span class="s">"LeaveMessage"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"Goodbye"</span><span class="p">;</span>
+            <span class="nf">SaveConfig</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre>
 <pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">PluginName</span> <span class="o">=</span> <span class="p">{</span>
     <span class="na">Init</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
@@ -220,7 +305,23 @@ version or oxide.version
 <p>Since many users won&rsquo;t want to (or can&rsquo;t) edit the plugin directly to change the default configuration, it&rsquo;s best to offer to offer them a configuration file that can easily be edited without worrying about messing up the plugin.</p>
 
 <h2 id="saving-a-configuration">Saving a configuration</h2>
-<pre class="highlight csharp"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">CSharp</span> <span class="n">example</span> <span class="n">here</span>
+<pre class="highlight csharp"><code><span class="k">namespace</span> <span class="nn">Oxide.Plugins</span>
+<span class="p">{</span>
+    <span class="p">[</span><span class="nf">Info</span><span class="p">(</span><span class="s">"Example"</span><span class="p">,</span> <span class="s">"Oxide Team"</span><span class="p">,</span> <span class="m">1.0</span><span class="p">)]</span> 
+    <span class="p">[</span><span class="nf">Description</span><span class="p">(</span><span class="s">"This example illustrates how to update a value in a configuration file."</span><span class="p">)]</span>
+    <span class="k">class</span> <span class="nc">Example</span> <span class="p">:</span> <span class="n">RustPlugin</span>
+    <span class="p">{</span>
+        <span class="p">[</span><span class="nf">ChatCommand</span><span class="p">(</span><span class="s">"Test"</span><span class="p">)]</span>
+        <span class="k">private</span> <span class="k">void</span> <span class="nf">Test</span><span class="p">(</span><span class="n">BasePlayer</span> <span class="n">player</span><span class="p">,</span> <span class="kt">string</span> <span class="n">command</span><span class="p">,</span> <span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span> <span class="p">((</span><span class="kt">bool</span><span class="p">)</span> <span class="n">Config</span><span class="p">[</span><span class="s">"ShowJoinMessage"</span><span class="p">])</span>
+                <span class="n">Config</span><span class="p">[</span><span class="s">"ShowJoinMessage"</span><span class="p">]</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+            <span class="k">else</span>
+                <span class="n">Config</span><span class="p">[</span><span class="s">"ShowJoinMessage"</span><span class="p">]</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+            <span class="nf">SaveConfig</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre>
 <pre class="highlight javascript"><code><span class="nx">cmdTest</span><span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">player</span><span class="p">,</span> <span class="nx">cmd</span><span class="p">,</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">Config</span><span class="p">.</span><span class="nx">ShowJoinMessage</span> <span class="o">==</span> <span class="s2">"true"</span><span class="p">)</span> <span class="p">{</span>
@@ -248,7 +349,48 @@ version or oxide.version
           <h1 id="data-tables">Data Tables</h1>
 
 <h2 id="creating-a-data-table">Creating a data table</h2>
-<pre class="highlight csharp"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">CSharp</span> <span class="n">example</span> <span class="n">here</span>
+<pre class="highlight csharp"><code><span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">Oxide.Core</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">Oxide.Plugins</span>
+<span class="p">{</span>
+    <span class="p">[</span><span class="nf">Info</span><span class="p">(</span><span class="s">"Example"</span><span class="p">,</span> <span class="s">"Oxide Team"</span><span class="p">,</span> <span class="m">1.0</span><span class="p">)]</span> 
+    <span class="p">[</span><span class="nf">Description</span><span class="p">(</span><span class="s">"This example illustrates how to create a data file."</span><span class="p">)]</span>
+    <span class="k">class</span> <span class="nc">Examplet</span> <span class="p">:</span> <span class="n">RustPlugin</span>
+    <span class="p">{</span>
+        <span class="k">class</span> <span class="nc">StoredData</span>
+        <span class="p">{</span>
+            <span class="k">public</span> <span class="n">HashSet</span><span class="p">&lt;</span><span class="n">PlayerInfo</span><span class="p">&gt;</span> <span class="n">Players</span> <span class="p">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="p">&lt;</span><span class="n">PlayerInfo</span><span class="p">&gt;();</span>
+
+            <span class="k">public</span> <span class="nf">StoredData</span><span class="p">()</span>
+            <span class="p">{</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">class</span> <span class="nc">PlayerInfo</span>
+        <span class="p">{</span>
+            <span class="k">public</span> <span class="kt">string</span> <span class="n">UserId</span><span class="p">;</span>
+            <span class="k">public</span> <span class="kt">string</span> <span class="n">Name</span><span class="p">;</span>
+
+            <span class="k">public</span> <span class="nf">PlayerInfo</span><span class="p">()</span>
+            <span class="p">{</span>
+            <span class="p">}</span>
+
+            <span class="k">public</span> <span class="nf">PlayerInfo</span><span class="p">(</span><span class="n">BasePlayer</span> <span class="n">player</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">UserId</span> <span class="p">=</span> <span class="n">player</span><span class="p">.</span><span class="n">userID</span><span class="p">.</span><span class="nf">ToString</span><span class="p">();</span>
+                <span class="n">Name</span> <span class="p">=</span> <span class="n">player</span><span class="p">.</span><span class="n">displayName</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="n">StoredData</span> <span class="n">storedData</span><span class="p">;</span>
+
+        <span class="k">private</span> <span class="k">void</span> <span class="nf">Loaded</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">storedData</span> <span class="p">=</span> <span class="n">Interface</span><span class="p">.</span><span class="nf">GetMod</span><span class="p">().</span><span class="n">DataFileSystem</span><span class="p">.</span><span class="n">ReadObject</span><span class="p">&lt;</span><span class="n">StoredData</span><span class="p">&gt;(</span><span class="s">"MyDataFile"</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre>
 <pre class="highlight javascript"><code><span class="nx">Init</span><span class="err">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
     <span class="nl">this</span><span class="p">:</span><span class="nx">LoadDataFiles</span><span class="p">();</span>
@@ -274,7 +416,62 @@ version or oxide.version
 <p>To store plugin related data to use in your plugin, you want to create a data file.</p>
 
 <h2 id="saving-a-data-table">Saving a Data Table</h2>
-<pre class="highlight csharp"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">CSharp</span> <span class="n">example</span> <span class="n">here</span>
+<pre class="highlight csharp"><code><span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">Oxide.Core</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">Oxide.Plugins</span>
+<span class="p">{</span>
+    <span class="p">[</span><span class="nf">Info</span><span class="p">(</span><span class="s">"Example"</span><span class="p">,</span> <span class="s">"Oxide Team"</span><span class="p">,</span> <span class="m">1.0</span><span class="p">)]</span> 
+    <span class="p">[</span><span class="nf">Description</span><span class="p">(</span><span class="s">"This example illustrates how to save to a data file."</span><span class="p">)]</span>
+    <span class="k">class</span> <span class="nc">Examplet</span> <span class="p">:</span> <span class="n">RustPlugin</span>
+    <span class="p">{</span>
+        <span class="k">class</span> <span class="nc">StoredData</span>
+        <span class="p">{</span>
+            <span class="k">public</span> <span class="n">HashSet</span><span class="p">&lt;</span><span class="n">PlayerInfo</span><span class="p">&gt;</span> <span class="n">Players</span> <span class="p">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="p">&lt;</span><span class="n">PlayerInfo</span><span class="p">&gt;();</span>
+
+            <span class="k">public</span> <span class="nf">StoredData</span><span class="p">()</span>
+            <span class="p">{</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">class</span> <span class="nc">PlayerInfo</span>
+        <span class="p">{</span>
+            <span class="k">public</span> <span class="kt">string</span> <span class="n">UserId</span><span class="p">;</span>
+            <span class="k">public</span> <span class="kt">string</span> <span class="n">Name</span><span class="p">;</span>
+
+            <span class="k">public</span> <span class="nf">PlayerInfo</span><span class="p">()</span>
+            <span class="p">{</span>
+            <span class="p">}</span>
+
+            <span class="k">public</span> <span class="nf">PlayerInfo</span><span class="p">(</span><span class="n">BasePlayer</span> <span class="n">player</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">UserId</span> <span class="p">=</span> <span class="n">player</span><span class="p">.</span><span class="n">userID</span><span class="p">.</span><span class="nf">ToString</span><span class="p">();</span>
+                <span class="n">Name</span> <span class="p">=</span> <span class="n">player</span><span class="p">.</span><span class="n">displayName</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="n">StoredData</span> <span class="n">storedData</span><span class="p">;</span>
+
+        <span class="k">private</span> <span class="k">void</span> <span class="nf">Loaded</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">storedData</span> <span class="p">=</span> <span class="n">Interface</span><span class="p">.</span><span class="nf">GetMod</span><span class="p">().</span><span class="n">DataFileSystem</span><span class="p">.</span><span class="n">ReadObject</span><span class="p">&lt;</span><span class="n">StoredData</span><span class="p">&gt;(</span><span class="s">"MyDataFile"</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="p">[</span><span class="nf">ChatCommand</span><span class="p">(</span><span class="s">"Test"</span><span class="p">)]</span>
+        <span class="k">private</span> <span class="k">void</span> <span class="nf">Test</span><span class="p">(</span><span class="n">BasePlayer</span> <span class="n">player</span><span class="p">,</span> <span class="kt">string</span> <span class="n">command</span><span class="p">,</span> <span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">var</span> <span class="n">info</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">PlayerInfo</span><span class="p">(</span><span class="n">player</span><span class="p">);</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">storedData</span><span class="p">.</span><span class="n">Players</span><span class="p">.</span><span class="nf">Contains</span><span class="p">(</span><span class="n">info</span><span class="p">))</span>
+                <span class="nf">PrintToChat</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="s">"Your data has already been added to the file."</span><span class="p">);</span>
+            <span class="k">else</span>
+            <span class="p">{</span>
+                <span class="nf">PrintToChat</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="s">"Saving your data to the file."</span><span class="p">);</span>
+                <span class="n">storedData</span><span class="p">.</span><span class="n">Players</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">info</span><span class="p">);</span>
+                <span class="n">Interface</span><span class="p">.</span><span class="nf">GetMod</span><span class="p">().</span><span class="n">DataFileSystem</span><span class="p">.</span><span class="nf">WriteObject</span><span class="p">(</span><span class="s">"MyDataFile"</span><span class="p">,</span> <span class="n">storedData</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre>
 <pre class="highlight javascript"><code><span class="nx">SaveDataFiles</span><span class="err">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
     <span class="nx">datafile</span><span class="p">.</span><span class="nx">SaveDataTable</span><span class="p">(</span><span class="s2">"pluginName"</span><span class="p">);</span>
@@ -440,7 +637,8 @@ version or oxide.version
 <blockquote>
 <p>Basic example of timer.Once</p>
 </blockquote>
-<pre class="highlight csharp"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">CSharp</span> <span class="n">example</span> <span class="n">here</span>
+<pre class="highlight csharp"><code><span class="n">timer</span><span class="p">.</span><span class="nf">Once</span><span class="p">(</span><span class="m">3</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nf">PrintToChat</span><span class="p">(</span><span class="s">"Hello world!"</span><span class="p">));</span>
+<span class="n">timer</span><span class="p">.</span><span class="nf">In</span><span class="p">(</span><span class="m">3</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nf">PrintToChat</span><span class="p">(</span><span class="s">"Hello world!"</span><span class="p">));</span>
 </code></pre>
 <pre class="highlight javascript"><code><span class="nx">timer</span><span class="p">.</span><span class="nx">Once</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
     <span class="nx">rust</span><span class="p">.</span><span class="nx">BroadcastChat</span><span class="p">(</span><span class="s2">"SERVER"</span><span class="p">,</span> <span class="s2">"Hello world!"</span><span class="p">);</span>
@@ -456,9 +654,9 @@ version or oxide.version
 </code></pre>
 
 <blockquote>
-<p>Example of timer.Once with a table</p>
+<p>Example of timer.Once stored in a variable or table</p>
 </blockquote>
-<pre class="highlight csharp"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">CSharp</span> <span class="n">example</span> <span class="n">here</span>
+<pre class="highlight csharp"><code><span class="n">var</span> <span class="n">timerVariable</span> <span class="p">=</span> <span class="n">timer</span><span class="p">.</span><span class="nf">In</span><span class="p">(</span><span class="m">3</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nf">PrintToChat</span><span class="p">(</span><span class="s">"Hello world!"</span><span class="p">));</span>
 </code></pre>
 <pre class="highlight javascript"><code><span class="nx">We</span> <span class="nx">need</span> <span class="nx">a</span> <span class="nx">JavaScript</span> <span class="nx">example</span> <span class="nx">here</span>
 </code></pre>
@@ -480,10 +678,10 @@ version or oxide.version
 <blockquote>
 <p>Basic example of timer.Repeat</p>
 </blockquote>
-<pre class="highlight csharp"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">CSharp</span> <span class="n">example</span> <span class="n">here</span>
+<pre class="highlight csharp"><code><span class="n">timer</span><span class="p">.</span><span class="nf">Repeat</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nf">PrintToChat</span><span class="p">(</span><span class="s">"Hello world!"</span><span class="p">));</span>
 </code></pre>
 <pre class="highlight javascript"><code><span class="nx">timer</span><span class="p">.</span><span class="nx">Repeat</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">rust</span><span class="p">.</span><span class="nx">BroadcastChat</span><span class="p">(</span><span class="s2">"SERVER"</span><span class="p">,</span> <span class="s2">"Hello world!"</span><span class="p">);</span><span class="nx">Placeholder</span>
+    <span class="nx">rust</span><span class="p">.</span><span class="nx">BroadcastChat</span><span class="p">(</span><span class="s2">"SERVER"</span><span class="p">,</span> <span class="s2">"Hello world!"</span><span class="p">);</span>
 <span class="p">},</span> <span class="k">this</span><span class="p">.</span><span class="nx">Plugin</span><span class="p">);</span>
 </code></pre>
 <pre class="highlight lua"><code><span class="n">timer</span><span class="p">.</span><span class="n">Repeat</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span>
@@ -504,11 +702,14 @@ version or oxide.version
 <blockquote>
 <p>Basic example of timer.NextFrame</p>
 </blockquote>
-<pre class="highlight csharp"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">CSharp</span> <span class="n">example</span> <span class="n">here</span>
+<pre class="highlight csharp"><code><span class="c1">// This is not implemented for C#, the following can be used instead:
+</span><span class="n">timer</span><span class="p">.</span><span class="nf">Once</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">0.0f</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nf">PrintToChat</span><span class="p">(</span><span class="s">"Hello world"</span><span class="p">));</span>
 </code></pre>
 <pre class="highlight javascript"><code><span class="nx">We</span> <span class="nx">need</span> <span class="nx">a</span> <span class="nx">JavaScript</span> <span class="nx">example</span> <span class="nx">here</span>
 </code></pre>
-<pre class="highlight lua"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Lua</span> <span class="n">example</span> <span class="n">here</span>
+<pre class="highlight lua"><code><span class="n">timer</span><span class="p">.</span><span class="n">NextFrame</span><span class="p">(</span><span class="k">function</span><span class="p">()</span>
+    <span class="n">rust</span><span class="p">.</span><span class="n">BroadcastChat</span><span class="p">(</span><span class="s2">"SERVER"</span><span class="p">,</span> <span class="s2">"Hello world!"</span><span class="p">)</span>
+<span class="p">);</span>
 </code></pre>
 <pre class="highlight python"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Python</span> <span class="n">example</span> <span class="n">here</span>
 </code></pre>
@@ -518,9 +719,11 @@ version or oxide.version
 <h2 id="destroying-a-timer">Destroying a timer</h2>
 
 <blockquote>
-<p>Basic example in Unload</p>
+<p>Basic example</p>
 </blockquote>
-<pre class="highlight csharp"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">CSharp</span> <span class="n">example</span> <span class="n">here</span>
+<pre class="highlight csharp"><code><span class="k">if</span> <span class="p">(</span><span class="n">timerVariable</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">timerVariable</span><span class="p">.</span><span class="nf">Destroy</span><span class="p">();</span>
+<span class="p">}</span>
 </code></pre>
 <pre class="highlight javascript"><code><span class="k">if</span> <span class="p">(</span><span class="nx">timerVariable</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">timerVariable</span><span class="p">.</span><span class="nx">Destroy</span><span class="p">();</span>
@@ -534,20 +737,6 @@ version or oxide.version
     <span class="n">timerVariable</span><span class="o">.</span><span class="n">Destroy</span><span class="p">()</span>
 </code></pre>
 
-<blockquote>
-<p>Example in Unload with a table</p>
-</blockquote>
-<pre class="highlight csharp"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">CSharp</span> <span class="n">example</span> <span class="n">here</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="nx">We</span> <span class="nx">need</span> <span class="nx">a</span> <span class="nx">JavaScript</span> <span class="nx">example</span> <span class="nx">here</span>
-</code></pre>
-<pre class="highlight lua"><code><span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="k">in</span> <span class="nb">pairs</span><span class="p">(</span><span class="n">timersVariable</span><span class="p">)</span> <span class="k">do</span>
-    <span class="n">timersVariable</span><span class="p">[</span><span class="n">key</span><span class="p">]:</span><span class="n">Destroy</span><span class="p">()</span>
-<span class="k">end</span>
-</code></pre>
-<pre class="highlight python"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Python</span> <span class="n">example</span> <span class="n">here</span>
-</code></pre>
-
 <p>When used correctly, timers are automatically destroyed when the plugin is reload or unloaded.</p>
 
 <p>If you need to stop a timer manually, you can do so by destroying the instance of the timer.</p>
@@ -557,7 +746,34 @@ version or oxide.version
 <p>Sends a HTTP web request to the specified URL. Returns true if the web request was sent, false if not. The callback is called with 2 parameters - an integer HTTP response code and a string response.</p>
 
 <h2 id="get-method">Get method</h2>
-<pre class="highlight csharp"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">CSharp</span> <span class="n">example</span> <span class="n">here</span>
+<pre class="highlight csharp"><code><span class="k">using</span> <span class="nn">Oxide.Core</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">Oxide.Core.Libraries</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">Oxide.Plugins</span>
+<span class="p">{</span>
+    <span class="p">[</span><span class="nf">Info</span><span class="p">(</span><span class="s">"Example"</span><span class="p">,</span> <span class="s">"Oxide Team"</span><span class="p">,</span> <span class="m">1.0</span><span class="p">)]</span>
+    <span class="p">[</span><span class="nf">Description</span><span class="p">(</span><span class="s">"This example illustrates how to use a GET WebRequest."</span><span class="p">)]</span>
+    <span class="k">class</span> <span class="nc">Example</span> <span class="p">:</span> <span class="n">RustPlugin</span>
+    <span class="p">{</span>
+        <span class="k">private</span> <span class="k">readonly</span> <span class="n">WebRequests</span> <span class="n">webRequests</span> <span class="p">=</span> <span class="n">Interface</span><span class="p">.</span><span class="nf">GetMod</span><span class="p">().</span><span class="n">GetLibrary</span><span class="p">&lt;</span><span class="n">WebRequests</span><span class="p">&gt;(</span><span class="s">"WebRequests"</span><span class="p">);</span>
+
+        <span class="p">[</span><span class="nf">ChatCommand</span><span class="p">(</span><span class="s">"getrequest"</span><span class="p">)]</span>
+        <span class="k">private</span> <span class="k">void</span> <span class="nf">ExampleGetRequest</span><span class="p">(</span><span class="n">BasePlayer</span> <span class="n">player</span><span class="p">,</span> <span class="kt">string</span> <span class="n">command</span><span class="p">,</span> <span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">webRequests</span><span class="p">.</span><span class="nf">EnqueueGet</span><span class="p">(</span><span class="s">"http://www.google.com/search?q=oxide+mod"</span><span class="p">,</span> <span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nf">WebRequestCallback</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="n">player</span><span class="p">),</span> <span class="k">this</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">private</span> <span class="k">void</span> <span class="nf">WebRequestCallback</span><span class="p">(</span><span class="kt">int</span> <span class="n">code</span><span class="p">,</span> <span class="kt">string</span> <span class="n">response</span><span class="p">,</span> <span class="n">BasePlayer</span> <span class="n">player</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">response</span> <span class="p">==</span> <span class="k">null</span> <span class="p">||</span> <span class="n">code</span> <span class="p">!=</span> <span class="m">200</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="nf">Puts</span><span class="p">(</span><span class="s">"Couldn't get an answer from Google for "</span> <span class="p">+</span> <span class="n">player</span><span class="p">.</span><span class="n">displayName</span><span class="p">);</span>
+                <span class="k">return</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="nf">Puts</span><span class="p">(</span><span class="s">"Google answered for "</span> <span class="p">+</span> <span class="n">player</span><span class="p">.</span><span class="n">displayName</span> <span class="p">+</span> <span class="s">": "</span> <span class="p">+</span> <span class="n">response</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre>
 <pre class="highlight javascript"><code><span class="nx">webrequests</span><span class="p">.</span><span class="nx">EnqueueGet</span><span class="p">(</span><span class="s2">"http://www.google.com/search?q=oxide+mod"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">code</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="nx">response</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="nx">code</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">)</span> <span class="p">{</span>
@@ -589,7 +805,34 @@ version or oxide.version
 <p>Returns true/false</p>
 
 <h2 id="post-method">Post method</h2>
-<pre class="highlight csharp"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">CSharp</span> <span class="n">example</span> <span class="n">here</span>
+<pre class="highlight csharp"><code><span class="k">using</span> <span class="nn">Oxide.Core</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">Oxide.Core.Libraries</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">Oxide.Plugins</span>
+<span class="p">{</span>
+    <span class="p">[</span><span class="nf">Info</span><span class="p">(</span><span class="s">"Example"</span><span class="p">,</span> <span class="s">"Oxide Team"</span><span class="p">,</span> <span class="m">1.0</span><span class="p">)]</span>
+    <span class="p">[</span><span class="nf">Description</span><span class="p">(</span><span class="s">"This example illustrates how to use a POST WebRequest."</span><span class="p">)]</span>
+    <span class="k">class</span> <span class="nc">Example</span> <span class="p">:</span> <span class="n">RustPlugin</span>
+    <span class="p">{</span>
+        <span class="k">private</span> <span class="k">readonly</span> <span class="n">WebRequests</span> <span class="n">webRequests</span> <span class="p">=</span> <span class="n">Interface</span><span class="p">.</span><span class="nf">GetMod</span><span class="p">().</span><span class="n">GetLibrary</span><span class="p">&lt;</span><span class="n">WebRequests</span><span class="p">&gt;(</span><span class="s">"WebRequests"</span><span class="p">);</span>
+
+        <span class="p">[</span><span class="nf">ChatCommand</span><span class="p">(</span><span class="s">"postrequest"</span><span class="p">)]</span>
+        <span class="k">private</span> <span class="k">void</span> <span class="nf">ExamplePostRequest</span><span class="p">(</span><span class="n">BasePlayer</span> <span class="n">player</span><span class="p">,</span> <span class="kt">string</span> <span class="n">command</span><span class="p">,</span> <span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">webRequests</span><span class="p">.</span><span class="nf">EnqueuePost</span><span class="p">(</span><span class="s">"http://www.google.com/search?q=Oxide+Mod"</span><span class="p">,</span> <span class="s">"param1=value1&amp;param2=value2"</span><span class="p">,</span> <span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nf">WebRequestCallback</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="n">player</span><span class="p">),</span> <span class="k">this</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">private</span> <span class="k">void</span> <span class="nf">WebRequestCallback</span><span class="p">(</span><span class="kt">int</span> <span class="n">code</span><span class="p">,</span> <span class="kt">string</span> <span class="n">response</span><span class="p">,</span> <span class="n">BasePlayer</span> <span class="n">player</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">response</span> <span class="p">==</span> <span class="k">null</span> <span class="p">||</span> <span class="n">code</span> <span class="p">!=</span> <span class="m">200</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="nf">Puts</span><span class="p">(</span><span class="s">"Couldn't get an answer from Google for "</span> <span class="p">+</span> <span class="n">player</span><span class="p">.</span><span class="n">displayName</span><span class="p">);</span>
+                <span class="k">return</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="nf">Puts</span><span class="p">(</span><span class="s">"Google answered for "</span> <span class="p">+</span> <span class="n">player</span><span class="p">.</span><span class="n">displayName</span> <span class="p">+</span> <span class="s">": "</span> <span class="p">+</span> <span class="n">response</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre>
 <pre class="highlight javascript"><code><span class="nx">We</span> <span class="nx">need</span> <span class="nx">a</span> <span class="nx">JavaScript</span> <span class="nx">example</span> <span class="nx">here</span>
 </code></pre>
