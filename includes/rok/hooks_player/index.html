@@ -19,7 +19,7 @@
 
   </head>
 
-  <body class="includes includes_sdtd includes_sdtd_hooks_player includes_sdtd_hooks_player_index">
+  <body class="includes includes_rok includes_rok_hooks_player includes_rok_hooks_player_index">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -38,8 +38,26 @@
       <div class="content">
         <h1 id="player-hooks">Player Hooks</h1>
 
+<h2 id="onuserapprove">OnUserApprove</h2>
+<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnUserApprove</span><span class="p">(</span><span class="n">ConnectionLoginData</span> <span class="n">data</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnUserApprove works!"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="nx">We</span> <span class="nx">need</span> <span class="nx">a</span> <span class="nx">JavaScript</span> <span class="nx">example</span> <span class="nx">here</span>
+</code></pre>
+<pre class="highlight lua"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Lua</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
+<pre class="highlight python"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Python</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
+
+<ul>
+<li>Called from ??</li>
+<li>Returning a non-null value overrides default behavior, plugin should call approval.Deny if it does this</li>
+</ul>
+
 <h2 id="onplayerconnected">OnPlayerConnected</h2>
-<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnPlayerConnected</span><span class="p">(</span><span class="n">ClientInfo</span> <span class="n">client</span><span class="p">)</span>
+<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnPlayerConnected</span><span class="p">(</span><span class="n">Player</span> <span class="n">player</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnPlayerConnected works!"</span><span class="p">);</span>
 <span class="p">}</span>
@@ -52,12 +70,13 @@
 </code></pre>
 
 <ul>
-<li>Called from GameManager.md0013</li>
-<li>Help! This is missing a description!</li>
+<li>Called from ??</li>
+<li>No return behavior</li>
+<li>Called before the player object is created, but after the player has been approved</li>
 </ul>
 
 <h2 id="onplayerdisconnected">OnPlayerDisconnected</h2>
-<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnPlayerDisconnected</span><span class="p">(</span><span class="n">ClientInfo</span> <span class="n">client</span><span class="p">)</span>
+<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnPlayerDisconected</span><span class="p">(</span><span class="n">Player</span> <span class="n">player</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnPlayerDisconnected works!"</span><span class="p">);</span>
 <span class="p">}</span>
@@ -70,12 +89,32 @@
 </code></pre>
 
 <ul>
-<li>Called from ConnectionManager.RemovePlayer</li>
-<li>Help! This is missing a description!</li>
+<li>Called from ??</li>
+<li>No return behavior</li>
+<li>Called after the player has disconnected from the server</li>
+</ul>
+
+<h2 id="onplayerspawn">OnPlayerSpawn</h2>
+<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnPlayerSpawn</span><span class="p">(</span><span class="n">PlayerFirstSpawnEvent</span> <span class="k">event</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnPlayerSpawn works!"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="nx">We</span> <span class="nx">need</span> <span class="nx">a</span> <span class="nx">JavaScript</span> <span class="nx">example</span> <span class="nx">here</span>
+</code></pre>
+<pre class="highlight lua"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Lua</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
+<pre class="highlight python"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Python</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
+
+<ul>
+<li>Called from ??</li>
+<li>No return behavior</li>
+<li>Called when the player spawns</li>
 </ul>
 
 <h2 id="onplayerchat">OnPlayerChat</h2>
-<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnPlayerChat</span><span class="p">(</span><span class="kt">string</span> <span class="n">message</span><span class="p">,</span> <span class="kt">int</span> <span class="n">team</span><span class="p">,</span> <span class="kt">string</span> <span class="n">playerName</span><span class="p">)</span>
+<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnPlayerChat</span><span class="p">(</span><span class="n">PlayerEvent</span> <span class="k">event</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnPlayerChat works!"</span><span class="p">);</span>
 <span class="p">}</span>
@@ -88,8 +127,8 @@
 </code></pre>
 
 <ul>
-<li>Called from GameManager.SendChatMessage</li>
-<li>Help! This is missing a description!</li>
+<li>Called from ??</li>
+<li>Returning a non-null value overrides default behavior of chat, not commands</li>
 </ul>
 
       </div>
