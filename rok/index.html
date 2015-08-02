@@ -723,12 +723,12 @@ version or oxide.version
 <span class="p">}</span>
 </code></pre>
 <pre class="highlight javascript"><code><span class="nx">Init</span><span class="err">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nl">this</span><span class="p">:</span><span class="nx">LoadDataFiles</span><span class="p">();</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">LoadDataFiles</span><span class="p">();</span>
 <span class="p">}</span>
 
 <span class="kd">var</span> <span class="nx">dataTable</span>
 <span class="nl">LoadDataFiles</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">dataTable</span> <span class="o">=</span> <span class="nx">datafile</span><span class="p">.</span><span class="nx">GetDataTable</span><span class="p">(</span><span class="s2">"pluginName"</span><span class="p">)</span> <span class="o">||</span> <span class="p">{};</span>
+    <span class="nx">dataTable</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">GetData</span><span class="p">(</span><span class="s2">"pluginName"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
 <pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">Init</span><span class="p">()</span>
@@ -804,13 +804,13 @@ version or oxide.version
 <span class="p">}</span>
 </code></pre>
 <pre class="highlight javascript"><code><span class="nx">SaveDataFiles</span><span class="err">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">datafile</span><span class="p">.</span><span class="nx">SaveDataTable</span><span class="p">(</span><span class="s2">"pluginName"</span><span class="p">);</span>
+    <span class="nx">data</span><span class="p">.</span><span class="nx">SaveData</span><span class="p">(</span><span class="s2">"pluginName"</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="nl">cmdTest</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">player</span><span class="p">,</span> <span class="nx">cmd</span><span class="p">,</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="nx">player</span><span class="p">.</span><span class="nx">displayName</span><span class="p">;</span>
     <span class="nx">dataTable</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-    <span class="nl">this</span><span class="p">:</span><span class="nx">SaveDataFiles</span><span class="p">();</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">SaveDataFiles</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre>
 <pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">SaveDataFiles</span><span class="p">()</span>
