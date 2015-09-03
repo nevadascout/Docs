@@ -274,7 +274,7 @@
 </code></pre>
 
 <ul>
-<li>Called from ConnectionManager.OnServerInitialized</li>
+<li>Called from GameManager.StartGame</li>
 <li>No return behavior</li>
 <li>Called after the server startup has been completed and is awaiting connections</li>
 </ul>
@@ -293,15 +293,15 @@
 </code></pre>
 
 <ul>
-<li>Called from GameManager.SavePlayerData and GameManager.SaveWorld</li>
+<li>Called from World.Save</li>
 <li>No return behavior</li>
 <li>Is called before the server saves world and player data</li>
 </ul>
 
-<h2 id="onserverquit">OnServerQuit</h2>
-<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnServerQuit</span><span class="p">()</span>
+<h2 id="onservershutdown">OnServerShutdown</h2>
+<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnServerShutdown</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnServerQuit works!"</span><span class="p">);</span>
+    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnServerShutdown works!"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
 <pre class="highlight javascript"><code><span class="nx">We</span> <span class="nx">need</span> <span class="nx">a</span> <span class="nx">JavaScript</span> <span class="nx">example</span> <span class="nx">here</span>
@@ -312,14 +312,14 @@
 </code></pre>
 
 <ul>
-<li>Called from GameManager.OnApplicationQuit</li>
+<li>Called from ModManager.GameShutdown</li>
 <li>No return behavior</li>
 <li>Is called before the server starts the shutdown sequence</li>
 <li>This should generally not be used by plugins, instead use the Unload hook</li>
 </ul>
 
 <h2 id="onruncommand">OnRunCommand</h2>
-<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnRunCommand</span><span class="p">(</span><span class="n">ConsoleSdtd</span> <span class="n">console</span><span class="p">,</span> <span class="n">ConsoleCommand</span> <span class="n">command</span><span class="p">,</span> <span class="n">String</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnRunCommand</span><span class="p">(</span><span class="n">ClientInfo</span> <span class="n">client</span><span class="p">,</span> <span class="n">String</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnRunCommand works!"</span><span class="p">);</span>
 <span class="p">}</span>
@@ -332,14 +332,14 @@
 </code></pre>
 
 <ul>
-<li>Called from ConsoleSdtd.ExecuteRemoteCmdInternal</li>
+<li>Called from ConnectionManager.ServerConsoleCommand</li>
 <li>Help! This is missing a description!</li>
 </ul>
 
           <h1 id="player-hooks">Player Hooks</h1>
 
 <h2 id="onplayerconnected">OnPlayerConnected</h2>
-<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnPlayerConnected</span><span class="p">(</span><span class="n">ClientInfo</span> <span class="n">client</span><span class="p">)</span>
+<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnPlayerConnected</span><span class="p">(</span><span class="n">EntityPlayer</span> <span class="n">player</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnPlayerConnected works!"</span><span class="p">);</span>
 <span class="p">}</span>
@@ -352,12 +352,12 @@
 </code></pre>
 
 <ul>
-<li>Called from GameManager.md0013</li>
+<li>Called from GameManager.RequestToSpawnPlayer</li>
 <li>Help! This is missing a description!</li>
 </ul>
 
 <h2 id="onplayerdisconnected">OnPlayerDisconnected</h2>
-<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnPlayerDisconnected</span><span class="p">(</span><span class="n">ClientInfo</span> <span class="n">client</span><span class="p">)</span>
+<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnPlayerDisconnected</span><span class="p">(</span><span class="n">EntityPlayer</span> <span class="n">player</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnPlayerDisconnected works!"</span><span class="p">);</span>
 <span class="p">}</span>
@@ -370,12 +370,12 @@
 </code></pre>
 
 <ul>
-<li>Called from ConnectionManager.RemovePlayer</li>
+<li>Called from GameManager.PlayerDisconnected</li>
 <li>Help! This is missing a description!</li>
 </ul>
 
 <h2 id="onplayerchat">OnPlayerChat</h2>
-<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnPlayerChat</span><span class="p">(</span><span class="kt">string</span> <span class="n">message</span><span class="p">,</span> <span class="kt">int</span> <span class="n">team</span><span class="p">,</span> <span class="kt">string</span> <span class="n">playerName</span><span class="p">)</span>
+<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnPlayerChat</span><span class="p">(</span><span class="kt">string</span> <span class="n">message</span><span class="p">,</span> <span class="kt">string</span> <span class="n">playerName</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnPlayerChat works!"</span><span class="p">);</span>
 <span class="p">}</span>
@@ -388,11 +388,65 @@
 </code></pre>
 
 <ul>
-<li>Called from GameManager.SendChatMessage</li>
+<li>Called from GameManager.GameMessageServer</li>
+<li>Help! This is missing a description!</li>
+</ul>
+
+<h2 id="onplayerrespawned">OnPlayerRespawned</h2>
+<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnPlayerRespawned</span><span class="p">(</span><span class="n">EntityPlayer</span> <span class="n">player</span><span class="p">,</span> <span class="kt">string</span> <span class="n">reason</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnPlayerRespawned works!"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="nx">We</span> <span class="nx">need</span> <span class="nx">a</span> <span class="nx">JavaScript</span> <span class="nx">example</span> <span class="nx">here</span>
+</code></pre>
+<pre class="highlight lua"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Lua</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
+<pre class="highlight python"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Python</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
+
+<ul>
+<li>Called from EntityPlayer.Respawn</li>
+<li>Help! This is missing a description!</li>
+</ul>
+
+<h2 id="onexperiencegained">OnExperienceGained</h2>
+<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnExperienceGained</span><span class="p">(</span><span class="n">EntityPlayer</span> <span class="n">player</span><span class="p">,</span> <span class="kt">uint</span> <span class="n">exp</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnExperienceGained works!"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="nx">We</span> <span class="nx">need</span> <span class="nx">a</span> <span class="nx">JavaScript</span> <span class="nx">example</span> <span class="nx">here</span>
+</code></pre>
+<pre class="highlight lua"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Lua</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
+<pre class="highlight python"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Python</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
+
+<ul>
+<li>Called from EntityPlayer.AddExp</li>
 <li>Help! This is missing a description!</li>
 </ul>
 
           <h1 id="entity-hooks">Entity Hooks</h1>
+
+<h2 id="onairdrop">OnAirdrop</h2>
+<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnAirdrop</span><span class="p">(</span><span class="n">Vector3</span> <span class="n">vector</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnAirdrop works!"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="nx">We</span> <span class="nx">need</span> <span class="nx">a</span> <span class="nx">JavaScript</span> <span class="nx">example</span> <span class="nx">here</span>
+</code></pre>
+<pre class="highlight lua"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Lua</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
+<pre class="highlight python"><code><span class="n">We</span> <span class="n">need</span> <span class="n">a</span> <span class="n">Python</span> <span class="n">example</span> <span class="n">here</span>
+</code></pre>
+
+<ul>
+<li>Called from AIAirDrop.md0003</li>
+<li>Called when an airdrop has been called</li>
+</ul>
 
 <h2 id="onentityspawned">OnEntitySpawned</h2>
 <pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnEntitySpawned</span><span class="p">(</span><span class="n">Entity</span> <span class="n">entity</span><span class="p">)</span>
@@ -412,10 +466,10 @@
 <li>Help! This is missing a description!</li>
 </ul>
 
-<h2 id="onentityhurt">OnEntityHurt</h2>
-<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnEntityHurt</span><span class="p">(</span><span class="n">cl0006</span> <span class="n">entity</span><span class="p">,</span> <span class="n">DamageSource</span> <span class="n">source</span><span class="p">)</span>
+<h2 id="onentitytakedamage">OnEntityTakeDamage</h2>
+<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnEntityTakeDamage</span><span class="p">(</span><span class="n">EntityAlive</span> <span class="n">entity</span><span class="p">,</span> <span class="n">DamageSource</span> <span class="n">source</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnEntityHurt works!"</span><span class="p">);</span>
+    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnEntityTakeDamage works!"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
 <pre class="highlight javascript"><code><span class="nx">We</span> <span class="nx">need</span> <span class="nx">a</span> <span class="nx">JavaScript</span> <span class="nx">example</span> <span class="nx">here</span>
@@ -426,12 +480,12 @@
 </code></pre>
 
 <ul>
-<li>Called from cl0006.DamageEntity</li>
+<li>Called from EntityAlive.DamageEntity</li>
 <li>Help! This is missing a description!</li>
 </ul>
 
 <h2 id="onentitydeath">OnEntityDeath</h2>
-<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnEntityDeath</span><span class="p">(</span><span class="n">cl0006</span> <span class="n">entity</span><span class="p">)</span>
+<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnEntityDeath</span><span class="p">(</span><span class="n">Entity</span> <span class="n">entity</span><span class="p">,</span> <span class="n">DamageResponse</span> <span class="n">response</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnEntityDeath works!"</span><span class="p">);</span>
 <span class="p">}</span>
@@ -444,7 +498,7 @@
 </code></pre>
 
 <ul>
-<li>Called from cl0006.OnEntityDeath and EntityCar.OnEntityDeath</li>
+<li>Called from Entity.OnEntityDeath</li>
 <li>Help! This is missing a description!</li>
 </ul>
 
@@ -477,15 +531,15 @@
           <h1 id="commands">Commands</h1>
 
 <h2 id="default-commands">Default commands</h2>
-<pre class="highlight plaintext"><code>oxide.load *|&lt;pluginname&gt;+  
-oxide.unload *|&lt;pluginname&gt;+  
-oxide.reload *|&lt;pluginname&gt;+  
-oxide.grant &lt;group|user&gt; &lt;name|id&gt; &lt;permission&gt;  
-oxide.revoke &lt;group|user&gt; &lt;name|id&gt; &lt;permission&gt;  
-oxide.group &lt;add|set&gt; &lt;name&gt; [title] [rank]  
-oxide.group &lt;remove|show&gt; &lt;name&gt;  
-oxide.group &lt;parent&gt; &lt;name&gt; &lt;parentName&gt;  
-oxide.usergroup &lt;add|remove&gt; &lt;username&gt; &lt;groupname&gt;  
+<pre class="highlight plaintext"><code>load *|&lt;pluginname&gt;+  
+unload *|&lt;pluginname&gt;+  
+reload *|&lt;pluginname&gt;+  
+grant &lt;group|user&gt; &lt;name|id&gt; *|&lt;permission&gt;  
+revoke &lt;group|user&gt; &lt;name|id&gt; *|&lt;permission&gt;  
+group &lt;add|set&gt; &lt;name&gt; [title] [rank]  
+group &lt;remove|show&gt; &lt;name&gt;  
+group &lt;parent&gt; &lt;name&gt; &lt;parentName&gt;  
+usergroup &lt;add|remove&gt; &lt;username&gt; &lt;groupname&gt;  
 version or oxide.version
 </code></pre>
 
