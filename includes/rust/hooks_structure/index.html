@@ -58,6 +58,7 @@
 
 <ul>
 <li>Called from BaseLock.OnTryToOpen and BaseLock.OnTryToClose</li>
+<li>Called when a player tries to use a locked door</li>
 <li>Returning true will allow door usage, nothing will by default will allow door usage, returning anything else will reject door usage</li>
 </ul>
 
@@ -81,6 +82,7 @@
 
 <ul>
 <li>Called from CodeLock.OnTryToOpen and CodeLock.OnTryToClose</li>
+<li>Called when a player tries to use a door with a code lock</li>
 <li>Returning true will allow door usage, nothing will by default will allow door usage, returning anything else will reject door usage</li>
 </ul>
 
@@ -104,6 +106,7 @@
 
 <ul>
 <li>Called from KeyLock.OnTryToOpen and KeyLock.OnTryToClose</li>
+<li>Called when a player tries to use a door with a key lock</li>
 <li>Returning true will allow door usage, nothing will by default will allow door usage, returning anything else will reject door usage</li>
 </ul>
 

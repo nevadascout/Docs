@@ -253,6 +253,7 @@
 
 <ul>
 <li>Called from chat.say</li>
+<li>Called when a player sends chat to the server</li>
 <li>Returning a non-null value overrides default behavior of chat, not commands</li>
 </ul>
 
@@ -309,20 +310,20 @@
 </ul>
 
 <h2 id="onplayerloot">OnPlayerLoot</h2>
-<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnPlayerLoot</span><span class="p">(</span><span class="n">PlayerLoot</span> <span class="n">lootInventory</span><span class="p">,</span> <span class="n">BaseEntity</span> <span class="n">targetEntity</span><span class="p">)</span>
+<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnPlayerLoot</span><span class="p">(</span><span class="n">PlayerLoot</span> <span class="n">inventory</span><span class="p">,</span> <span class="n">BaseEntity</span> <span class="n">target</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnPlayerLoot works!"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
-<pre class="highlight javascript"><code><span class="nx">OnPlayerLoot</span><span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">lootInventory</span><span class="p">,</span> <span class="nx">targetEntity</span><span class="p">)</span> <span class="p">{</span>
+<pre class="highlight javascript"><code><span class="nx">OnPlayerLoot</span><span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">inventory</span><span class="p">,</span> <span class="nx">target</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">print</span><span class="p">(</span><span class="s2">"OnPlayerLoot works!"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
-<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">OnPlayerLoot</span><span class="p">(</span><span class="n">lootInventory</span><span class="p">,</span> <span class="n">targetEntity</span><span class="p">)</span>
+<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">OnPlayerLoot</span><span class="p">(</span><span class="n">inventory</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"OnPlayerLoot works!"</span><span class="p">)</span>
 <span class="k">end</span>
 </code></pre>
-<pre class="highlight python"><code><span class="k">def</span> <span class="nf">OnPlayerLoot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lootInventory</span><span class="p">,</span> <span class="n">targetEntity</span><span class="p">):</span>
+<pre class="highlight python"><code><span class="k">def</span> <span class="nf">OnPlayerLoot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inventory</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
     <span class="k">print</span> <span class="s">"OnPlayerLoot works!"</span>
 </code></pre>
 
@@ -333,20 +334,20 @@
 </ul>
 
 <h2 id="onplayerloot">OnPlayerLoot</h2>
-<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnPlayerLoot</span><span class="p">(</span><span class="n">PlayerLoot</span> <span class="n">lootInventory</span><span class="p">,</span> <span class="n">BasePlayer</span> <span class="n">targetPlayer</span><span class="p">)</span>
+<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnPlayerLoot</span><span class="p">(</span><span class="n">PlayerLoot</span> <span class="n">inventory</span><span class="p">,</span> <span class="n">BasePlayer</span> <span class="n">target</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnPlayerLoot works!"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
-<pre class="highlight javascript"><code><span class="nx">OnPlayerLoot</span><span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">lootInventory</span><span class="p">,</span> <span class="nx">targetPlayer</span><span class="p">)</span> <span class="p">{</span>
+<pre class="highlight javascript"><code><span class="nx">OnPlayerLoot</span><span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">inventory</span><span class="p">,</span> <span class="nx">target</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">print</span><span class="p">(</span><span class="s2">"OnPlayerLoot works!"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
-<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">OnPlayerLoot</span><span class="p">(</span><span class="n">lootInventory</span><span class="p">,</span> <span class="n">targetPlayer</span><span class="p">)</span>
+<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">OnPlayerLoot</span><span class="p">(</span><span class="n">inventory</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"OnPlayerLoot works!"</span><span class="p">)</span>
 <span class="k">end</span>
 </code></pre>
-<pre class="highlight python"><code><span class="k">def</span> <span class="nf">OnPlayerLoot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lootInventory</span><span class="p">,</span> <span class="n">targetEntity</span><span class="p">):</span>
+<pre class="highlight python"><code><span class="k">def</span> <span class="nf">OnPlayerLoot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inventory</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
     <span class="k">print</span> <span class="s">"OnPlayerLoot works!"</span>
 </code></pre>
 
@@ -357,20 +358,20 @@
 </ul>
 
 <h2 id="onplayerloot">OnPlayerLoot</h2>
-<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnPlayerLoot</span><span class="p">(</span><span class="n">PlayerLoot</span> <span class="n">lootInventory</span><span class="p">,</span> <span class="n">Item</span> <span class="n">targetItem</span><span class="p">)</span>
+<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnPlayerLoot</span><span class="p">(</span><span class="n">PlayerLoot</span> <span class="n">inventory</span><span class="p">,</span> <span class="n">Item</span> <span class="n">item</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnPlayerLoot works!"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
-<pre class="highlight javascript"><code><span class="nx">OnPlayerLoot</span><span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">lootInventory</span><span class="p">,</span> <span class="nx">targetItem</span><span class="p">)</span> <span class="p">{</span>
+<pre class="highlight javascript"><code><span class="nx">OnPlayerLoot</span><span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">inventory</span><span class="p">,</span> <span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">print</span><span class="p">(</span><span class="s2">"OnPlayerLoot works!"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
-<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">OnPlayerLoot</span><span class="p">(</span><span class="n">lootInventory</span><span class="p">,</span> <span class="n">targetItem</span><span class="p">)</span>
+<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">OnPlayerLoot</span><span class="p">(</span><span class="n">inventory</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"OnPlayerLoot works!"</span><span class="p">)</span>
 <span class="k">end</span>
 </code></pre>
-<pre class="highlight python"><code><span class="k">def</span> <span class="nf">OnPlayerLoot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lootInventory</span><span class="p">,</span> <span class="n">targetEntity</span><span class="p">):</span>
+<pre class="highlight python"><code><span class="k">def</span> <span class="nf">OnPlayerLoot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inventory</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
     <span class="k">print</span> <span class="s">"OnPlayerLoot works!"</span>
 </code></pre>
 
