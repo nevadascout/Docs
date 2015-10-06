@@ -38,28 +38,28 @@
       <div class="content">
         <h1 id="player-hooks">Player Hooks</h1>
 
-<h2 id="onuserapprove">OnUserApprove</h2>
-<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnUserApprove</span><span class="p">(</span><span class="n">Network</span><span class="p">.</span><span class="n">Connection</span> <span class="n">connection</span><span class="p">)</span>
+<h2 id="canbewounded">CanBeWounded</h2>
+<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">CanBeWounded</span><span class="p">(</span><span class="n">BasePlayer</span> <span class="n">player</span><span class="p">,</span> <span class="n">HitInfo</span> <span class="n">info</span><span class="p">)</span> 
 <span class="p">{</span>
-    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnUserApprove works!"</span><span class="p">);</span>
+    <span class="nf">Puts</span><span class="p">(</span><span class="s">"CanBeWounded works!"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
-<pre class="highlight javascript"><code><span class="nx">OnUserApprove</span><span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">connection</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">print</span><span class="p">(</span><span class="s2">"OnUserApprove works!"</span><span class="p">);</span>
+<pre class="highlight javascript"><code><span class="nx">CanBeWounded</span><span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">player</span><span class="p">,</span> <span class="nx">info</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">print</span><span class="p">(</span><span class="s2">"CanBeWounded works!"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
-<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">OnUserApprove</span><span class="p">(</span><span class="n">connection</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"OnUserApprove works!"</span><span class="p">)</span>
+<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">CanBeWounded</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="n">info</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"CanBeWounded works!"</span><span class="p">)</span>
 <span class="k">end</span>
 </code></pre>
-<pre class="highlight python"><code><span class="k">def</span> <span class="nf">OnUserApprove</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">connection</span><span class="p">):</span>
-    <span class="k">print</span> <span class="s">"OnUserApprove works!"</span>
+<pre class="highlight python"><code><span class="k">def</span> <span class="nf">CanBeWounded</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">player</span><span class="p">,</span> <span class="n">info</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s">"CanBeWounded works!"</span>
 </code></pre>
 
 <ul>
-<li>Called from ConnectionAuth.OnNewConnection</li>
-<li>Used by RustCore and abstracted into CanClientLogin</li>
-<li>Returning a non-null value overrides default behavior, plugin should call Reject if it does this</li>
+<li>Called from BasePlayer.EligibleForWounding</li>
+<li>Called when a player dies</li>
+<li>Returning true or false will cancel default behavior</li>
 </ul>
 
 <h2 id="canclientlogin">CanClientLogin</h2>
@@ -84,6 +84,54 @@
 <li>Called from RustCore.IOnUserApprove</li>
 <li>Returning a string will use the string as the error message</li>
 <li>Returning true will allow the connection, returning nothing will by default allow the connection, returning anything else will reject it with an error message</li>
+</ul>
+
+<h2 id="canlootplayer">CanLootPlayer</h2>
+<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">CanLootPlayer</span><span class="p">(</span><span class="n">BasePlayer</span> <span class="n">player</span><span class="p">,</span> <span class="n">BasePlayer</span> <span class="n">target</span><span class="p">)</span> 
+<span class="p">{</span>
+    <span class="nf">Puts</span><span class="p">(</span><span class="s">"CanLootPlayer works!"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="nx">CanLootPlayer</span><span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">player</span><span class="p">,</span> <span class="nx">target</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">print</span><span class="p">(</span><span class="s2">"CanLootPlayer works!"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">CanLootPlayer</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"CanLootPlayer works!"</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre>
+<pre class="highlight python"><code><span class="k">def</span> <span class="nf">CanLootPlayer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">player</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s">"CanLootPlayer works!"</span>
+</code></pre>
+
+<ul>
+<li>Called from BasePlayer.CanBeLooted</li>
+<li>Called when a player attempts to loot another player</li>
+<li>Returning true or false will cancel default behavior</li>
+</ul>
+
+<h2 id="onfindspawnpoint">OnFindSpawnPoint</h2>
+<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnFindSpawnPoint</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnFindSpawnPoint works!"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="nx">OnFindSpawnPoint</span><span class="err">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">print</span><span class="p">(</span><span class="s2">"OnFindSpawnPoint works!"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">OnFindSpawnPoint</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"OnFindSpawnPoint works!"</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre>
+<pre class="highlight python"><code><span class="k">def</span> <span class="nf">OnFindSpawnPoint</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s">"OnFindSpawnPoint works!"</span>
+</code></pre>
+
+<ul>
+<li>Called from ServerMgr.BasePlayer/SpawnPoint</li>
+<li>Useful for controlling player spawnpoints (like making all spawns occur in a set area)</li>
+<li>Return a BasePlayer.SpawnPoint object to use that spawnpoint</li>
 </ul>
 
 <h2 id="onplayerconnected">OnPlayerConnected</h2>
@@ -157,30 +205,6 @@
 <li>Called from BasePlayer.PlayerInit</li>
 <li>Called when the player is initializing (after they&rsquo;ve connected, before they wake up)</li>
 <li>No return behavior</li>
-</ul>
-
-<h2 id="onfindspawnpoint">OnFindSpawnPoint</h2>
-<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnFindSpawnPoint</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnFindSpawnPoint works!"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="nx">OnFindSpawnPoint</span><span class="err">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">print</span><span class="p">(</span><span class="s2">"OnFindSpawnPoint works!"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">OnFindSpawnPoint</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"OnFindSpawnPoint works!"</span><span class="p">)</span>
-<span class="k">end</span>
-</code></pre>
-<pre class="highlight python"><code><span class="k">def</span> <span class="nf">OnFindSpawnPoint</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="k">print</span> <span class="s">"OnFindSpawnPoint works!"</span>
-</code></pre>
-
-<ul>
-<li>Called from ServerMgr.BasePlayer/SpawnPoint</li>
-<li>Useful for controlling player spawnpoints (like making all spawns occur in a set area)</li>
-<li>Return a BasePlayer.SpawnPoint object to use that spawnpoint</li>
 </ul>
 
 <h2 id="onhammerhit">OnHammerHit</h2>
@@ -257,33 +281,6 @@
 <li>Returning a non-null value overrides default behavior of chat, not commands</li>
 </ul>
 
-<h2 id="onrunplayermetabolism">OnRunPlayerMetabolism</h2>
-<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnRunPlayerMetabolism</span><span class="p">(</span><span class="n">PlayerMetabolism</span> <span class="n">metabolism</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnRunPlayerMetabolism works!"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="nx">OnRunPlayerMetabolism</span><span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">metabolism</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">print</span><span class="p">(</span><span class="s2">"OnRunPlayerMetabolism works!"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">OnRunPlayerMetabolism</span><span class="p">(</span><span class="n">metabolism</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"OnRunPlayerMetabolism works!"</span><span class="p">)</span>
-<span class="k">end</span>
-</code></pre>
-<pre class="highlight python"><code><span class="k">def</span> <span class="nf">OnRunPlayerMetabolism</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">metabolism</span><span class="p">):</span>
-    <span class="k">print</span> <span class="s">"OnRunPlayerMetabolism works!"</span>
-</code></pre>
-
-<ul>
-<li>Called from PlayerMetabolism.RunMetabolism</li>
-<li>Called before a metabolism update occurs for the specified player</li>
-<li>Metabolism update consists of managing the player&rsquo;s temperature, health etc.</li>
-<li>You can use this to turn off or change certain aspects of the metabolism, either by editing values before returning, or taking complete control of the method</li>
-<li>Access the player object using metabolism:GetComponent(&ldquo;BasePlayer&rdquo;)</li>
-<li>Returning true cancels the update</li>
-</ul>
-
 <h2 id="onplayerattack">OnPlayerAttack</h2>
 <pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnPlayerAttack</span><span class="p">(</span><span class="n">BasePlayer</span> <span class="n">attacker</span><span class="p">,</span> <span class="n">HitInfo</span> <span class="n">info</span><span class="p">)</span>
 <span class="p">{</span>
@@ -307,6 +304,30 @@
 <li>Useful for modifying an attack before it goes out</li>
 <li>hitInfo.HitEntity should be the entity that this attack would hit</li>
 <li>Returning true cancels the attack</li>
+</ul>
+
+<h2 id="onplayerinput">OnPlayerInput</h2>
+<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnPlayerInput</span><span class="p">(</span><span class="n">BasePlayer</span> <span class="n">player</span><span class="p">,</span> <span class="n">InputState</span> <span class="n">input</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnPlayerInput works!"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="nx">OnPlayerInput</span><span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">player</span><span class="p">,</span> <span class="nx">input</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">print</span><span class="p">(</span><span class="s2">"OnPlayerInput works!"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">OnPlayerInput</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="n">input</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"OnPlayerInput works!"</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre>
+<pre class="highlight python"><code><span class="k">def</span> <span class="nf">OnPlayerInput</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">player</span><span class="p">,</span> <span class="nb">input</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s">"OnPlayerInput works!"</span>
+</code></pre>
+
+<ul>
+<li>Called from BasePlayer.OnReceiveTick</li>
+<li>Called when input is received from a connected client</li>
+<li>No return behavior</li>
 </ul>
 
 <h2 id="onplayerloot">OnPlayerLoot</h2>
@@ -381,30 +402,6 @@
 <li>No return behavior</li>
 </ul>
 
-<h2 id="onplayerinput">OnPlayerInput</h2>
-<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnPlayerInput</span><span class="p">(</span><span class="n">BasePlayer</span> <span class="n">player</span><span class="p">,</span> <span class="n">InputState</span> <span class="n">input</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnPlayerInput works!"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="nx">OnPlayerInput</span><span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">player</span><span class="p">,</span> <span class="nx">input</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">print</span><span class="p">(</span><span class="s2">"OnPlayerInput works!"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">OnPlayerInput</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="n">input</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"OnPlayerInput works!"</span><span class="p">)</span>
-<span class="k">end</span>
-</code></pre>
-<pre class="highlight python"><code><span class="k">def</span> <span class="nf">OnPlayerInput</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">player</span><span class="p">,</span> <span class="nb">input</span><span class="p">):</span>
-    <span class="k">print</span> <span class="s">"OnPlayerInput works!"</span>
-</code></pre>
-
-<ul>
-<li>Called from BasePlayer.OnReceiveTick</li>
-<li>Called when input is received from a connected client</li>
-<li>No return behavior</li>
-</ul>
-
 <h2 id="onplayersleepended">OnPlayerSleepEnded</h2>
 <pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnPlayerSleepEnded</span><span class="p">(</span><span class="n">BasePlayer</span> <span class="n">player</span><span class="p">)</span>
 <span class="p">{</span>
@@ -426,30 +423,6 @@
 <ul>
 <li>Called from BasePlayer.EndSleeping</li>
 <li>Called when a player awakes</li>
-<li>No return behavior</li>
-</ul>
-
-<h2 id="onweaponthrown">OnWeaponThrown</h2>
-<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnWeaponThrown</span><span class="p">(</span><span class="n">BasePlayer</span> <span class="n">player</span><span class="p">,</span> <span class="n">BaseEntity</span> <span class="n">entity</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnWeaponThrown works!"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="nx">OnWeaponThrown</span><span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">player</span><span class="p">,</span> <span class="nx">entity</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">print</span><span class="p">(</span><span class="s2">"OnWeaponThrown works!"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">OnWeaponThrown</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="n">entity</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"OnWeaponThrown works!"</span><span class="p">)</span>
-<span class="k">end</span>
-</code></pre>
-<pre class="highlight python"><code><span class="k">def</span> <span class="nf">OnWeaponThrown</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">player</span><span class="p">,</span> <span class="n">entity</span><span class="p">):</span>
-    <span class="k">print</span> <span class="s">"OnWeaponThrown works!"</span>
-</code></pre>
-
-<ul>
-<li>Called from RustCore.IOnWeaponThrown</li>
-<li>Called when a player throws a weapon (grenade, c4, &hellip;)</li>
 <li>No return behavior</li>
 </ul>
 
@@ -477,6 +450,81 @@
 <li>No return behavior</li>
 </ul>
 
+<h2 id="onrunplayermetabolism">OnRunPlayerMetabolism</h2>
+<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnRunPlayerMetabolism</span><span class="p">(</span><span class="n">PlayerMetabolism</span> <span class="n">metabolism</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnRunPlayerMetabolism works!"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="nx">OnRunPlayerMetabolism</span><span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">metabolism</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">print</span><span class="p">(</span><span class="s2">"OnRunPlayerMetabolism works!"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">OnRunPlayerMetabolism</span><span class="p">(</span><span class="n">metabolism</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"OnRunPlayerMetabolism works!"</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre>
+<pre class="highlight python"><code><span class="k">def</span> <span class="nf">OnRunPlayerMetabolism</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">metabolism</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s">"OnRunPlayerMetabolism works!"</span>
+</code></pre>
+
+<ul>
+<li>Called from PlayerMetabolism.RunMetabolism</li>
+<li>Called before a metabolism update occurs for the specified player</li>
+<li>Metabolism update consists of managing the player&rsquo;s temperature, health etc.</li>
+<li>You can use this to turn off or change certain aspects of the metabolism, either by editing values before returning, or taking complete control of the method</li>
+<li>Access the player object using metabolism:GetComponent(&ldquo;BasePlayer&rdquo;)</li>
+<li>Returning true cancels the update</li>
+</ul>
+
+<h2 id="onnewconnection">OnNewConnection</h2>
+<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnNewConnection</span><span class="p">(</span><span class="n">Network</span><span class="p">.</span><span class="n">Connection</span> <span class="n">connection</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnNewConnection works!"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="nx">OnNewConnection</span><span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">connection</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">print</span><span class="p">(</span><span class="s2">"OnNewConnection works!"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">OnNewConnection</span><span class="p">(</span><span class="n">connection</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"OnNewConnection works!"</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre>
+<pre class="highlight python"><code><span class="k">def</span> <span class="nf">OnNewConnection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">connection</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s">"OnNewConnection works!"</span>
+</code></pre>
+
+<ul>
+<li>Called from ConnectionAuth.OnNewConnection</li>
+<li>Called when a new connection is made by a user, after token, but before other checks.</li>
+<li>Returning a non-null value overrides default behavior, plugin should call Reject if it does this</li>
+</ul>
+
+<h2 id="onuserapprove">OnUserApprove</h2>
+<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnUserApprove</span><span class="p">(</span><span class="n">Network</span><span class="p">.</span><span class="n">Connection</span> <span class="n">connection</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnUserApprove works!"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="nx">OnUserApprove</span><span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">connection</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">print</span><span class="p">(</span><span class="s2">"OnUserApprove works!"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">OnUserApprove</span><span class="p">(</span><span class="n">connection</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"OnUserApprove works!"</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre>
+<pre class="highlight python"><code><span class="k">def</span> <span class="nf">OnUserApprove</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">connection</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s">"OnUserApprove works!"</span>
+</code></pre>
+
+<ul>
+<li>Called from ConnectionAuth.OnNewConnection</li>
+<li>Used by RustCore and abstracted into CanClientLogin</li>
+<li>Returning a non-null value overrides default behavior, plugin should call Reject if it does this</li>
+</ul>
+
 <h2 id="onweaponfired">OnWeaponFired</h2>
 <pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnWeaponFired</span><span class="p">(</span><span class="n">BaseProjectile</span> <span class="n">projectile</span><span class="p">,</span> <span class="n">BasePlayer</span> <span class="n">player</span><span class="p">,</span> <span class="n">ItemModProjectile</span> <span class="n">projectile</span><span class="p">,</span> <span class="n">ProtoBuf</span><span class="p">.</span><span class="n">ProjectileShoot</span> <span class="n">projectiles</span><span class="p">)</span>
 <span class="p">{</span>
@@ -501,52 +549,28 @@
 <li>No return behavior</li>
 </ul>
 
-<h2 id="canbewounded">CanBeWounded</h2>
-<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">CanBeWounded</span><span class="p">(</span><span class="n">BasePlayer</span> <span class="n">player</span><span class="p">,</span> <span class="n">HitInfo</span> <span class="n">info</span><span class="p">)</span> 
+<h2 id="onweaponthrown">OnWeaponThrown</h2>
+<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnWeaponThrown</span><span class="p">(</span><span class="n">BasePlayer</span> <span class="n">player</span><span class="p">,</span> <span class="n">BaseEntity</span> <span class="n">entity</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="nf">Puts</span><span class="p">(</span><span class="s">"CanBeWounded works!"</span><span class="p">);</span>
+    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnWeaponThrown works!"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
-<pre class="highlight javascript"><code><span class="nx">CanBeWounded</span><span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">player</span><span class="p">,</span> <span class="nx">info</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">print</span><span class="p">(</span><span class="s2">"CanBeWounded works!"</span><span class="p">);</span>
+<pre class="highlight javascript"><code><span class="nx">OnWeaponThrown</span><span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">player</span><span class="p">,</span> <span class="nx">entity</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">print</span><span class="p">(</span><span class="s2">"OnWeaponThrown works!"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
-<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">CanBeWounded</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="n">info</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"CanBeWounded works!"</span><span class="p">)</span>
+<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">OnWeaponThrown</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="n">entity</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"OnWeaponThrown works!"</span><span class="p">)</span>
 <span class="k">end</span>
 </code></pre>
-<pre class="highlight python"><code><span class="k">def</span> <span class="nf">CanBeWounded</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">player</span><span class="p">,</span> <span class="n">info</span><span class="p">):</span>
-    <span class="k">print</span> <span class="s">"CanBeWounded works!"</span>
+<pre class="highlight python"><code><span class="k">def</span> <span class="nf">OnWeaponThrown</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">player</span><span class="p">,</span> <span class="n">entity</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s">"OnWeaponThrown works!"</span>
 </code></pre>
 
 <ul>
-<li>Called from BasePlayer.EligibleForWounding</li>
-<li>Called when a player dies</li>
-<li>Returning true or false will cancel default behavior</li>
-</ul>
-
-<h2 id="canlootplayer">CanLootPlayer</h2>
-<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">CanLootPlayer</span><span class="p">(</span><span class="n">BasePlayer</span> <span class="n">player</span><span class="p">,</span> <span class="n">BasePlayer</span> <span class="n">target</span><span class="p">)</span> 
-<span class="p">{</span>
-    <span class="nf">Puts</span><span class="p">(</span><span class="s">"CanLootPlayer works!"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="nx">CanLootPlayer</span><span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">player</span><span class="p">,</span> <span class="nx">target</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">print</span><span class="p">(</span><span class="s2">"CanLootPlayer works!"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">CanLootPlayer</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"CanLootPlayer works!"</span><span class="p">)</span>
-<span class="k">end</span>
-</code></pre>
-<pre class="highlight python"><code><span class="k">def</span> <span class="nf">CanLootPlayer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">player</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
-    <span class="k">print</span> <span class="s">"CanLootPlayer works!"</span>
-</code></pre>
-
-<ul>
-<li>Called from BasePlayer.CanBeLooted</li>
-<li>Called when a player attempts to loot another player</li>
-<li>Returning true or false will cancel default behavior</li>
+<li>Called from RustCore.IOnWeaponThrown</li>
+<li>Called when a player throws a weapon (grenade, c4, &hellip;)</li>
+<li>No return behavior</li>
 </ul>
 
       </div>
