@@ -1093,6 +1093,151 @@
 
           <h1 id="item-hooks">Item Hooks</h1>
 
+<h2 id="onblueprintreveal">OnBlueprintReveal</h2>
+<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnBlueprintReveal</span><span class="p">(</span><span class="n">Item</span> <span class="n">item</span><span class="p">,</span> <span class="n">Item</span> <span class="n">revealed</span><span class="p">,</span> <span class="n">BasePlayer</span> <span class="n">player</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnBlueprintReveal works!"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="nx">OnBlueprintReveal</span><span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">print</span><span class="p">(</span><span class="s2">"OnBlueprintReveal works!"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">OnBlueprintReveal</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"OnBlueprintReveal works!"</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre>
+<pre class="highlight python"><code><span class="k">def</span> <span class="nf">OnBlueprintReveal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s">"OnBlueprintReveal works!"</span>
+</code></pre>
+
+<ul>
+<li>Called from ItemModReveal.ServerCommand</li>
+<li>Called when a player attempts to reveal a blueprint</li>
+<li>No return behavior</li>
+</ul>
+
+<h2 id="onconsumableuse">OnConsumableUse</h2>
+<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnConsumableUse</span><span class="p">(</span><span class="n">Item</span> <span class="n">item</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnConsumableUse works!"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="nx">OnConsumableUse</span><span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">print</span><span class="p">(</span><span class="s2">"OnConsumableUse works!"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">OnConsumableUse</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"OnConsumableUse works!"</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre>
+<pre class="highlight python"><code><span class="k">def</span> <span class="nf">OnConsumableUse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s">"OnConsumableUse works!"</span>
+</code></pre>
+
+<ul>
+<li>Called from Item.UseOneItem</li>
+<li>Called right after a consumable item is used</li>
+<li>No return behavior</li>
+</ul>
+
+<h2 id="onconsumefuel">OnConsumeFuel</h2>
+<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnConsumeFuel</span><span class="p">(</span><span class="n">BaseOven</span> <span class="n">oven</span><span class="p">,</span> <span class="n">Item</span> <span class="n">fuel</span><span class="p">,</span> <span class="n">ItemModBurnable</span> <span class="n">burnable</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnConsumeFuel works!"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="nx">OnConsumeFuel</span><span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">oven</span><span class="p">,</span> <span class="nx">fuel</span><span class="p">,</span> <span class="nx">burnable</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">print</span><span class="p">(</span><span class="s2">"OnConsumeFuel works!"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">OnConsumeFuel</span><span class="p">(</span><span class="n">oven</span><span class="p">,</span> <span class="n">fuel</span><span class="p">,</span> <span class="n">burnable</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"OnConsumeFuel works!"</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre>
+<pre class="highlight python"><code><span class="k">def</span> <span class="nf">OnConsumeFuel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">oven</span><span class="p">,</span> <span class="n">fuel</span><span class="p">,</span> <span class="n">burnable</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s">"OnConsumeFuel works!"</span>
+</code></pre>
+
+<ul>
+<li>Called from BaseOven.ConsumeFuel</li>
+<li>Called right before fuel is used (furnace, lanterns, camp fires, etc.)</li>
+<li>No return behavior</li>
+</ul>
+
+<h2 id="ondispensergather">OnDispenserGather</h2>
+<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnDispenserGather</span><span class="p">(</span><span class="n">ResourceDispenser</span> <span class="n">dispenser</span><span class="p">,</span> <span class="n">BaseEntity</span> <span class="n">entity</span><span class="p">,</span> <span class="n">Item</span> <span class="n">item</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnDispenserGather works!"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="nx">OnDispenserGather</span><span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">dispenser</span><span class="p">,</span> <span class="nx">entity</span><span class="p">,</span> <span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">print</span><span class="p">(</span><span class="s2">"OnDispenserGather works!"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">OnDispenserGather</span><span class="p">(</span><span class="n">dispenser</span><span class="p">,</span> <span class="n">entity</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"OnDispenserGather works!"</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre>
+<pre class="highlight python"><code><span class="k">def</span> <span class="nf">OnDispenserGather</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dispenser</span><span class="p">,</span> <span class="n">entity</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s">"OnDispenserGather works!"</span>
+</code></pre>
+
+<ul>
+<li>Called from ResourceDispenser.GiveResourceFromItem</li>
+<li>Called before the player is given items from a resource</li>
+<li>No return behavior</li>
+</ul>
+
+<h2 id="onhealingitemuse">OnHealingItemUse</h2>
+<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnHealingItemUse</span><span class="p">(</span><span class="n">HeldEntity</span> <span class="n">item</span><span class="p">,</span> <span class="n">BasePlayer</span> <span class="n">target</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnHealingItemUse works!"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="nx">OnHealingItemUse</span><span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">item</span><span class="p">,</span> <span class="nx">target</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">print</span><span class="p">(</span><span class="s2">"OnHealingItemUse works!"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">OnHealingItemUse</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"OnHealingItemUse works!"</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre>
+<pre class="highlight python"><code><span class="k">def</span> <span class="nf">OnHealingItemUse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s">"OnHealingItemUse works!"</span>
+</code></pre>
+
+<ul>
+<li>Called from SyringeWeapon.GiveEffectsTo and MedicalTool.GiveEffectsTo</li>
+<li>Called right before a Syringe or Medkit item is used</li>
+<li>Returning a non-null value will cancel default behavior</li>
+</ul>
+
+<h2 id="onitemaddedtocontainer">OnItemAddedToContainer</h2>
+<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnItemAddedToContainer</span><span class="p">(</span><span class="n">ItemContainer</span> <span class="n">container</span><span class="p">,</span> <span class="n">Item</span> <span class="n">item</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnItemAddedToContainer works!"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="nx">OnItemAddedToContainer</span><span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">container</span><span class="p">,</span> <span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">print</span><span class="p">(</span><span class="s2">"OnItemAddedToContainer works!"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">OnItemAddedToContainer</span><span class="p">(</span><span class="n">container</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"OnItemAddedToContainer works!"</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre>
+<pre class="highlight python"><code><span class="k">def</span> <span class="nf">OnItemAddedToContainer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">container</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s">"OnItemAddedToContainer works!"</span>
+</code></pre>
+
+<ul>
+<li>Called from ItemContainer.Insert</li>
+<li>Called right after an item was added to a container</li>
+<li>An entire stack has to be created, not just adding more wood to a wood stack for example</li>
+<li>No return behavior</li>
+</ul>
+
 <h2 id="onitemcraft">OnItemCraft</h2>
 <pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnItemCraft</span><span class="p">(</span><span class="n">ItemCraftTask</span> <span class="n">item</span><span class="p">)</span>
 <span class="p">{</span>
@@ -1117,6 +1262,30 @@
 <li>Return an ItemCraftTask object to modify behavior</li>
 </ul>
 
+<h2 id="onitemcraftcancelled">OnItemCraftCancelled</h2>
+<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnItemCraftCancelled</span><span class="p">(</span><span class="n">ItemCraftTask</span> <span class="n">task</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnItemCraftCancelled works!"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="nx">OnItemCraftCancelled</span><span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">task</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">print</span><span class="p">(</span><span class="s2">"OnItemCraftCancelled works!"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">OnItemCraftCancelled</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"OnItemCraftCancelled works!"</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre>
+<pre class="highlight python"><code><span class="k">def</span> <span class="nf">OnItemCraftCancelled</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s">"OnItemCraftCancelled works!"</span>
+</code></pre>
+
+<ul>
+<li>Called from ItemCrafter.CancelTask</li>
+<li>Called before an item has been crafted</li>
+<li>Returning a non-null value will cancel default behavior</li>
+</ul>
+
 <h2 id="onitemcraftfinished">OnItemCraftFinished</h2>
 <pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnItemCraftFinished</span><span class="p">(</span><span class="n">ItemCraftTask</span> <span class="n">task</span><span class="p">,</span> <span class="n">Item</span> <span class="n">item</span><span class="p">)</span>
 <span class="p">{</span>
@@ -1138,6 +1307,30 @@
 <ul>
 <li>Called from ItemCrafter.FinishCrafting</li>
 <li>Called right after an item has been crafted</li>
+<li>No return behavior</li>
+</ul>
+
+<h2 id="onitemdeployed">OnItemDeployed</h2>
+<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnItemDeployed</span><span class="p">(</span><span class="n">Deployer</span> <span class="n">deployer</span><span class="p">,</span> <span class="n">BaseEntity</span> <span class="n">entity</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnItemDeployed works!"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="nx">OnItemDeployed</span><span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">deployer</span><span class="p">,</span> <span class="nx">entity</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">print</span><span class="p">(</span><span class="s2">"OnItemDeployed works!"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">OnItemDeployed</span><span class="p">(</span><span class="n">deployer</span><span class="p">,</span> <span class="n">entity</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"OnItemDeployed works!"</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre>
+<pre class="highlight python"><code><span class="k">def</span> <span class="nf">OnItemDeployed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">deployer</span><span class="p">,</span> <span class="n">entity</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s">"OnItemDeployed works!"</span>
+</code></pre>
+
+<ul>
+<li>Called from Deployer.DoDeploy_Regular and Deployer.DoDeploy_Slot</li>
+<li>Called right after an item has been deployed</li>
 <li>No return behavior</li>
 </ul>
 
@@ -1189,30 +1382,6 @@
 <li>Returning a non-null value will cancel default behavior</li>
 </ul>
 
-<h2 id="onitemresearchstart">OnItemResearchStart</h2>
-<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnItemResearchStart</span><span class="p">(</span><span class="n">ResearchTable</span> <span class="n">table</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnItemResearchStart works!"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="nx">OnItemResearchStart</span><span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">table</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">print</span><span class="p">(</span><span class="s2">"OnItemResearchStart works!"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">OnItemResearchStart</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"OnItemResearchStart works!"</span><span class="p">)</span>
-<span class="k">end</span>
-</code></pre>
-<pre class="highlight python"><code><span class="k">def</span> <span class="nf">OnItemResearchStart</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">table</span><span class="p">):</span>
-    <span class="k">print</span> <span class="s">"OnItemResearchStart works!"</span>
-</code></pre>
-
-<ul>
-<li>Called from ResearchTable.DoResearch</li>
-<li>Called when a player has started researching an item</li>
-<li>No return behavior</li>
-</ul>
-
 <h2 id="onitemresearchend">OnItemResearchEnd</h2>
 <pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnItemResearchEnd</span><span class="p">(</span><span class="n">ResearchTable</span> <span class="n">table</span><span class="p">,</span> <span class="kt">float</span> <span class="n">chance</span><span class="p">)</span>
 <span class="p">{</span>
@@ -1241,52 +1410,27 @@
 <li>Returning a float will affect if researching is successful or not</li>
 </ul>
 
-<h2 id="onitemdeployed">OnItemDeployed</h2>
-<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnItemDeployed</span><span class="p">(</span><span class="n">Deployer</span> <span class="n">deployer</span><span class="p">,</span> <span class="n">BaseEntity</span> <span class="n">entity</span><span class="p">)</span>
+<h2 id="onitemresearchstart">OnItemResearchStart</h2>
+<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnItemResearchStart</span><span class="p">(</span><span class="n">ResearchTable</span> <span class="n">table</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnItemDeployed works!"</span><span class="p">);</span>
+    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnItemResearchStart works!"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
-<pre class="highlight javascript"><code><span class="nx">OnItemDeployed</span><span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">deployer</span><span class="p">,</span> <span class="nx">entity</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">print</span><span class="p">(</span><span class="s2">"OnItemDeployed works!"</span><span class="p">);</span>
+<pre class="highlight javascript"><code><span class="nx">OnItemResearchStart</span><span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">table</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">print</span><span class="p">(</span><span class="s2">"OnItemResearchStart works!"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
-<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">OnItemDeployed</span><span class="p">(</span><span class="n">deployer</span><span class="p">,</span> <span class="n">entity</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"OnItemDeployed works!"</span><span class="p">)</span>
+<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">OnItemResearchStart</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"OnItemResearchStart works!"</span><span class="p">)</span>
 <span class="k">end</span>
 </code></pre>
-<pre class="highlight python"><code><span class="k">def</span> <span class="nf">OnItemDeployed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">deployer</span><span class="p">,</span> <span class="n">entity</span><span class="p">):</span>
-    <span class="k">print</span> <span class="s">"OnItemDeployed works!"</span>
+<pre class="highlight python"><code><span class="k">def</span> <span class="nf">OnItemResearchStart</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">table</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s">"OnItemResearchStart works!"</span>
 </code></pre>
 
 <ul>
-<li>Called from Deployer.DoDeploy_Regular and Deployer.DoDeploy_Slot</li>
-<li>Called right after an item has been deployed</li>
-<li>No return behavior</li>
-</ul>
-
-<h2 id="onitemaddedtocontainer">OnItemAddedToContainer</h2>
-<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnItemAddedToContainer</span><span class="p">(</span><span class="n">ItemContainer</span> <span class="n">container</span><span class="p">,</span> <span class="n">Item</span> <span class="n">item</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnItemAddedToContainer works!"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="nx">OnItemAddedToContainer</span><span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">container</span><span class="p">,</span> <span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">print</span><span class="p">(</span><span class="s2">"OnItemAddedToContainer works!"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">OnItemAddedToContainer</span><span class="p">(</span><span class="n">container</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"OnItemAddedToContainer works!"</span><span class="p">)</span>
-<span class="k">end</span>
-</code></pre>
-<pre class="highlight python"><code><span class="k">def</span> <span class="nf">OnItemAddedToContainer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">container</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
-    <span class="k">print</span> <span class="s">"OnItemAddedToContainer works!"</span>
-</code></pre>
-
-<ul>
-<li>Called from ItemContainer.Insert</li>
-<li>Called right after an item was added to a container</li>
-<li>An entire stack has to be created, not just adding more wood to a wood stack for example</li>
+<li>Called from ResearchTable.DoResearch</li>
+<li>Called when a player has started researching an item</li>
 <li>No return behavior</li>
 </ul>
 
@@ -1315,27 +1459,51 @@
 <li>No return behavior</li>
 </ul>
 
-<h2 id="ondispensergather">OnDispenserGather</h2>
-<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnDispenserGather</span><span class="p">(</span><span class="n">ResourceDispenser</span> <span class="n">dispenser</span><span class="p">,</span> <span class="n">BaseEntity</span> <span class="n">entity</span><span class="p">,</span> <span class="n">Item</span> <span class="n">item</span><span class="p">)</span>
+<h2 id="onitemupgrade">OnItemUpgrade</h2>
+<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnItemUpgrade</span><span class="p">(</span><span class="n">Item</span> <span class="n">item</span><span class="p">,</span> <span class="n">Item</span> <span class="n">upgraded</span><span class="p">,</span> <span class="n">BasePlayer</span> <span class="n">player</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnDispenserGather works!"</span><span class="p">);</span>
+    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnItemUpgrade works!"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
-<pre class="highlight javascript"><code><span class="nx">OnDispenserGather</span><span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">dispenser</span><span class="p">,</span> <span class="nx">entity</span><span class="p">,</span> <span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">print</span><span class="p">(</span><span class="s2">"OnDispenserGather works!"</span><span class="p">);</span>
+<pre class="highlight javascript"><code><span class="nx">OnItemUpgrade</span><span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">item</span><span class="p">,</span> <span class="nx">upgraded</span><span class="p">,</span> <span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">print</span><span class="p">(</span><span class="s2">"OnItemUpgrade works!"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
-<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">OnDispenserGather</span><span class="p">(</span><span class="n">dispenser</span><span class="p">,</span> <span class="n">entity</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"OnDispenserGather works!"</span><span class="p">)</span>
+<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">OnItemUpgrade</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">upgraded</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"OnItemUpgrade works!"</span><span class="p">)</span>
 <span class="k">end</span>
 </code></pre>
-<pre class="highlight python"><code><span class="k">def</span> <span class="nf">OnDispenserGather</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dispenser</span><span class="p">,</span> <span class="n">entity</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
-    <span class="k">print</span> <span class="s">"OnDispenserGather works!"</span>
+<pre class="highlight python"><code><span class="k">def</span> <span class="nf">OnItemUpgrade</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">upgraded</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s">"OnItemUpgrade works!"</span>
 </code></pre>
 
 <ul>
-<li>Called from ResourceDispenser.GiveResourceFromItem</li>
-<li>Called before the player is given items from a resource</li>
+<li>Called from ItemModUpgrade.ServerCommand</li>
+<li>Called right before an item is upgraded</li>
+<li>No return behavior</li>
+</ul>
+
+<h2 id="onlosecondition">OnLoseCondition</h2>
+<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnLoseCondition</span><span class="p">(</span><span class="n">Item</span> <span class="n">item</span><span class="p">,</span> <span class="k">ref</span> <span class="kt">float</span> <span class="n">amount</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnLoseCondition works!"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="nx">OnLoseCondition</span><span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">item</span><span class="p">,</span> <span class="nx">amount</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">print</span><span class="p">(</span><span class="s2">"OnLoseCondition works!"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">OnLoseCondition</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">amount</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"OnLoseCondition works!"</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre>
+<pre class="highlight python"><code><span class="k">def</span> <span class="nf">OnLoseCondition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s">"OnLoseCondition works!"</span>
+</code></pre>
+
+<ul>
+<li>Called from Item.LoseCondition</li>
+<li>Called right before the condition of the item is modified</li>
 <li>No return behavior</li>
 </ul>
 
@@ -1432,102 +1600,6 @@
 <ul>
 <li>Called from SurveyCharge.Explode</li>
 <li>Called before items are gathered from a survey charge</li>
-<li>No return behavior</li>
-</ul>
-
-<h2 id="onconsumableuse">OnConsumableUse</h2>
-<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnConsumableUse</span><span class="p">(</span><span class="n">Item</span> <span class="n">item</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnConsumableUse works!"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="nx">OnConsumableUse</span><span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">print</span><span class="p">(</span><span class="s2">"OnConsumableUse works!"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">OnConsumableUse</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"OnConsumableUse works!"</span><span class="p">)</span>
-<span class="k">end</span>
-</code></pre>
-<pre class="highlight python"><code><span class="k">def</span> <span class="nf">OnConsumableUse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
-    <span class="k">print</span> <span class="s">"OnConsumableUse works!"</span>
-</code></pre>
-
-<ul>
-<li>Called from Item.UseOneItem</li>
-<li>Called right after a consumable item is used</li>
-<li>No return behavior</li>
-</ul>
-
-<h2 id="onconsumefuel">OnConsumeFuel</h2>
-<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnConsumeFuel</span><span class="p">(</span><span class="n">BaseOven</span> <span class="n">oven</span><span class="p">,</span> <span class="n">Item</span> <span class="n">fuel</span><span class="p">,</span> <span class="n">ItemModBurnable</span> <span class="n">burnable</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnConsumeFuel works!"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="nx">OnConsumeFuel</span><span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">oven</span><span class="p">,</span> <span class="nx">fuel</span><span class="p">,</span> <span class="nx">burnable</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">print</span><span class="p">(</span><span class="s2">"OnConsumeFuel works!"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">OnConsumeFuel</span><span class="p">(</span><span class="n">oven</span><span class="p">,</span> <span class="n">fuel</span><span class="p">,</span> <span class="n">burnable</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"OnConsumeFuel works!"</span><span class="p">)</span>
-<span class="k">end</span>
-</code></pre>
-<pre class="highlight python"><code><span class="k">def</span> <span class="nf">OnConsumeFuel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">oven</span><span class="p">,</span> <span class="n">fuel</span><span class="p">,</span> <span class="n">burnable</span><span class="p">):</span>
-    <span class="k">print</span> <span class="s">"OnConsumeFuel works!"</span>
-</code></pre>
-
-<ul>
-<li>Called from BaseOven.ConsumeFuel</li>
-<li>Called right before fuel is used (furnace, lanterns, camp fires, etc.)</li>
-<li>No return behavior</li>
-</ul>
-
-<h2 id="onhealingitemuse">OnHealingItemUse</h2>
-<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnHealingItemUse</span><span class="p">(</span><span class="n">HeldEntity</span> <span class="n">item</span><span class="p">,</span> <span class="n">BasePlayer</span> <span class="n">target</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnHealingItemUse works!"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="nx">OnHealingItemUse</span><span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">item</span><span class="p">,</span> <span class="nx">target</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">print</span><span class="p">(</span><span class="s2">"OnHealingItemUse works!"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">OnHealingItemUse</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"OnHealingItemUse works!"</span><span class="p">)</span>
-<span class="k">end</span>
-</code></pre>
-<pre class="highlight python"><code><span class="k">def</span> <span class="nf">OnHealingItemUse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
-    <span class="k">print</span> <span class="s">"OnHealingItemUse works!"</span>
-</code></pre>
-
-<ul>
-<li>Called from SyringeWeapon.GiveEffectsTo and MedicalTool.GiveEffectsTo</li>
-<li>Called right before a Syringe or Medkit item is used</li>
-<li>Returning a non-null value will cancel default behavior</li>
-</ul>
-
-<h2 id="onlosecondition">OnLoseCondition</h2>
-<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnLoseCondition</span><span class="p">(</span><span class="n">Item</span> <span class="n">item</span><span class="p">,</span> <span class="k">ref</span> <span class="kt">float</span> <span class="n">amount</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="nf">Puts</span><span class="p">(</span><span class="s">"OnLoseCondition works!"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="nx">OnLoseCondition</span><span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">item</span><span class="p">,</span> <span class="nx">amount</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">print</span><span class="p">(</span><span class="s2">"OnLoseCondition works!"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">OnLoseCondition</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">amount</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"OnLoseCondition works!"</span><span class="p">)</span>
-<span class="k">end</span>
-</code></pre>
-<pre class="highlight python"><code><span class="k">def</span> <span class="nf">OnLoseCondition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
-    <span class="k">print</span> <span class="s">"OnLoseCondition works!"</span>
-</code></pre>
-
-<ul>
-<li>Called from Item.LoseCondition</li>
-<li>Called right before the condition of the item is modified</li>
 <li>No return behavior</li>
 </ul>
 
