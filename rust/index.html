@@ -1800,20 +1800,20 @@
           <h1 id="structure-hooks">Structure Hooks</h1>
 
 <h2 id="canusedoor">CanUseDoor</h2>
-<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">CanUseDoor</span><span class="p">(</span><span class="n">BasePlayer</span> <span class="n">player</span><span class="p">,</span> <span class="n">BaseLock</span> <span class="k">lock</span><span class="p">)</span>
+<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">CanUseDoor</span><span class="p">(</span><span class="n">BasePlayer</span> <span class="n">player</span><span class="p">,</span> <span class="n">BaseLock</span> <span class="n">door</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="nf">Puts</span><span class="p">(</span><span class="s">"CanUseDoor works!"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
-<pre class="highlight javascript"><code><span class="nx">CanUseDoor</span><span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">player</span><span class="p">,</span> <span class="nx">lock</span><span class="p">)</span> <span class="p">{</span>
+<pre class="highlight javascript"><code><span class="nx">CanUseDoor</span><span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">player</span><span class="p">,</span> <span class="nx">door</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">print</span><span class="p">(</span><span class="s2">"CanUseDoor works!"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
-<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">CanUseDoor</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="n">lock</span><span class="p">)</span>
+<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">CanUseDoor</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="n">door</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"CanUseDoor works!"</span><span class="p">)</span>
 <span class="k">end</span>
 </code></pre>
-<pre class="highlight python"><code><span class="k">def</span> <span class="nf">CanUseDoor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">player</span><span class="p">,</span> <span class="n">lock</span><span class="p">):</span>
+<pre class="highlight python"><code><span class="k">def</span> <span class="nf">CanUseDoor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">player</span><span class="p">,</span> <span class="n">door</span><span class="p">):</span>
     <span class="k">print</span> <span class="s">"CanUseDoor works!"</span>
 </code></pre>
 
@@ -1824,16 +1824,16 @@
 </ul>
 
 <h2 id="canusedoor">CanUseDoor</h2>
-<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">CanUseDoor</span><span class="p">(</span><span class="n">BasePlayer</span> <span class="n">player</span><span class="p">,</span> <span class="n">CodeLock</span> <span class="k">lock</span><span class="p">)</span>
+<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">CanUseDoor</span><span class="p">(</span><span class="n">BasePlayer</span> <span class="n">player</span><span class="p">,</span> <span class="n">CodeLock</span> <span class="n">door</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="nf">Puts</span><span class="p">(</span><span class="s">"CanUseDoor works!"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
-<pre class="highlight javascript"><code><span class="nx">CanUseDoor</span><span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">player</span><span class="p">,</span> <span class="nx">lock</span><span class="p">)</span> <span class="p">{</span>
+<pre class="highlight javascript"><code><span class="nx">CanUseDoor</span><span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">player</span><span class="p">,</span> <span class="nx">door</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">print</span><span class="p">(</span><span class="s2">"CanUseDoor works!"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
-<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">CanUseDoor</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="n">lock</span><span class="p">)</span>
+<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">CanUseDoor</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="n">door</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"CanUseDoor works!"</span><span class="p">)</span>
 <span class="k">end</span>
 </code></pre>
@@ -1848,20 +1848,20 @@
 </ul>
 
 <h2 id="canusedoor">CanUseDoor</h2>
-<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">CanUseDoor</span><span class="p">(</span><span class="n">BasePlayer</span> <span class="n">player</span><span class="p">,</span> <span class="n">KeyLock</span> <span class="k">lock</span><span class="p">)</span>
+<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">CanUseDoor</span><span class="p">(</span><span class="n">BasePlayer</span> <span class="n">player</span><span class="p">,</span> <span class="n">KeyLock</span> <span class="n">door</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="nf">Puts</span><span class="p">(</span><span class="s">"CanUseDoor works!"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
-<pre class="highlight javascript"><code><span class="nx">CanUseDoor</span><span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">player</span><span class="p">,</span> <span class="nx">lock</span><span class="p">)</span> <span class="p">{</span>
+<pre class="highlight javascript"><code><span class="nx">CanUseDoor</span><span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">player</span><span class="p">,</span> <span class="nx">door</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">print</span><span class="p">(</span><span class="s2">"CanUseDoor works!"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
-<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">CanUseDoor</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="n">lock</span><span class="p">)</span>
+<pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">CanUseDoor</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="n">door</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"CanUseDoor works!"</span><span class="p">)</span>
 <span class="k">end</span>
 </code></pre>
-<pre class="highlight python"><code><span class="k">def</span> <span class="nf">CanUseDoor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">player</span><span class="p">,</span> <span class="n">lock</span><span class="p">):</span>
+<pre class="highlight python"><code><span class="k">def</span> <span class="nf">CanUseDoor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">player</span><span class="p">,</span> <span class="n">door</span><span class="p">):</span>
     <span class="k">print</span> <span class="s">"CanUseDoor works!"</span>
 </code></pre>
 
@@ -2325,17 +2325,17 @@
           <h1 id="commands">Commands</h1>
 
 <h2 id="default-commands">Default commands</h2>
-<pre class="highlight plaintext"><code>load *|&lt;pluginname&gt;+  
-unload *|&lt;pluginname&gt;+  
-reload *|&lt;pluginname&gt;+  
-grant &lt;group|user&gt; &lt;name|id&gt; *|&lt;permission&gt;  
-revoke &lt;group|user&gt; &lt;name|id&gt; *|&lt;permission&gt;  
-group &lt;add|set&gt; &lt;name&gt; [title] [rank]  
-group &lt;remove|show&gt; &lt;name&gt;  
-group &lt;parent&gt; &lt;name&gt; &lt;parentName&gt;  
-usergroup &lt;add|remove&gt; &lt;username&gt; &lt;groupname&gt;  
+<pre class="highlight plaintext"><code>load *|&lt;pluginname&gt;+
+unload *|&lt;pluginname&gt;+
+reload *|&lt;pluginname&gt;+
+grant &lt;group|user&gt; &lt;name|id&gt; *|&lt;permission&gt;
+revoke &lt;group|user&gt; &lt;name|id&gt; *|&lt;permission&gt;
+group &lt;add|set&gt; &lt;name&gt; [title] [rank]
+group &lt;remove&gt; &lt;name&gt;
+group &lt;parent&gt; &lt;name&gt; &lt;parentname&gt;
+usergroup &lt;add|remove&gt; &lt;username&gt; &lt;groupname&gt;
 show &lt;group|user&gt; &lt;name&gt;
-show perms
+show &lt;groups|perms&gt;
 version or oxide.version
 </code></pre>
 
