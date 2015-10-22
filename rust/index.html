@@ -1940,7 +1940,7 @@
 <ul>
 <li>Called from BuildingPrivlidge.AddSelfAuthorize</li>
 <li>Called when a cupboard attempts to authorize a player</li>
-<li>No return behavior</li>
+<li>Returning a non-null value cancels the authorization</li>
 </ul>
 
 <h2 id="oncupboarddeauthorize">OnCupboardDeauthorize</h2>
@@ -1964,7 +1964,7 @@
 <ul>
 <li>Called from BuildingPrivlidge.RemoveSelfAuthorize</li>
 <li>Called when a cupboard attempts to deauthorize a player</li>
-<li>No return behavior</li>
+<li>Returning a non-null value cancels the deauthorization</li>
 </ul>
 
 <h2 id="onentitybuilt">OnEntityBuilt</h2>
