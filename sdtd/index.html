@@ -866,7 +866,7 @@ version or oxide.version
 
         <span class="k">private</span> <span class="k">void</span> <span class="nf">Loaded</span><span class="p">()</span>
         <span class="p">{</span>
-            <span class="n">storedData</span> <span class="p">=</span> <span class="n">Interface</span><span class="p">.</span><span class="nf">GetMod</span><span class="p">().</span><span class="n">DataFileSystem</span><span class="p">.</span><span class="n">ReadObject</span><span class="p">&lt;</span><span class="n">StoredData</span><span class="p">&gt;(</span><span class="s">"MyDataFile"</span><span class="p">);</span>
+            <span class="n">storedData</span> <span class="p">=</span> <span class="n">Interface</span><span class="p">.</span><span class="n">Oxide</span><span class="p">.</span><span class="n">DataFileSystem</span><span class="p">.</span><span class="n">ReadObject</span><span class="p">&lt;</span><span class="n">StoredData</span><span class="p">&gt;(</span><span class="s">"MyDataFile"</span><span class="p">);</span>
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span>
@@ -933,7 +933,7 @@ version or oxide.version
 
         <span class="k">private</span> <span class="k">void</span> <span class="nf">Loaded</span><span class="p">()</span>
         <span class="p">{</span>
-            <span class="n">storedData</span> <span class="p">=</span> <span class="n">Interface</span><span class="p">.</span><span class="nf">GetMod</span><span class="p">().</span><span class="n">DataFileSystem</span><span class="p">.</span><span class="n">ReadObject</span><span class="p">&lt;</span><span class="n">StoredData</span><span class="p">&gt;(</span><span class="s">"MyDataFile"</span><span class="p">);</span>
+            <span class="n">storedData</span> <span class="p">=</span> <span class="n">Interface</span><span class="p">.</span><span class="n">Oxide</span><span class="p">.</span><span class="n">DataFileSystem</span><span class="p">.</span><span class="n">ReadObject</span><span class="p">&lt;</span><span class="n">StoredData</span><span class="p">&gt;(</span><span class="s">"MyDataFile"</span><span class="p">);</span>
         <span class="p">}</span>
 
         <span class="p">[</span><span class="nf">ChatCommand</span><span class="p">(</span><span class="s">"Test"</span><span class="p">)]</span>
@@ -946,7 +946,7 @@ version or oxide.version
             <span class="p">{</span>
                 <span class="nf">PrintToChat</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="s">"Saving your data to the file."</span><span class="p">);</span>
                 <span class="n">storedData</span><span class="p">.</span><span class="n">Players</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">info</span><span class="p">);</span>
-                <span class="n">Interface</span><span class="p">.</span><span class="nf">GetMod</span><span class="p">().</span><span class="n">DataFileSystem</span><span class="p">.</span><span class="nf">WriteObject</span><span class="p">(</span><span class="s">"MyDataFile"</span><span class="p">,</span> <span class="n">storedData</span><span class="p">);</span>
+                <span class="n">Interface</span><span class="p">.</span><span class="n">Oxide</span><span class="p">.</span><span class="n">DataFileSystem</span><span class="p">.</span><span class="nf">WriteObject</span><span class="p">(</span><span class="s">"MyDataFile"</span><span class="p">,</span> <span class="n">storedData</span><span class="p">);</span>
             <span class="p">}</span>
         <span class="p">}</span>
     <span class="p">}</span>
@@ -1234,7 +1234,7 @@ version or oxide.version
     <span class="p">[</span><span class="nf">Description</span><span class="p">(</span><span class="s">"This example illustrates how to use a GET WebRequest."</span><span class="p">)]</span>
     <span class="k">class</span> <span class="nc">Example</span> <span class="p">:</span> <span class="n">RustPlugin</span>
     <span class="p">{</span>
-        <span class="k">private</span> <span class="k">readonly</span> <span class="n">WebRequests</span> <span class="n">webRequests</span> <span class="p">=</span> <span class="n">Interface</span><span class="p">.</span><span class="nf">GetMod</span><span class="p">().</span><span class="n">GetLibrary</span><span class="p">&lt;</span><span class="n">WebRequests</span><span class="p">&gt;(</span><span class="s">"WebRequests"</span><span class="p">);</span>
+        <span class="k">private</span> <span class="k">readonly</span> <span class="n">WebRequests</span> <span class="n">webRequests</span> <span class="p">=</span> <span class="n">Interface</span><span class="p">.</span><span class="n">Oxide</span><span class="p">.</span><span class="n">GetLibrary</span><span class="p">&lt;</span><span class="n">WebRequests</span><span class="p">&gt;(</span><span class="s">"WebRequests"</span><span class="p">);</span>
 
         <span class="p">[</span><span class="nf">ChatCommand</span><span class="p">(</span><span class="s">"getrequest"</span><span class="p">)]</span>
         <span class="k">private</span> <span class="k">void</span> <span class="nf">ExampleGetRequest</span><span class="p">(</span><span class="n">BasePlayer</span> <span class="n">player</span><span class="p">,</span> <span class="kt">string</span> <span class="n">command</span><span class="p">,</span> <span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
@@ -1293,7 +1293,7 @@ version or oxide.version
     <span class="p">[</span><span class="nf">Description</span><span class="p">(</span><span class="s">"This example illustrates how to use a POST WebRequest."</span><span class="p">)]</span>
     <span class="k">class</span> <span class="nc">Example</span> <span class="p">:</span> <span class="n">RustPlugin</span>
     <span class="p">{</span>
-        <span class="k">private</span> <span class="k">readonly</span> <span class="n">WebRequests</span> <span class="n">webRequests</span> <span class="p">=</span> <span class="n">Interface</span><span class="p">.</span><span class="nf">GetMod</span><span class="p">().</span><span class="n">GetLibrary</span><span class="p">&lt;</span><span class="n">WebRequests</span><span class="p">&gt;(</span><span class="s">"WebRequests"</span><span class="p">);</span>
+        <span class="k">private</span> <span class="k">readonly</span> <span class="n">WebRequests</span> <span class="n">webRequests</span> <span class="p">=</span> <span class="n">Interface</span><span class="p">.</span><span class="n">Oxide</span><span class="p">.</span><span class="n">GetLibrary</span><span class="p">&lt;</span><span class="n">WebRequests</span><span class="p">&gt;(</span><span class="s">"WebRequests"</span><span class="p">);</span>
 
         <span class="p">[</span><span class="nf">ChatCommand</span><span class="p">(</span><span class="s">"postrequest"</span><span class="p">)]</span>
         <span class="k">private</span> <span class="k">void</span> <span class="nf">ExamplePostRequest</span><span class="p">(</span><span class="n">BasePlayer</span> <span class="n">player</span><span class="p">,</span> <span class="kt">string</span> <span class="n">command</span><span class="p">,</span> <span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>

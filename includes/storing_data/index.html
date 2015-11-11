@@ -80,7 +80,7 @@
 
         <span class="k">private</span> <span class="k">void</span> <span class="nf">Loaded</span><span class="p">()</span>
         <span class="p">{</span>
-            <span class="n">storedData</span> <span class="p">=</span> <span class="n">Interface</span><span class="p">.</span><span class="nf">GetMod</span><span class="p">().</span><span class="n">DataFileSystem</span><span class="p">.</span><span class="n">ReadObject</span><span class="p">&lt;</span><span class="n">StoredData</span><span class="p">&gt;(</span><span class="s">"MyDataFile"</span><span class="p">);</span>
+            <span class="n">storedData</span> <span class="p">=</span> <span class="n">Interface</span><span class="p">.</span><span class="n">Oxide</span><span class="p">.</span><span class="n">DataFileSystem</span><span class="p">.</span><span class="n">ReadObject</span><span class="p">&lt;</span><span class="n">StoredData</span><span class="p">&gt;(</span><span class="s">"MyDataFile"</span><span class="p">);</span>
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span>
@@ -147,7 +147,7 @@
 
         <span class="k">private</span> <span class="k">void</span> <span class="nf">Loaded</span><span class="p">()</span>
         <span class="p">{</span>
-            <span class="n">storedData</span> <span class="p">=</span> <span class="n">Interface</span><span class="p">.</span><span class="nf">GetMod</span><span class="p">().</span><span class="n">DataFileSystem</span><span class="p">.</span><span class="n">ReadObject</span><span class="p">&lt;</span><span class="n">StoredData</span><span class="p">&gt;(</span><span class="s">"MyDataFile"</span><span class="p">);</span>
+            <span class="n">storedData</span> <span class="p">=</span> <span class="n">Interface</span><span class="p">.</span><span class="n">Oxide</span><span class="p">.</span><span class="n">DataFileSystem</span><span class="p">.</span><span class="n">ReadObject</span><span class="p">&lt;</span><span class="n">StoredData</span><span class="p">&gt;(</span><span class="s">"MyDataFile"</span><span class="p">);</span>
         <span class="p">}</span>
 
         <span class="p">[</span><span class="nf">ChatCommand</span><span class="p">(</span><span class="s">"Test"</span><span class="p">)]</span>
@@ -160,7 +160,7 @@
             <span class="p">{</span>
                 <span class="nf">PrintToChat</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="s">"Saving your data to the file."</span><span class="p">);</span>
                 <span class="n">storedData</span><span class="p">.</span><span class="n">Players</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">info</span><span class="p">);</span>
-                <span class="n">Interface</span><span class="p">.</span><span class="nf">GetMod</span><span class="p">().</span><span class="n">DataFileSystem</span><span class="p">.</span><span class="nf">WriteObject</span><span class="p">(</span><span class="s">"MyDataFile"</span><span class="p">,</span> <span class="n">storedData</span><span class="p">);</span>
+                <span class="n">Interface</span><span class="p">.</span><span class="n">Oxide</span><span class="p">.</span><span class="n">DataFileSystem</span><span class="p">.</span><span class="nf">WriteObject</span><span class="p">(</span><span class="s">"MyDataFile"</span><span class="p">,</span> <span class="n">storedData</span><span class="p">);</span>
             <span class="p">}</span>
         <span class="p">}</span>
     <span class="p">}</span>
