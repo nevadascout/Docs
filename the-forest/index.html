@@ -150,7 +150,7 @@
 </ul>
 
 <h2 id="loaddefaultconfig">LoadDefaultConfig</h2>
-<pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">LoadDefaultConfig</span><span class="p">()</span>
+<pre class="highlight csharp"><code><span class="k">protected</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">LoadDefaultConfig</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="nf">Puts</span><span class="p">(</span><span class="s">"LoadDefaultConfig works!"</span><span class="p">);</span>
 <span class="p">}</span>
@@ -282,7 +282,7 @@ version or oxide.version
 <span class="p">{</span>
     <span class="p">[</span><span class="nf">Info</span><span class="p">(</span><span class="s">"Example"</span><span class="p">,</span> <span class="s">"Oxide Team"</span><span class="p">,</span> <span class="m">1.0</span><span class="p">)]</span>
     <span class="p">[</span><span class="nf">Description</span><span class="p">(</span><span class="s">"This example illustrates how to create a chat command."</span><span class="p">)]</span>
-    <span class="k">class</span> <span class="nc">Example</span> <span class="p">:</span> <span class="n">RustPlugin</span>
+    <span class="k">class</span> <span class="nc">Example</span> <span class="p">:</span> <span class="n">CovalencePlugin</span>
     <span class="p">{</span>
         <span class="p">[</span><span class="nf">ChatCommand</span><span class="p">(</span><span class="s">"save"</span><span class="p">)]</span>
         <span class="k">private</span> <span class="k">void</span> <span class="nf">SaveCommand</span><span class="p">(</span><span class="n">BasePlayer</span> <span class="n">player</span><span class="p">,</span> <span class="kt">string</span> <span class="n">command</span><span class="p">,</span> <span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
@@ -301,7 +301,7 @@ version or oxide.version
     <span class="nx">Init</span><span class="err">:</span> <span class="kd">function</span> <span class="p">()</span>
     <span class="p">{</span>
         <span class="c1">// The following command is called when a player enters `/test` to chat.</span>
-        <span class="nx">command</span><span class="p">.</span><span class="nx">AddChatCommand</span><span class="p">(</span><span class="s1">'test'</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">Plugin</span><span class="p">,</span> <span class="s1">'testChatCommand'</span><span class="p">);</span>
+        <span class="nx">cmd</span><span class="p">.</span><span class="nx">AddChatCommand</span><span class="p">(</span><span class="s1">'test'</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">Plugin</span><span class="p">,</span> <span class="s1">'testChatCommand'</span><span class="p">);</span>
     <span class="p">},</span>
 
     <span class="nx">testChatCommand</span><span class="err">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">player</span><span class="p">,</span> <span class="nx">cmd</span><span class="p">,</span> <span class="nx">arg</span><span class="p">)</span>
@@ -322,7 +322,7 @@ version or oxide.version
 <span class="p">{</span>
     <span class="p">[</span><span class="nf">Info</span><span class="p">(</span><span class="s">"Example"</span><span class="p">,</span> <span class="s">"Oxide Team"</span><span class="p">,</span> <span class="m">1.0</span><span class="p">)]</span>
     <span class="p">[</span><span class="nf">Description</span><span class="p">(</span><span class="s">"This example illustrates how to create a console command."</span><span class="p">)]</span>
-    <span class="k">class</span> <span class="nc">Example</span> <span class="p">:</span> <span class="n">RustPlugin</span>
+    <span class="k">class</span> <span class="nc">Example</span> <span class="p">:</span> <span class="n">CovalencePlugin</span>
     <span class="p">{</span>
         <span class="p">[</span><span class="nf">ConsoleCommand</span><span class="p">(</span><span class="s">"plugin.save"</span><span class="p">)]</span>
         <span class="k">private</span> <span class="k">void</span> <span class="nf">SaveCommand</span><span class="p">(</span><span class="n">ConsoleSystem</span><span class="p">.</span><span class="n">Arg</span> <span class="n">arg</span><span class="p">)</span>
@@ -389,7 +389,7 @@ version or oxide.version
 <span class="p">{</span>
     <span class="p">[</span><span class="nf">Info</span><span class="p">(</span><span class="s">"Example"</span><span class="p">,</span> <span class="s">"Oxide Team"</span><span class="p">,</span> <span class="m">1.0</span><span class="p">)]</span>
     <span class="p">[</span><span class="nf">Description</span><span class="p">(</span><span class="s">"This example illustrates how to use a basic configuration file."</span><span class="p">)]</span>
-    <span class="k">class</span> <span class="nc">Example</span> <span class="p">:</span> <span class="n">RustPlugin</span>
+    <span class="k">class</span> <span class="nc">Example</span> <span class="p">:</span> <span class="n">CovalencePlugin</span>
     <span class="p">{</span>
         <span class="k">protected</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">LoadDefaultConfig</span><span class="p">()</span>
         <span class="p">{</span>
@@ -442,7 +442,7 @@ version or oxide.version
 <span class="p">{</span>
     <span class="p">[</span><span class="nf">Info</span><span class="p">(</span><span class="s">"Example"</span><span class="p">,</span> <span class="s">"Oxide Team"</span><span class="p">,</span> <span class="m">1.0</span><span class="p">)]</span> 
     <span class="p">[</span><span class="nf">Description</span><span class="p">(</span><span class="s">"This example illustrates how to update a value in a configuration file."</span><span class="p">)]</span>
-    <span class="k">class</span> <span class="nc">Example</span> <span class="p">:</span> <span class="n">RustPlugin</span>
+    <span class="k">class</span> <span class="nc">Example</span> <span class="p">:</span> <span class="n">CovalencePlugin</span>
     <span class="p">{</span>
         <span class="p">[</span><span class="nf">ChatCommand</span><span class="p">(</span><span class="s">"Test"</span><span class="p">)]</span>
         <span class="k">private</span> <span class="k">void</span> <span class="nf">Test</span><span class="p">(</span><span class="n">BasePlayer</span> <span class="n">player</span><span class="p">,</span> <span class="kt">string</span> <span class="n">command</span><span class="p">,</span> <span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
@@ -489,7 +489,7 @@ version or oxide.version
 <span class="p">{</span>
     <span class="p">[</span><span class="nf">Info</span><span class="p">(</span><span class="s">"Example"</span><span class="p">,</span> <span class="s">"Oxide Team"</span><span class="p">,</span> <span class="m">1.0</span><span class="p">)]</span> 
     <span class="p">[</span><span class="nf">Description</span><span class="p">(</span><span class="s">"This example illustrates how to create a data file."</span><span class="p">)]</span>
-    <span class="k">class</span> <span class="nc">Examplet</span> <span class="p">:</span> <span class="n">RustPlugin</span>
+    <span class="k">class</span> <span class="nc">Example</span> <span class="p">:</span> <span class="n">CovalencePlugin</span>
     <span class="p">{</span>
         <span class="k">class</span> <span class="nc">StoredData</span>
         <span class="p">{</span>
@@ -556,7 +556,7 @@ version or oxide.version
 <span class="p">{</span>
     <span class="p">[</span><span class="nf">Info</span><span class="p">(</span><span class="s">"Example"</span><span class="p">,</span> <span class="s">"Oxide Team"</span><span class="p">,</span> <span class="m">1.0</span><span class="p">)]</span> 
     <span class="p">[</span><span class="nf">Description</span><span class="p">(</span><span class="s">"This example illustrates how to save to a data file."</span><span class="p">)]</span>
-    <span class="k">class</span> <span class="nc">Examplet</span> <span class="p">:</span> <span class="n">RustPlugin</span>
+    <span class="k">class</span> <span class="nc">Example</span> <span class="p">:</span> <span class="n">CovalencePlugin</span>
     <span class="p">{</span>
         <span class="k">class</span> <span class="nc">StoredData</span>
         <span class="p">{</span>
@@ -886,7 +886,7 @@ version or oxide.version
 <span class="p">{</span>
     <span class="p">[</span><span class="nf">Info</span><span class="p">(</span><span class="s">"Example"</span><span class="p">,</span> <span class="s">"Oxide Team"</span><span class="p">,</span> <span class="m">1.0</span><span class="p">)]</span>
     <span class="p">[</span><span class="nf">Description</span><span class="p">(</span><span class="s">"This example illustrates how to use a GET WebRequest."</span><span class="p">)]</span>
-    <span class="k">class</span> <span class="nc">Example</span> <span class="p">:</span> <span class="n">RustPlugin</span>
+    <span class="k">class</span> <span class="nc">Example</span> <span class="p">:</span> <span class="n">CovalencePlugin</span>
     <span class="p">{</span>
         <span class="k">private</span> <span class="k">readonly</span> <span class="n">WebRequests</span> <span class="n">webRequests</span> <span class="p">=</span> <span class="n">Interface</span><span class="p">.</span><span class="n">Oxide</span><span class="p">.</span><span class="n">GetLibrary</span><span class="p">&lt;</span><span class="n">WebRequests</span><span class="p">&gt;(</span><span class="s">"WebRequests"</span><span class="p">);</span>
 
@@ -945,7 +945,7 @@ version or oxide.version
 <span class="p">{</span>
     <span class="p">[</span><span class="nf">Info</span><span class="p">(</span><span class="s">"Example"</span><span class="p">,</span> <span class="s">"Oxide Team"</span><span class="p">,</span> <span class="m">1.0</span><span class="p">)]</span>
     <span class="p">[</span><span class="nf">Description</span><span class="p">(</span><span class="s">"This example illustrates how to use a POST WebRequest."</span><span class="p">)]</span>
-    <span class="k">class</span> <span class="nc">Example</span> <span class="p">:</span> <span class="n">RustPlugin</span>
+    <span class="k">class</span> <span class="nc">Example</span> <span class="p">:</span> <span class="n">CovalencePlugin</span>
     <span class="p">{</span>
         <span class="k">private</span> <span class="k">readonly</span> <span class="n">WebRequests</span> <span class="n">webRequests</span> <span class="p">=</span> <span class="n">Interface</span><span class="p">.</span><span class="n">Oxide</span><span class="p">.</span><span class="n">GetLibrary</span><span class="p">&lt;</span><span class="n">WebRequests</span><span class="p">&gt;(</span><span class="s">"WebRequests"</span><span class="p">);</span>
 
