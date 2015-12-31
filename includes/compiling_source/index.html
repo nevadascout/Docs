@@ -41,14 +41,15 @@
       <div class="content">
         <h1 id="compiling-source">Compiling Source</h1>
 
-<p>While we recommend using one of the <a href="http://oxidemod.org/downloads/">official release builds</a>, you can compile your own builds if you&rsquo;d like. Keep in mind that only official builds are supported by the Oxide team and community.</p>
+<p>While we recommend using one of the <a href="http://oxidemod.org/downloads/">official release builds</a>, you can compile your own builds if you&rsquo;d like. Keep in mind that only official builds are supported by the Oxide team and community. <em>Good luck!</em></p>
 
 <ol>
-<li>Download a Git client such as <a href="https://desktop.github.com/">GitHub Desktop</a> or <a href="https://www.sourcetreeapp.com/">SourceTree</a>.</li>
-<li>Clone the repo using <code class="prettyprint">git clone https://github.com/OxideMod/Oxide.git</code> or download and extract the <a href="https://github.com/OxideMod/Oxide/archive/master.zip">latest zip</a> archive.</li>
-<li>Open the <code class="prettyprint">Oxide.sln</code> solution file in <a href="https://www.visualstudio.com/en-us/downloads/visual-studio-2015-downloads-vs.aspx">Visual Studio 2015</a>, which includes .NET Framework 4.6 and allows the use of <a href="https://github.com/dotnet/roslyn/wiki/New-Language-Features-in-C%23-6">C# 6.0</a> features.</li>
-<li>Build the solution. If you get errors, you&rsquo;re likely not using the latest Visual Studio 2015, as Oxide uses some C# 6 features.</li>
-<li>Copy the files from the <code class="prettyprint">Bundles</code> directory for your game of choice to your server installation.</li>
+<li><p>Download a Git client such as <a href="https://desktop.github.com/">GitHub Desktop</a> or <a href="https://www.sourcetreeapp.com/">SourceTree</a>.</p></li>
+<li><p>Clone the repo <code class="prettyprint">https://github.com/OxideMod/Oxide.git</code> <em>(recommended)</em> or download and extract the <a href="https://github.com/OxideMod/Oxide/archive/master.zip">latest zip</a> archive.</p></li>
+<li><p>Download and install <a href="https://www.visualstudio.com/en-us/downloads/visual-studio-2015-downloads-vs.aspx">Visual Studio 2015</a> <em>(community is free, but any edition will work)</em> if you do not have it installed already.</p></li>
+<li><p>Open the <code class="prettyprint">Oxide.sln</code> solution file in Visual Studio 2015.</p></li>
+<li><p>Build the solution. If you get errors, you&rsquo;re likely not using the latest Visual Studio 2015 which is required as Oxide uses some <a href="https://github.com/dotnet/roslyn/wiki/New-Language-Features-in-C%23-6">C# 6.0</a> features.</p></li>
+<li><p>Copy the files from the <code class="prettyprint">Bundles</code> directory for your game of choice to your server installation, then just start the server!</p></li>
 </ol>
 
       </div>

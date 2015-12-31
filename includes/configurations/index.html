@@ -44,9 +44,10 @@
 <h2 id="creating-a-configuration">Creating a configuration</h2>
 <pre class="highlight csharp"><code><span class="k">namespace</span> <span class="nn">Oxide.Plugins</span>
 <span class="p">{</span>
-    <span class="p">[</span><span class="nf">Info</span><span class="p">(</span><span class="s">"Example"</span><span class="p">,</span> <span class="s">"Oxide Team"</span><span class="p">,</span> <span class="m">1.0</span><span class="p">)]</span>
+    <span class="p">[</span><span class="nf">Info</span><span class="p">(</span><span class="s">"EpicPlugin"</span><span class="p">,</span> <span class="s">"Oxide Team"</span><span class="p">,</span> <span class="m">1.0</span><span class="p">)]</span>
     <span class="p">[</span><span class="nf">Description</span><span class="p">(</span><span class="s">"This example illustrates how to use a basic configuration file."</span><span class="p">)]</span>
-    <span class="k">class</span> <span class="nc">Example</span> <span class="p">:</span> <span class="n">CovalencePlugin</span>
+
+    <span class="k">class</span> <span class="nc">EpicPlugin</span> <span class="p">:</span> <span class="n">CovalencePlugin</span>
     <span class="p">{</span>
         <span class="k">protected</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">LoadDefaultConfig</span><span class="p">()</span>
         <span class="p">{</span>
@@ -61,7 +62,7 @@
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
-<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">PluginName</span> <span class="o">=</span> <span class="p">{</span>
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">EpicPlugin</span> <span class="o">=</span> <span class="p">{</span>
     <span class="na">Init</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
         <span class="k">this</span><span class="p">.</span><span class="nx">LoadDefaultConfig</span><span class="p">();</span>
     <span class="p">},</span>
@@ -97,9 +98,10 @@
 <h2 id="saving-a-configuration">Saving a configuration</h2>
 <pre class="highlight csharp"><code><span class="k">namespace</span> <span class="nn">Oxide.Plugins</span>
 <span class="p">{</span>
-    <span class="p">[</span><span class="nf">Info</span><span class="p">(</span><span class="s">"Example"</span><span class="p">,</span> <span class="s">"Oxide Team"</span><span class="p">,</span> <span class="m">1.0</span><span class="p">)]</span> 
+    <span class="p">[</span><span class="nf">Info</span><span class="p">(</span><span class="s">"EpicPlugin"</span><span class="p">,</span> <span class="s">"Oxide Team"</span><span class="p">,</span> <span class="m">1.0</span><span class="p">)]</span> 
     <span class="p">[</span><span class="nf">Description</span><span class="p">(</span><span class="s">"This example illustrates how to update a value in a configuration file."</span><span class="p">)]</span>
-    <span class="k">class</span> <span class="nc">Example</span> <span class="p">:</span> <span class="n">CovalencePlugin</span>
+
+    <span class="k">class</span> <span class="nc">EpicPlugin</span> <span class="p">:</span> <span class="n">CovalencePlugin</span>
     <span class="p">{</span>
         <span class="p">[</span><span class="nf">ChatCommand</span><span class="p">(</span><span class="s">"Test"</span><span class="p">)]</span>
         <span class="k">void</span> <span class="nf">Test</span><span class="p">(</span><span class="n">BasePlayer</span> <span class="n">player</span><span class="p">,</span> <span class="kt">string</span> <span class="n">command</span><span class="p">,</span> <span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
