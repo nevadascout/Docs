@@ -63,15 +63,6 @@
 
 <span class="c1">-- The rest of the code and magic</span>
 </code></pre>
-<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">EpicPlugin</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="na">Title</span> <span class="p">:</span> <span class="s2">"EpicPlugin"</span><span class="p">,</span>
-    <span class="na">Author</span> <span class="p">:</span> <span class="s2">"Unknown"</span><span class="p">,</span>
-    <span class="na">Version</span> <span class="p">:</span> <span class="nx">V</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
-    <span class="na">Description</span> <span class="p">:</span> <span class="s2">"Makes epic stuff happen"</span><span class="p">,</span>
-
-    <span class="c1">// The rest of the code and magic</span>
-<span class="p">}</span>
-</code></pre>
 <pre class="highlight coffeescript"><code><span class="na">Title</span><span class="o">:</span> <span class="s">"EpicPlugin"</span>
 <span class="na">Author</span><span class="o">:</span> <span class="s">"Unknown"</span>
 <span class="na">Version</span><span class="o">:</span> <span class="nx">V</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
@@ -79,23 +70,32 @@
 
 <span class="c1"># The rest of the code and magic
 </span></code></pre>
-<pre class="highlight python"><code><span class="k">class</span> <span class="nc">EpicPlugin</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">Title</span> <span class="o">=</span> <span class="s">"EpicPlugin"</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">Author</span> <span class="o">=</span> <span class="s">"Unknown"</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">Version</span> <span class="o">=</span> <span class="n">V</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">Description</span> <span class="o">=</span> <span class="s">"Makes epic stuff happen"</span>
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">EpicPlugin</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">Title</span> <span class="p">:</span> <span class="s2">"EpicPlugin"</span><span class="p">,</span>
+  <span class="na">Author</span> <span class="p">:</span> <span class="s2">"Unknown"</span><span class="p">,</span>
+  <span class="na">Version</span> <span class="p">:</span> <span class="nx">V</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+  <span class="na">Description</span> <span class="p">:</span> <span class="s2">"Makes epic stuff happen"</span><span class="p">,</span>
 
-    <span class="c"># The rest of the code and magic</span>
+  <span class="c1">// The rest of the code and magic</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight python"><code><span class="k">class</span> <span class="nc">EpicPlugin</span><span class="p">:</span>
+  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">Title</span> <span class="o">=</span> <span class="s">"EpicPlugin"</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">Author</span> <span class="o">=</span> <span class="s">"Unknown"</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">Version</span> <span class="o">=</span> <span class="n">V</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">Description</span> <span class="o">=</span> <span class="s">"Makes epic stuff happen"</span>
+
+  <span class="c"># The rest of the code and magic</span>
 </code></pre>
 
-<p>The Title variable is what defines your plugin. This can be either a &ldquo;codename&rdquo; such as &ldquo;Casper&rdquo; or a short description such as &ldquo;InvisibleAdmin&rdquo;, just make sure to pick something that uniquely identifies your plugin.</p>
+<p>The Title variable is what defines your plugin. This should be a unique codename or short description such as Pets.</p>
 
-<p>The Author variable tells users who made the plugin, and gives you credit where credit is due! This should match your forum username.</p>
+<p>The Author variable is used to show who made the plugin. This should match your <a href="http://oxidemod.org/">OxideMod.org</a> username if releasing.</p>
 
-<p>The Version variable is used to tell users if the plugin is outdated or not, incrementing it with each release. <a href="http://semver.org/">Semantic Versioning</a> is recommended.</p>
+<p>The Version variable is used to tell if the plugin is outdated or not, and is incremented with each release. <a href="http://semver.org/">Semantic Versioning</a> recommended.</p>
 
-<p>The Description variable help explain to users what your plugin does, in case the title isn&rsquo;t enough. Make it good, but not too long!</p>
+<p>The Description variable helps explain to users what your plugin does, in case the title isn&rsquo;t enough. Make it good, but not too long!</p>
 
       </div>
       <div class="dark-box">
