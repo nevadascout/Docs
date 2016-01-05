@@ -102,10 +102,9 @@
 <p>If &ldquo;repeats&rdquo; is specified, the function will only be called &ldquo;repeats&rdquo; times.  </p>
 
 <h2 id="next-frame-timer">Next frame timer</h2>
-<pre class="highlight csharp"><code><span class="c1">// This is not implemented for C#, the following can be used instead:
-</span><span class="n">timer</span><span class="p">.</span><span class="nf">Once</span><span class="p">(</span><span class="m">1f</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span>
+<pre class="highlight csharp"><code><span class="nf">NextFrame</span><span class="p">(()</span> <span class="p">=&gt;</span>
 <span class="p">{</span>
-    <span class="nf">Puts</span><span class="p">(</span><span class="s">"Hello world!"</span><span class="p">)</span>
+    <span class="nf">Puts</span><span class="p">(</span><span class="s">"Hello world!"</span><span class="p">);</span>
 <span class="p">});</span>
 </code></pre>
 <pre class="highlight lua"><code><span class="n">timer</span><span class="p">.</span><span class="n">NextFrame</span><span class="p">(</span><span class="k">function</span><span class="p">()</span>
@@ -119,10 +118,9 @@
   <span class="nx">print</span><span class="p">(</span><span class="s2">"Hello world!"</span><span class="p">);</span>
 <span class="p">});</span>
 </code></pre>
-<pre class="highlight python"><code><span class="k">def</span> <span class="nf">my_callback_func</span><span class="p">():</span>
+<pre class="highlight python"><code><span class="n">timer</span><span class="o">.</span><span class="n">NextFrame</span><span class="p">((</span><span class="k">lambda</span><span class="p">:</span>
   <span class="k">print</span><span class="p">(</span><span class="s">"Hello world!"</span><span class="p">)</span>
-
-<span class="n">timer</span><span class="o">.</span><span class="n">NextFrame</span><span class="p">(</span><span class="n">Action</span><span class="p">(</span><span class="n">my_callback_func</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">Plugin</span><span class="p">)</span>
+<span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">Plugin</span><span class="p">)</span>
 </code></pre>
 
 <p>Executes the specified function at the next frame.  </p>
