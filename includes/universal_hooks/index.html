@@ -189,8 +189,8 @@
 <h2 id="onpluginunloaded">OnPluginUnloaded</h2>
 <pre class="highlight csharp"><code><span class="k">void</span> <span class="nf">OnPluginUnloaded</span><span class="p">(</span><span class="n">Plugin</span> <span class="n">name</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="nf">Puts</span><span class="p">(</span><span class="s">"Plugin '"</span> <span class="p">+</span> <span class="n">name</span> <span class="p">+</span> <span class="s">"' has been unloaded);
-</span><span class="p">}</span>
+    <span class="nf">Puts</span><span class="p">(</span><span class="s">"Plugin '"</span> <span class="p">+</span> <span class="n">name</span> <span class="p">+</span> <span class="s">"' has been unloaded"</span><span class="p">);</span>
+<span class="p">}</span>
 </code></pre>
 <pre class="highlight lua"><code><span class="k">function</span> <span class="nf">PLUGIN</span><span class="p">:</span><span class="n">OnPluginUnloaded</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"Plugin '"</span> <span class="o">..</span> <span class="n">name</span> <span class="o">..</span> <span class="s2">"' has been unloaded"</span><span class="p">)</span>
